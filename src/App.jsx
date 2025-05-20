@@ -1,12 +1,12 @@
-import './index.css';
-function App() {
+import React from 'react';
+import Index from './Index';
+import Destination from './Destination';
+
+export default function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-2xl font-semibold text-gray-900 sm:text-4xl">
-        Hello, World
-      </h1>
+    <div>
+      <Index />
+      <Destination />
     </div>
   );
 }
-
-export default App;
