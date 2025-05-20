@@ -1,8 +1,10 @@
-import "./index.css";
+import './index.css';
 function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-2xl font-semibold">Hello, World</h1>
+    <div className="flex min-h-screen items-center justify-center">
+      <h1 className="text-2xl font-semibold text-gray-900 sm:text-4xl">
+        Hello, World
+      </h1>
     </div>
   );
 }
