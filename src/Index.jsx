@@ -1,6 +1,6 @@
 function Index() {
   return (
-    <div className="grid bg-gray-100 lg:grid-cols-2 2xl:grid-cols-5">
+    <div className="grid bg-gray-200 lg:grid-cols-2 2xl:grid-cols-5">
       <div className="brand mx-auto max-w-md px-8 py-12 sm:max-w-xl lg:max-w-full lg:px-12 lg:py-24 xl:mr-0 2xl:col-span-2">
         <div className="xl:max-w-xl">
           <img className="h-10" src="/img/logo-brand.svg" alt="Workcation" />
@@ -9,7 +9,7 @@ function Index() {
             src="/img/beach-work.jpg"
             alt="Woman workcationing on the beach"
           />
-          <h1 className="sm:font-headline mt-6 text-2xl font-bold tracking-tight text-gray-900 sm:mt-8 sm:text-4xl sm:font-semibold lg:text-3xl xl:text-4xl">
+          <h1 className="mt-6 text-2xl font-bold tracking-tight text-gray-900 sm:mt-8 sm:font-headline sm:text-4xl sm:font-semibold lg:text-3xl xl:text-4xl">
             You can work from anywhere.
             <br className="hidden lg:inline" />{' '}
             <span className="text-brand">Take advantage of it.</span>
@@ -21,7 +21,7 @@ function Index() {
           </p>
           <div className="mt-4 space-x-1 sm:mt-6">
             <a
-              className="bg-brand focus:ring-brand hover:bg-brand-light active:bg-brand-dark inline-block transform rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition hover:-translate-y-0.5 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:text-base"
+              className="inline-block transform rounded-lg bg-brand px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-brand-light focus:outline-none focus:ring focus:ring-brand focus:ring-opacity-50 focus:ring-offset-2 active:bg-brand-dark sm:text-base"
               href="#"
             >
               Book your escape
