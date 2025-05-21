@@ -1,7 +1,7 @@
 function Index() {
   return (
     <div className="grid bg-gray-100 lg:grid-cols-2 2xl:grid-cols-5">
-      <div className="mx-auto max-w-md px-8 py-12 sm:max-w-xl lg:max-w-full lg:px-12 lg:py-24 xl:mr-0 2xl:col-span-2">
+      <div className="brand mx-auto max-w-md px-8 py-12 sm:max-w-xl lg:max-w-full lg:px-12 lg:py-24 xl:mr-0 2xl:col-span-2">
         <div className="xl:max-w-xl">
           <img className="h-10" src="/img/logo-brand.svg" alt="Workcation" />
           <img
@@ -12,7 +12,7 @@ function Index() {
           <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
             You can work from anywhere.
             <br className="hidden lg:inline" />{' '}
-            <span className="text-indigo-500">Take advantage of it.</span>
+            <span className="text-brand">Take advantage of it.</span>
           </h1>
           <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
             Workcation helps you find work-friendly rentals in beautiful
