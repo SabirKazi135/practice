@@ -3,7 +3,7 @@ function Index() {
     <div className="grid bg-gray-100 lg:grid-cols-2 2xl:grid-cols-5">
       <div className="mx-auto max-w-md px-8 py-12 sm:max-w-xl lg:max-w-full lg:px-12 lg:py-24 xl:mr-0 2xl:col-span-2">
         <div className="xl:max-w-xl">
-          <img className="h-10" src="/img/logo.svg" alt="Workcation" />
+          <img className="h-10" src="/img/logo-brand.svg" alt="Workcation" />
           <img
             className="mt-6 rounded-lg object-center shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover lg:hidden"
             src="/img/beach-work.jpg"
