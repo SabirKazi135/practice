@@ -21,7 +21,7 @@ function Index() {
           </p>
           <div className="mt-4 space-x-1 sm:mt-6">
             <a
-              className="inline-block transform rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-400 focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50 focus:ring-offset-2 active:bg-indigo-600 sm:text-base"
+              className="bg-brand focus:ring-brand inline-block transform rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-400 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 active:bg-indigo-600 sm:text-base"
               href="#"
             >
               Book your escape
