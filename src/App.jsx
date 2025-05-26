@@ -12,8 +12,13 @@ export default function App() {
             Age Calculator
           </h1>
         </header>
-        <section>
-          <input type="date" name="" id="" />
+        <section className="flex rounded-lg bg-white p-8 opacity-30">
+          <input
+            className="overflow-clip rounded-[4px] bg-white px-3 py-2 text-base text-black"
+            type="date"
+            name=""
+            id=""
+          />
           <button>Calculate</button>
         </section>
         <p></p>
