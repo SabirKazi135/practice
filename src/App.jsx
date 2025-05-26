@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [input, setInput] = useState(null);
+  const [age, setAge] = useState(null);
   function changeInput(e) {
     setInput(e.target.value);
   }
 
+  function calculateAge() {}
   return (
     <div className="flex h-screen items-center bg-[linear-gradient(-200deg,_#1212b7_0,_#accbe5_100%)]">
       <div className="space-y-8 pl-36 pr-8">
@@ -24,12 +26,15 @@ export default function App() {
             value={input}
             onChange={changeInput}
           />
-          <button className="rounded-md border-none bg-[#A2FF86] px-3 py-2 font-sans text-base text-black outline-none">
+          <button
+            onClick={calculateAge}
+            className="rounded-md border-none bg-[#A2FF86] px-3 py-2 font-sans text-base text-black outline-none"
+          >
             Calculate
           </button>
         </section>
 
-        <p>{input} </p>
+        <p>{age} </p>
       </div>
     </div>
   );
