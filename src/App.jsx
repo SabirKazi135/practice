@@ -7,7 +7,18 @@ export default function App() {
     setInput(e.target.value);
   }
 
-  function calculateAge() {}
+  function calculateAge() {
+    if (!input) return;
+    const dateObj = new Date(input); // input = "2001-04-25"
+
+    const year = dateObj.getFullYear(); // 2001
+    const month = dateObj.getMonth() + 1; // 4 (Jan = 0, so add 1)
+    const date = dateObj.getDate(); // 25
+
+    const currentYear = new Date().getFullYear;
+    const currentMonth = new Date().getMonth;
+    const currentDate = new Date().getDate;
+  }
   return (
     <div className="flex h-screen items-center bg-[linear-gradient(-200deg,_#1212b7_0,_#accbe5_100%)]">
       <div className="space-y-8 pl-36 pr-8">
