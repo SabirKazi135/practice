@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function App() {
   return (
-    <div className="font-poppins flex h-screen items-center bg-[linear-gradient(-200deg,_#1212b7_0,_#accbe5_100%)]">
-      <div className="pl-36 pr-8">
+    <div className="flex h-screen items-center bg-[linear-gradient(-200deg,_#1212b7_0,_#accbe5_100%)]">
+      <div className="space-y-8 pl-36 pr-8">
         <header className="">
           <h1 className="font-unbounded text-[40px] font-bold text-white">
             JavaScript
@@ -12,15 +12,16 @@ export default function App() {
             Age Calculator
           </h1>
         </header>
-        <section className="flex rounded-lg bg-white p-8 opacity-30">
+        <section className="flex gap-4 rounded-lg bg-white/30 p-8">
           <input
-            className="overflow-clip rounded-[4px] bg-white px-3 py-2 text-base text-black"
             type="date"
-            name=""
-            id=""
+            className="rounded-md border-none px-3 py-2 font-mono text-base text-black outline-none"
           />
-          <button>Calculate</button>
+          <button className="rounded-md border-none bg-[#A2FF86] px-3 py-2 font-sans text-base text-black outline-none">
+            Calculate
+          </button>
         </section>
+
         <p></p>
       </div>
     </div>
