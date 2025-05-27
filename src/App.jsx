@@ -34,29 +34,67 @@ export default function App() {
     }
   }
   return (
-    <div>
-      <main>
-        <section>{input}</section>
+    <div className="bg-secondary flex h-screen items-center justify-center">
+      <main className="bg-primary text-secondary border-secondary rounded-2xl border-[3px] p-4">
+        <section className="">{input}</section>
         <section className="grid grid-cols-4">
-          <button onClick={clear}>AC</button>
-          <button onClick={deleteChar}>DE</button>
-          <button onClick={() => addChar('.')}>.</button>
-          <button onClick={() => addChar('/')}>/</button>
-          <button onClick={() => addChar('7')}>7</button>
-          <button onClick={() => addChar('8')}>8</button>
-          <button onClick={() => addChar('9')}>9</button>
-          <button onClick={() => addChar('*')}>*</button>
-          <button onClick={() => addChar('4')}>4</button>
-          <button onClick={() => addChar('5')}>5</button>
-          <button onClick={() => addChar('6')}>6</button>
-          <button onClick={() => addChar('-')}>-</button>
-          <button onClick={() => addChar('1')}>1</button>
-          <button onClick={() => addChar('2')}>2</button>
-          <button onClick={() => addChar('3')}>3</button>
-          <button onClick={() => addChar('+')}>+</button>
-          <button onClick={() => addChar('00')}>00</button>
-          <button onClick={() => addChar('0')}>0</button>
-          <button onClick={calculate}>=</button>
+          <button className="" onClick={clear}>
+            AC
+          </button>
+          <button className="" onClick={deleteChar}>
+            DE
+          </button>
+          <button className="" onClick={() => addChar('.')}>
+            .
+          </button>
+          <button className="" onClick={() => addChar('/')}>
+            /
+          </button>
+          <button className="" onClick={() => addChar('7')}>
+            7
+          </button>
+          <button className="" onClick={() => addChar('8')}>
+            8
+          </button>
+          <button className="" onClick={() => addChar('9')}>
+            9
+          </button>
+          <button className="" onClick={() => addChar('*')}>
+            *
+          </button>
+          <button className="" onClick={() => addChar('4')}>
+            4
+          </button>
+          <button className="" onClick={() => addChar('5')}>
+            5
+          </button>
+          <button className="" onClick={() => addChar('6')}>
+            6
+          </button>
+          <button className="" onClick={() => addChar('-')}>
+            -
+          </button>
+          <button className="" onClick={() => addChar('1')}>
+            1
+          </button>
+          <button className="" onClick={() => addChar('2')}>
+            2
+          </button>
+          <button className="" onClick={() => addChar('3')}>
+            3
+          </button>
+          <button className="" onClick={() => addChar('+')}>
+            +
+          </button>
+          <button className="" onClick={() => addChar('00')}>
+            00
+          </button>
+          <button className="" onClick={() => addChar('0')}>
+            0
+          </button>
+          <button className="" onClick={calculate}>
+            =
+          </button>
         </section>
       </main>
     </div>
