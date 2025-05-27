@@ -35,7 +35,7 @@ export default function App() {
   }
   return (
     <div className="flex h-screen items-center justify-center bg-gray-600">
-      <main className="bg-primary text-secondary border-secondary min-h-12 w-[344px] rounded-2xl border-[3px] p-4 shadow-xl">
+      <main className="bg-primary text-secondary border-secondary min-h-12 w-[344px] space-y-12 rounded-2xl border-[3px] p-4 shadow-xl">
         <section className="text-secondary hide-scrollbar h-12 w-full overflow-x-auto whitespace-nowrap text-right text-[40px] tracking-[1px]">
           {input}
         </section>
@@ -46,58 +46,112 @@ export default function App() {
           >
             AC
           </button>
-          <button className="" onClick={deleteChar}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={deleteChar}
+          >
             DE
           </button>
-          <button className="" onClick={() => addChar('.')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('.')}
+          >
             .
           </button>
-          <button className="" onClick={() => addChar('/')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('/')}
+          >
             /
           </button>
-          <button className="" onClick={() => addChar('7')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('7')}
+          >
             7
           </button>
-          <button className="" onClick={() => addChar('8')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('8')}
+          >
             8
           </button>
-          <button className="" onClick={() => addChar('9')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('9')}
+          >
             9
           </button>
-          <button className="" onClick={() => addChar('*')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('*')}
+          >
             *
           </button>
-          <button className="" onClick={() => addChar('4')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('4')}
+          >
             4
           </button>
-          <button className="" onClick={() => addChar('5')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('5')}
+          >
             5
           </button>
-          <button className="" onClick={() => addChar('6')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('6')}
+          >
             6
           </button>
-          <button className="" onClick={() => addChar('-')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('-')}
+          >
             -
           </button>
-          <button className="" onClick={() => addChar('1')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('1')}
+          >
             1
           </button>
-          <button className="" onClick={() => addChar('2')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('2')}
+          >
             2
           </button>
-          <button className="" onClick={() => addChar('3')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('3')}
+          >
             3
           </button>
-          <button className="" onClick={() => addChar('+')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('+')}
+          >
             +
           </button>
-          <button className="" onClick={() => addChar('00')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('00')}
+          >
             00
           </button>
-          <button className="" onClick={() => addChar('0')}>
+          <button
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={() => addChar('0')}
+          >
             0
           </button>
-          <button className="" onClick={calculate}>
+          <button
+            className="bg-primary text-secondary col-start-3 col-end-5 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={calculate}
+          >
             =
           </button>
         </section>
