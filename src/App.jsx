@@ -41,7 +41,7 @@ export default function App() {
         </section>
         <section className="grid grid-cols-4 grid-rows-5 gap-3">
           <button
-            className="bg-primary text-secondary rounded-xl border-0 px-[6px] py-[1px] text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            className="bg-primary text-secondary h-16 w-16 rounded-xl border-0 text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
             onClick={clear}
           >
             AC
