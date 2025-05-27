@@ -34,9 +34,11 @@ export default function App() {
     }
   }
   return (
-    <div className="bg-secondary flex h-screen items-center justify-center">
-      <main className="bg-primary text-secondary border-secondary rounded-2xl border-[3px] p-4">
-        <section className="">{input}</section>
+    <div className="flex h-screen items-center justify-center bg-gray-600">
+      <main className="bg-primary text-secondary border-secondary rounded-2xl border-[3px] p-4 shadow-xl">
+        <section className="text-secondary h-12 overflow-auto text-[40px] tracking-[1px]">
+          {input}
+        </section>
         <section className="grid grid-cols-4">
           <button className="" onClick={clear}>
             AC
