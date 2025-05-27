@@ -35,12 +35,15 @@ export default function App() {
   }
   return (
     <div className="flex h-screen items-center justify-center bg-gray-600">
-      <main className="bg-primary text-secondary border-secondary rounded-2xl border-[3px] p-4 shadow-xl">
-        <section className="text-secondary h-12 overflow-auto text-[40px] tracking-[1px]">
+      <main className="bg-primary text-secondary border-secondary min-h-12 w-[344px] rounded-2xl border-[3px] p-4 shadow-xl">
+        <section className="text-secondary hide-scrollbar h-12 w-full overflow-x-auto whitespace-nowrap text-right text-[40px] tracking-[1px]">
           {input}
         </section>
-        <section className="grid grid-cols-4">
-          <button className="" onClick={clear}>
+        <section className="grid grid-cols-4 grid-rows-5 gap-3">
+          <button
+            className="bg-primary text-secondary rounded-xl border-0 px-[6px] py-[1px] text-2xl shadow-[6px_6px_13px_#223341,-6px_-6px_13px_#38536b]"
+            onClick={clear}
+          >
             AC
           </button>
           <button className="" onClick={deleteChar}>
