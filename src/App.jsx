@@ -10,8 +10,7 @@ export default function App() {
   function deleteChar() {
     if (input === 'Error') {
       setInput('');
-    }
-    if (input.length > 0) {
+    } else if (input.length > 0) {
       setInput(input.substring(0, input.length - 1));
     }
   }
@@ -19,8 +18,9 @@ export default function App() {
   function addChar(char) {
     if (input === 'Error') {
       setInput(char);
+    } else {
+      setInput((prev) => prev + char);
     }
-    setInput((prev) => prev + char);
   }
 
   function calculate() {
