@@ -1,0 +1,306 @@
+[
+  {
+    "city": "New York",
+    "temperature_c": 36.8,
+    "humidity_percent": 40,
+    "wind_kmph": 56.6,
+    "condition": "Sunny",
+    "timestamp": "2025-05-27T13:11:01.126689"
+  },
+  {
+    "city": "London",
+    "temperature_c": 22.8,
+    "humidity_percent": 66,
+    "wind_kmph": 6.2,
+    "condition": "Snowy",
+    "timestamp": "2025-05-27T13:11:01.126717"
+  },
+  {
+    "city": "Paris",
+    "temperature_c": -3.8,
+    "humidity_percent": 93,
+    "wind_kmph": 19.1,
+    "condition": "Cloudy",
+    "timestamp": "2025-05-27T13:11:01.126731"
+  },
+  {
+    "city": "Tokyo",
+    "temperature_c": 27.7,
+    "humidity_percent": 64,
+    "wind_kmph": 11.7,
+    "condition": "Clear",
+    "timestamp": "2025-05-27T13:11:01.126743"
+  },
+  {
+    "city": "Delhi",
+    "temperature_c": 32.3,
+    "humidity_percent": 33,
+    "wind_kmph": 34.1,
+    "condition": "Windy",
+    "timestamp": "2025-05-27T13:11:01.126754"
+  },
+  {
+    "city": "Mumbai",
+    "temperature_c": 4.5,
+    "humidity_percent": 50,
+    "wind_kmph": 27.9,
+    "condition": "Foggy",
+    "timestamp": "2025-05-27T13:11:01.126765"
+  },
+  {
+    "city": "Beijing",
+    "temperature_c": 35.0,
+    "humidity_percent": 20,
+    "wind_kmph": 47.1,
+    "condition": "Cloudy",
+    "timestamp": "2025-05-27T13:11:01.126776"
+  },
+  {
+    "city": "Sydney",
+    "temperature_c": 15.2,
+    "humidity_percent": 50,
+    "wind_kmph": 22.7,
+    "condition": "Foggy",
+    "timestamp": "2025-05-27T13:11:01.126794"
+  },
+  {
+    "city": "Dubai",
+    "temperature_c": 29.4,
+    "humidity_percent": 36,
+    "wind_kmph": 12.6,
+    "condition": "Snowy",
+    "timestamp": "2025-05-27T13:11:01.126805"
+  },
+  {
+    "city": "Singapore",
+    "temperature_c": 35.5,
+    "humidity_percent": 61,
+    "wind_kmph": 8.7,
+    "condition": "Foggy",
+    "timestamp": "2025-05-27T13:11:01.126815"
+  },
+  {
+    "city": "Los Angeles",
+    "temperature_c": 30.0,
+    "humidity_percent": 28,
+    "wind_kmph": 39.1,
+    "condition": "Stormy",
+    "timestamp": "2025-05-27T13:11:01.126825"
+  },
+  {
+    "city": "Chicago",
+    "temperature_c": -2.9,
+    "humidity_percent": 23,
+    "wind_kmph": 29.8,
+    "condition": "Rainy",
+    "timestamp": "2025-05-27T13:11:01.126834"
+  },
+  {
+    "city": "Moscow",
+    "temperature_c": 35.5,
+    "humidity_percent": 95,
+    "wind_kmph": 22.8,
+    "condition": "Sunny",
+    "timestamp": "2025-05-27T13:11:01.126843"
+  },
+  {
+    "city": "S\u00e3o Paulo",
+    "temperature_c": 33.5,
+    "humidity_percent": 59,
+    "wind_kmph": 46.1,
+    "condition": "Clear",
+    "timestamp": "2025-05-27T13:11:01.126852"
+  },
+  {
+    "city": "Cairo",
+    "temperature_c": 39.2,
+    "humidity_percent": 100,
+    "wind_kmph": 36.2,
+    "condition": "Windy",
+    "timestamp": "2025-05-27T13:11:01.126860"
+  },
+  {
+    "city": "Bangkok",
+    "temperature_c": -4.6,
+    "humidity_percent": 44,
+    "wind_kmph": 8.9,
+    "condition": "Clear",
+    "timestamp": "2025-05-27T13:11:01.126869"
+  },
+  {
+    "city": "Istanbul",
+    "temperature_c": 22.6,
+    "humidity_percent": 84,
+    "wind_kmph": 53.3,
+    "condition": "Sunny",
+    "timestamp": "2025-05-27T13:11:01.126879"
+  },
+  {
+    "city": "Seoul",
+    "temperature_c": 35.4,
+    "humidity_percent": 83,
+    "wind_kmph": 24.1,
+    "condition": "Foggy",
+    "timestamp": "2025-05-27T13:11:01.126889"
+  },
+  {
+    "city": "Rome",
+    "temperature_c": 4.0,
+    "humidity_percent": 62,
+    "wind_kmph": 54.6,
+    "condition": "Foggy",
+    "timestamp": "2025-05-27T13:11:01.126898"
+  },
+  {
+    "city": "Toronto",
+    "temperature_c": 17.7,
+    "humidity_percent": 23,
+    "wind_kmph": 43.5,
+    "condition": "Cloudy",
+    "timestamp": "2025-05-27T13:11:01.126907"
+  }
+]{
+  "cities": [
+    {
+      "name": "New York",
+      "temperature": 22,
+      "humidity": 60,
+      "windSpeed": 10,
+      "description": "Partly cloudy"
+    },
+    {
+      "name": "London",
+      "temperature": 18,
+      "humidity": 70,
+      "windSpeed": 12,
+      "description": "Light rain"
+    },
+    {
+      "name": "Paris",
+      "temperature": 20,
+      "humidity": 65,
+      "windSpeed": 9,
+      "description": "Sunny"
+    },
+    {
+      "name": "Tokyo",
+      "temperature": 25,
+      "humidity": 58,
+      "windSpeed": 14,
+      "description": "Clear skies"
+    },
+    {
+      "name": "Delhi",
+      "temperature": 34,
+      "humidity": 40,
+      "windSpeed": 20,
+      "description": "Hot and sunny"
+    },
+    {
+      "name": "Mumbai",
+      "temperature": 30,
+      "humidity": 75,
+      "windSpeed": 18,
+      "description": "Humid and cloudy"
+    },
+    {
+      "name": "Beijing",
+      "temperature": 21,
+      "humidity": 50,
+      "windSpeed": 10,
+      "description": "Hazy"
+    },
+    {
+      "name": "Sydney",
+      "temperature": 17,
+      "humidity": 55,
+      "windSpeed": 13,
+      "description": "Windy"
+    },
+    {
+      "name": "Dubai",
+      "temperature": 39,
+      "humidity": 20,
+      "windSpeed": 15,
+      "description": "Hot and dry"
+    },
+    {
+      "name": "Singapore",
+      "temperature": 29,
+      "humidity": 85,
+      "windSpeed": 12,
+      "description": "Rain showers"
+    },
+    {
+      "name": "Los Angeles",
+      "temperature": 24,
+      "humidity": 50,
+      "windSpeed": 9,
+      "description": "Clear skies"
+    },
+    {
+      "name": "Chicago",
+      "temperature": 19,
+      "humidity": 60,
+      "windSpeed": 14,
+      "description": "Breezy"
+    },
+    {
+      "name": "Moscow",
+      "temperature": 15,
+      "humidity": 55,
+      "windSpeed": 10,
+      "description": "Cloudy"
+    },
+    {
+      "name": "São Paulo",
+      "temperature": 23,
+      "humidity": 70,
+      "windSpeed": 11,
+      "description": "Light drizzle"
+    },
+    {
+      "name": "Cairo",
+      "temperature": 35,
+      "humidity": 25,
+      "windSpeed": 16,
+      "description": "Sunny"
+    },
+    {
+      "name": "Bangkok",
+      "temperature": 32,
+      "humidity": 80,
+      "windSpeed": 10,
+      "description": "Thunderstorms"
+    },
+    {
+      "name": "Istanbul",
+      "temperature": 20,
+      "humidity": 65,
+      "windSpeed": 9,
+      "description": "Partly cloudy"
+    },
+    {
+      "name": "Seoul",
+      "temperature": 22,
+      "humidity": 60,
+      "windSpeed": 13,
+      "description": "Mostly sunny"
+    },
+    {
+      "name": "Rome",
+      "temperature": 26,
+      "humidity": 55,
+      "windSpeed": 8,
+      "description": "Sunny"
+    },
+    {
+      "name": "Toronto",
+      "temperature": 16,
+      "humidity": 62,
+      "windSpeed": 10,
+      "description": "Light rain"
+    }
+  ]
+}
+
