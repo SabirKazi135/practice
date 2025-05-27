@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 export default function App() {
-  const [input, setInput] = useState(null);
+  const [input, setInput] = useState('');
 
-  function onClick() {
-    setInput(null);
+  function clear() {
+    setInput('');
   }
 
   function deleteChar() {
@@ -14,13 +14,27 @@ export default function App() {
   }
 
   function addChar(char) {
+    if (input === 'Error') {
+      return;
+    }
     setInput((prev) => prev + char);
+  }
+
+  function calculate() {
+    if (input === 'Error') {
+      return;
+    }
+    try {
+      setInput(String(eval(input)));
+    } catch {
+      setInput('Error');
+    }
   }
   return (
     <div>
       <main>
         <section>{input}</section>
-        <section>
+        <section className="grid grid-cols-4">
           <button onClick={clear}>AC</button>
           <button onClick={deleteChar}>DE</button>
           <button onClick={() => addChar('.')}>.</button>
@@ -39,7 +53,7 @@ export default function App() {
           <button onClick={() => addChar('+')}>+</button>
           <button onClick={() => addChar('00')}>00</button>
           <button onClick={() => addChar('0')}>0</button>
-          <button onClick={() => addChar('=')}>=</button>
+          <button onClick={calculate}>=</button>
         </section>
       </main>
     </div>
