@@ -22,11 +22,11 @@ export default function App() {
           </button>
         </section>
         <section className={display}>
-          <header>
+          <header className="pt-5">
             <div>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span>{condition}</span>
+              <span>{degree}</span>
+              <span>*C</span>
             </div>
             <div style={{ backgroundImage: { image } }}></div>
           </header>
