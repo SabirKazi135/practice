@@ -27,7 +27,7 @@ export default function App() {
           {taskList.map((task, index) => {
             return (
               <div key={index} className="flex">
-                <button>
+                <button onClick={() => toggleDone(index)}>
                   {task.done ? (
                     <i className="fa-solid fa-circle-check text-[#F24C3D]"></i>
                   ) : (
