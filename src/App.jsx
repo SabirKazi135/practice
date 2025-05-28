@@ -7,6 +7,12 @@ export default function App() {
     { title: 'Task 3', done: false },
   ]);
 
+  function toggleDone(index) {
+    const newList = [...taskList];
+    newList[index].done = !newList[index].done;
+    setTaskList(newList);
+  }
+
   return (
     <div className="flex h-screen items-center justify-center bg-[#4A55A2]">
       <div className="h-[90%] w-[448px] space-y-6 rounded-[32px] bg-white px-4 py-8 shadow-2xl">
