@@ -29,23 +29,30 @@ export default function App() {
             </button>
           </nav>
         </form>
-        <div className="flex flex-col">
+        <div className="flex flex-col space-y-3">
           {taskList.map((task, index) => {
             return (
-              <div key={index} className="flex">
-                <button onClick={() => toggleDone(index)}>
-                  {task.done ? (
-                    <i className="fa-solid fa-circle-check text-[#F24C3D]"></i>
-                  ) : (
-                    <i className="fa-regular fa-circle text-gray-400"></i>
-                  )}
+              <div
+                key={index}
+                className="flex h-[25px] items-baseline justify-between"
+              >
+                <div className="flex items-baseline gap-3">
+                  <button onClick={() => toggleDone(index)}>
+                    {task.done ? (
+                      <i className="fa-solid fa-circle-check text-[#F24C3D]"></i>
+                    ) : (
+                      <i className="fa-regular fa-circle text-gray-400"></i>
+                    )}
+                  </button>
+                  <p
+                    className={`text-lg ${task.done ? 'text-gray-400 line-through' : ''}`}
+                  >
+                    {task.title}
+                  </p>
+                </div>
+                <button className="px6 flex h-5 w-6 py-1 text-center text-base font-bold">
+                  X
                 </button>
-                <p
-                  className={`text-lg ${task.done ? 'text-gray-400 line-through' : ''}`}
-                >
-                  {task.title}
-                </p>
-                <button>*</button>
               </div>
             );
           })}
