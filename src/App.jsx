@@ -6,13 +6,22 @@ export default function App() {
     { title: 'Task 2', done: false },
     { title: 'Task 3', done: false },
   ]);
-
+  const [task, setTask] = useState('');
   function toggleDone(index) {
     const newList = [...taskList];
     newList[index].done = !newList[index].done;
     setTaskList(newList);
   }
 
+  function removeTask(index) {
+    const newList = taskList.filter((_, i) => i !== index);
+    setTaskList(newList);
+  }
+
+  function addTask(e) {
+    e.preventDefault()
+    setTaskList((t) => ())
+  }
   return (
     <div className="flex h-screen items-center justify-center bg-[#4A55A2]">
       <div className="h-[90%] w-[448px] space-y-6 rounded-[32px] bg-white px-4 py-8 shadow-2xl">
@@ -20,11 +29,17 @@ export default function App() {
         <form className="w-full">
           <nav className="h- flex h-12 w-full items-center justify-between rounded-[48px] bg-[#eee] pl-4">
             <input
+              value={task}
+              maxLength={50}
               type="text"
               placeholder="I need to do..."
               className="h-5 bg-transparent px-[2px] py-[1px] text-base text-black outline-none"
             />
-            <button className="h-12 rounded-[48px] bg-[#F24C3D] px-8 text-center font-bold text-[#eee]">
+            <button
+              type='submit'
+              onClick={addTask}
+              className="h-12 rounded-[48px] bg-[#F24C3D] px-8 text-center font-bold text-[#eee]"
+            >
               Add
             </button>
           </nav>
