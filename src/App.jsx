@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [image, setImage] = useState(null);
+  const [display, setDisplay] = useState(`block`);
   return (
     <div className="mt-32 flex items-center justify-center">
       <section
@@ -20,7 +21,7 @@ export default function App() {
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </section>
-        <section>
+        <section className={display}>
           <header>
             <div>
               <span></span>
@@ -32,7 +33,7 @@ export default function App() {
           <section>
             <div>
               <span></span>
-              <span></span>
+              <span>hello</span>
               <span></span>
             </div>
             <div>
