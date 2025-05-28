@@ -19,8 +19,11 @@ export default function App() {
   }
 
   function addTask(e) {
-    e.preventDefault()
-    setTaskList((t) => ())
+    e.preventDefault();
+    if (task.trim() === '') {
+      return;
+    }
+    setTaskList([...taskList], { title: task.trim(), done: false });
   }
   return (
     <div className="flex h-screen items-center justify-center bg-[#4A55A2]">
@@ -36,7 +39,7 @@ export default function App() {
               className="h-5 bg-transparent px-[2px] py-[1px] text-base text-black outline-none"
             />
             <button
-              type='submit'
+              type="submit"
               onClick={addTask}
               className="h-12 rounded-[48px] bg-[#F24C3D] px-8 text-center font-bold text-[#eee]"
             >
