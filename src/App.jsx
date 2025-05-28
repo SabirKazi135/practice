@@ -40,7 +40,7 @@ export default function App() {
                     <i className="fa-regular fa-circle text-gray-400"></i>
                   )}
                 </button>
-                <p>{task.title}</p>
+                <p className={task.done ? `line-through` : ``}>{task.title}</p>
                 <button>*</button>
               </div>
             );
