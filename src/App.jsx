@@ -36,7 +36,7 @@ export default function App() {
               maxLength={50}
               type="text"
               placeholder="I need to do..."
-              className="h-5 bg-transparent px-[2px] py-[1px] text-base text-black outline-none"
+              className="h-5 w-full bg-transparent px-[2px] py-[1px] text-base text-black outline-none"
             />
             <button
               type="submit"
