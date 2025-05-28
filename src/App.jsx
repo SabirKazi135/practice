@@ -46,8 +46,9 @@ export default function App() {
             </select>
           </div>
           <div>
-            <label className="" htmlFor=""></label>
-            <input type="text" />
+            <label className="" htmlFor="">
+              Select Category
+            </label>
           </div>
           <div>
             <label className="" htmlFor=""></label>
