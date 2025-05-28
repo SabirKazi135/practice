@@ -3,17 +3,19 @@ import React, { useState } from 'react';
 export default function App() {
   return (
     <div className="flex h-screen justify-center bg-[#2D4356] pt-10">
-      <div className="bg-white">
+      <div className="bg-white text-black">
         <h1>Simple Quiz App</h1>
         <hr />
         <div>
           <div>
-            <label htmlFor="">Questin Count</label>
+            <label className="" htmlFor="">
+              Questin Count
+            </label>
             <br />
             <input type="number" />
           </div>
           <div>
-            <label htmlFor=""></label>
+            <label className="" htmlFor=""></label>
             <br />
             <select name="" id="">
               <option value="any">Any Category</option>
@@ -44,11 +46,11 @@ export default function App() {
             </select>
           </div>
           <div>
-            <label htmlFor=""></label>
+            <label className="" htmlFor=""></label>
             <input type="text" />
           </div>
           <div>
-            <label htmlFor=""></label>
+            <label className="" htmlFor=""></label>
             <input type="text" />
           </div>
         </div>
