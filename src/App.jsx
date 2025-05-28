@@ -7,6 +7,7 @@ export default function App() {
     { title: 'Task 3', done: false },
   ]);
   const [task, setTask] = useState('');
+
   function toggleDone(index) {
     const newList = [...taskList];
     newList[index].done = !newList[index].done;
@@ -23,7 +24,12 @@ export default function App() {
     if (task.trim() === '') {
       return;
     }
-    setTask([...taskList], { title: task.trim(), done: false });
+    setTaskList([...taskList, { title: task.trim(), done: false }]);
+    setTask('');
+  }
+
+  function onChange(e) {
+    setTask(e.target.value);
   }
   return (
     <div className="flex h-screen items-center justify-center bg-[#4A55A2]">
@@ -32,7 +38,7 @@ export default function App() {
         <form className="w-full">
           <nav className="h- flex h-12 w-full items-center justify-between rounded-[48px] bg-[#eee] pl-4">
             <input
-              onChange={change}
+              onChange={onChange}
               value={task}
               maxLength={50}
               type="text"
