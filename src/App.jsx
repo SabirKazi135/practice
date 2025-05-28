@@ -40,7 +40,11 @@ export default function App() {
                     <i className="fa-regular fa-circle text-gray-400"></i>
                   )}
                 </button>
-                <p className={task.done ? `line-through` : ``}>{task.title}</p>
+                <p
+                  className={`text-lg ${task.done ? 'text-gray-400 line-through' : ''}`}
+                >
+                  {task.title}
+                </p>
                 <button>*</button>
               </div>
             );
