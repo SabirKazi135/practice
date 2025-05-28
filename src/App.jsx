@@ -23,7 +23,7 @@ export default function App() {
     if (task.trim() === '') {
       return;
     }
-    setTaskList([...taskList], { title: task.trim(), done: false });
+    setTask([...taskList], { title: task.trim(), done: false });
   }
   return (
     <div className="flex h-screen items-center justify-center bg-[#4A55A2]">
@@ -32,6 +32,7 @@ export default function App() {
         <form className="w-full">
           <nav className="h- flex h-12 w-full items-center justify-between rounded-[48px] bg-[#eee] pl-4">
             <input
+              onChange={change}
               value={task}
               maxLength={50}
               type="text"
