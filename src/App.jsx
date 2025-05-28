@@ -50,7 +50,10 @@ export default function App() {
                     {task.title}
                   </p>
                 </div>
-                <button className="px6 flex h-5 w-6 py-1 text-center text-base font-bold">
+                <button
+                  onClick={() => removeTask(index)}
+                  className="px6 flex h-5 w-6 py-1 text-center text-base font-bold"
+                >
                   X
                 </button>
               </div>
