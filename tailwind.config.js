@@ -8,6 +8,9 @@ export default {
         creamWhite: '#FAFAFA', // custom name for --clr-text
         sunsetOrange: '#ff960b', // custom name for --clr-accent
       },
+      fontWeight: {
+        bolder: '900',
+      },
     },
   },
   plugins: [],

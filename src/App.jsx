@@ -2,8 +2,10 @@ import Header from './Header';
 
 export default function App() {
   return (
-    <div className="h-screen bg-[#0F002B] text-white">
-      <Header />
+    <div className="bg-deepNight flex h-screen justify-center">
+      <div className="text-creamWhite w-full max-w-[992px]">
+        <Header />
+      </div>
     </div>
   );
 }
