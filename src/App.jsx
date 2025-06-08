@@ -1,9 +1,12 @@
+import { useState } from 'react';
 export default function App() {
-  const [, ] = useState();
+  const [choice, setChoice] = useState('Select Social Media');
   return (
     <div>
       <div className="">
-        <button><span>{}</span></button>
+        <button>
+          <span>{choice}</span>
+        </button>
         <div className=""></div>
       </div>
     </div>
