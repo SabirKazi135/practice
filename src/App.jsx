@@ -10,8 +10,8 @@ export default function App() {
     { name: 'YouTube', src: '/youtube.png' },
   ];
 
-  function changeValue(e) {
-    setChoice(e.target.value);
+  function changeValue(choice) {
+    setChoice(choice);
   }
 
   return (
