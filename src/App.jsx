@@ -10,9 +10,10 @@ export default function App() {
     { name: 'YouTube', src: '/youtube.png' },
   ];
 
-  function changeValue(params) {
-    
+  function changeValue(e) {
+    setChoice(e.target.value);
   }
+
   return (
     <div className="flex h-screen items-center justify-center bg-[#BF4B37]">
       <div className="">
@@ -22,7 +23,10 @@ export default function App() {
         <div className="bg-g flex w-80 flex-col">
           {options.map((option) => {
             return (
-              <button onClick={changeValue} className="flex h-[50px] w-full items-center bg-[#DADADA] px-4 hover:bg-[#fafafa]">
+              <button
+                onClick={() => changeValue(option.name)}
+                className="flex h-[50px] w-full items-center bg-[#DADADA] px-4 hover:bg-[#fafafa]"
+              >
                 <img className="h-8 w-8" src={option.src} alt="" />{' '}
                 <span className="mx-4">{option.name}</span>
               </button>
