@@ -7,7 +7,14 @@ export default function App() {
         <button>
           <span>{choice}</span>
         </button>
-        <div className=""></div>
+        <div className="">
+          <span><img src="" alt="" /></span>
+          <span><img src="" alt="" /></span>
+          <span><img src="" alt="" /></span>
+          <span><img src="" alt="" /></span>
+          <span><img src="" alt="" /></span>
+          <span><img src="" alt="" /></span>
+        </div>
       </div>
     </div>
   );
