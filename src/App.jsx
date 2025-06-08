@@ -14,11 +14,13 @@ export default function App() {
     setChoice(choice);
   }
 
+  function changeDir() {}
   return (
     <div className="flex h-screen items-center justify-center bg-[#BF4B37]">
       <div className="">
-        <button>
+        <button onClick={changeDir}>
           <span>{choice}</span>
+          <img src="./up.png" alt="" />
         </button>
         <div className="bg-g flex w-80 flex-col">
           {options.map((option) => {
