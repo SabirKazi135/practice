@@ -1,6 +1,7 @@
 import { useState } from 'react';
 export default function App() {
   const [choice, setChoice] = useState('Select Social Media');
+  const [dir, setDir] = useState(true);
   const options = [
     { name: 'Facebook', src: '/facebook.png' },
     { name: 'Instagram', src: '/instagram.png' },
@@ -14,13 +15,23 @@ export default function App() {
     setChoice(choice);
   }
 
-  function changeDir() {}
+  function changeDir() {
+    if (dir === 'up') {
+      setDir('down');
+      return;
+    }
+    setDir('up');
+  }
   return (
     <div className="flex h-screen items-center justify-center bg-[#BF4B37]">
       <div className="">
         <button onClick={changeDir}>
           <span>{choice}</span>
-          <img src="./up.png" alt="" />
+          <img
+            src="./up.png"
+            alt=""
+            className={`transform transition-transform duration-1000 ${dir === 'down' ? 'rotate-45' : 'rotate-0'}`}
+          />
         </button>
         <div className="bg-g flex w-80 flex-col">
           {options.map((option) => {
