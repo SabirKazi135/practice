@@ -1,7 +1,7 @@
 export default function App() {
   return (
     <div className="flex h-screen items-center justify-center bg-slate-900 p-10">
-      <div>
+      <div className="space-y-4">
         <div className="group relative w-80 overflow-hidden rounded-xl bg-slate-800 shadow-lg transition-all duration-300 hover:scale-105">
           {/* Product Image */}
           <img
@@ -27,12 +27,19 @@ export default function App() {
             </p>
           </div>
         </div>
-        <div className="group ">
+        <div className="group relative w-80 bg-slate-800 shadow-lg">
           <img
             src="./public/shopping.webp"
             alt=""
-            className="h-48 w-full object-cover "
+            className="h-48 w-full object-cover"
           />
+          <div className="absolute inset-0 hidden items-center justify-center bg-black/50 transition-all duration-300 group-hover:flex">
+            <button className="rounded bg-green-600 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-green-700">
+              View Details
+            </button>
+          </div>
+
+          
         </div>
       </div>
     </div>
