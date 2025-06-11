@@ -1,34 +1,15 @@
-import { useState } from 'react';
-
 export default function App() {
-  const [isChecked, setIsChecked] = useState(false);
-  const [check2, setChecked2] = useState(false);
-
   return (
-    <div className="h-screen space-y-6 bg-slate-900 p-8 text-white">
-      <div className="space-y-6">
-        <h1 className="text-xl font-bold">Checked State Example</h1>
+    <div className="flex h-screen items-center justify-center bg-slate-900 p-10 text-white">
+      <div className="group relative w-64 rounded-lg bg-slate-800 p-6 transition-all duration-300 hover:scale-105 hover:bg-slate-700">
+        <h2 className="text-lg font-semibold transition-colors group-hover:text-green-400">
+          Hover the Card
+        </h2>
+        <p className="text-sm text-gray-300">This text stays the same.</p>
 
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-            className="h-5 w-5 rounded border border-gray-300 checked:border-green-700 checked:bg-green-500 checked:ring-2 checked:ring-green-300"
-          />
-          <span>{isChecked ? 'Checked!' : 'Not Checked'}</span>
-        </label>
-      </div>
-      <div className="space-y-6">
-        <label htmlFor="" className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={check2}
-            onChange={() => setChecked2(!check2)}
-            className="h-5 w-5 rounded border-gray-300 checked:border-green-700 checked:bg-green-500 checked:ring-2 checked:ring-green-500"
-          />
-          <span>{check2 ? 'Checked 2' : 'not Checked 2'}</span>
-        </label>
+        <button className="absolute right-4 top-4 hidden rounded bg-green-600 px-3 py-1 text-sm group-hover:block">
+          Action
+        </button>
       </div>
     </div>
   );
