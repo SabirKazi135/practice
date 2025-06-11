@@ -19,12 +19,12 @@ export default function App() {
         <input
           type="text"
           placeholder="Your name"
-          className="rounded border p-2"
+          className="rounded border p-2 focus:border-purple-500 focus:ring-2 focus:ring-purple-300"
         />
         <input
           type="email"
           placeholder="Email"
-          className="rounded border p-2"
+          className="rounded border p-2 focus:outline-none focus:ring-2 focus:ring-red-400"
         />
       </div>
     </div>
