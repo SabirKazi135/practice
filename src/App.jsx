@@ -1,38 +1,34 @@
 import { useState } from 'react';
 
 export default function App() {
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
+  const [check2, setChecked2] = useState(false);
 
   return (
-    <div className="h-screen bg-slate-900 p-6 text-white">
+    <div className="h-screen space-y-6 bg-slate-900 p-8 text-white">
       <div className="space-y-6">
-        <h1 className="text-xl font-bold">Disabled State Example</h1>
+        <h1 className="text-xl font-bold">Checked State Example</h1>
 
-        <button
-          className="rounded bg-blue-500 px-4 py-2 transition-all disabled:cursor-not-allowed disabled:bg-gray-500"
-          disabled={isDisabled}
-        >
-          Submit
-        </button>
-
-        <button
-          onClick={() => setIsDisabled(!isDisabled)}
-          className="rounded bg-green-500 px-4 py-2"
-        >
-          Toggle Disabled
-        </button>
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+            className="h-5 w-5 rounded border border-gray-300 checked:border-green-700 checked:bg-green-500 checked:ring-2 checked:ring-green-300"
+          />
+          <span>{isChecked ? 'Checked!' : 'Not Checked'}</span>
+        </label>
       </div>
       <div className="space-y-6">
-        <h1>Disable State Example</h1>
-        <button
-          disabled={true}
-          className="rounded bg-blue-500 px-4 py-2 transition-all disabled:cursor-not-allowed disabled:bg-gray-500"
-        >
-          Submit
-        </button>
-        <button>
-          Toggle Disabled
-        </button>
+        <label htmlFor="flex gap-2 items-center">
+          <input
+            type="checkbox"
+            checked={false}
+            onChange={() => setChecked2(!check2)}
+            className="h-5 w-5 rounded border-gray-300 checked:border-green-700 checked:bg-green-500 checked:ring-2 checked:ring-green-500"
+          />
+          <span>{check2 ? 'Checked 2' : 'not Checked 2'}</span>
+        </label>
       </div>
     </div>
   );
