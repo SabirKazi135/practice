@@ -4,7 +4,7 @@ export default function App() {
   return (
     <div>
       <h1>Hello</h1>
-      <p>Sabir</p>
+      <p>Sabir Kazi</p>
     </div>
   );
 }
