@@ -1,26 +1,31 @@
 export default function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
-      <div className="w-full max-w-sm space-y-4">
-        <div className="rounded-lg border border-gray-500 bg-slate-800 p-6 focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-300">
-          <label className="block text-sm font-medium text-gray-300">
-            Email Address
+    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-slate-900 p-8 text-white">
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <input type="checkbox" id="accept" className="peer" />
+          <label
+            htmlFor="accept"
+            className="inline-block cursor-pointer rounded-lg border border-gray-600 bg-slate-800 px-4 py-2 transition-all peer-checked:border-green-500 peer-checked:bg-green-700 peer-checked:text-white"
+          >
+            Accept Terms and Conditions
           </label>
-          <input
-            type="email"
-            className="mt-1 w-full rounded border border-gray-700 bg-slate-700 p-2 outline-none focus:border-green-400 focus:ring-2 focus:ring-green-200"
-            placeholder="you@example.com"
-          />
         </div>
-        <div className="rounded-lg border border-gray-500 bg-slate-800 p-6 focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-300">
-          <label htmlFor="" className="block text-sm font-medium text-gray-300">
-            Email Address
+
+        <div className="text-sm text-gray-400 peer-checked:text-green-400">
+          You'll be subscribed to our newsletter when checked.
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <input type="checkbox" id="accept2" className="peer" />
+          <label
+            htmlFor="accept2"
+            className="inline-block cursor-pointer rounded-lg border border-gray-600 bg-slate-800 px-4 py-2 transition-all peer-checked:border-r-green-500 peer-checked:bg-green-700 peer-checked:text-white"
+          >
+            Accept Terms and Conditions
           </label>
-          <input
-            type="email"
-            className="mt-1 w-full rounded border border-gray-700 bg-slate-700 p-2 outline-none focus:border-green-400 focus:ring-2 focus:ring-green-200"
-            placeholder="you@example.com"
-          />
         </div>
       </div>
     </div>
