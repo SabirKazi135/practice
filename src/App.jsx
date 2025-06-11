@@ -15,10 +15,15 @@ export default function App() {
           />
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-4 p-4">
         <input
           type="text"
           placeholder="Your name"
+          className="rounded border p-2"
+        />
+        <input
+          type="email"
+          placeholder="Email"
           className="rounded border p-2"
         />
       </div>
