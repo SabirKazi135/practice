@@ -1,32 +1,16 @@
 export default function App() {
   return (
-    <div className="h-screen space-y-4 bg-slate-800 p-8">
-      <div>
-        <div className="flex flex-col gap-4 p-4">
-          <input
-            type="text"
-            placeholder="Your name"
-            className="rounded border p-2 focus:border-purple-500 focus:ring-2 focus:ring-purple-300"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="rounded border p-2 focus:outline-none focus:ring-2 focus:ring-red-400"
-          />
-        </div>
-      </div>
-      <div className="flex flex-col gap-4 p-4">
-        <input
-          type="text"
-          placeholder="Your name"
-          className="rounded border p-2 focus:border-purple-500 focus:ring-2 focus:ring-purple-300"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="rounded border p-2 focus:outline-none focus:ring-2 focus:ring-red-400"
-        />
-      </div>
+    <div className="flex h-screen flex-col space-y-4 bg-slate-800 p-8">
+      <input
+        type="text"
+        placeholder="Test hover + focus"
+        className="rounded border p-2 text-white hover:bg-slate-700 focus:border-green-500 focus:ring-2 focus:ring-green-300"
+      />
+      <input
+        type="text"
+        placeholder="Test hover + focus"
+        className="rounded border p-2 text-white hover:bg-slate-700 focus:ring-2 focus:ring-green-300"
+      />
     </div>
   );
 }
