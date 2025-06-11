@@ -1,10 +1,16 @@
 export default function App() {
   return (
-    <div>
-      <h1 className="bg-gray-500 p-4 text-white">Hello</h1>
-      <button className="rounded bg-blue-600 p-2 text-white lg:hover:bg-indigo-500 dark:hover:bg-indigo-600">
-        Hello Sabir
-      </button>
+    <div className="h-screen space-y-4 bg-slate-800 p-8">
+      <input
+        type="text"
+        class="rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <br />
+
+      <input
+        type="text"
+        className="rounded border border-gray-300 focus:outline-none"
+      />
     </div>
   );
 }
