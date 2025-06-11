@@ -13,9 +13,11 @@ export default function App() {
         </button>
       </div>
       <div className="space-y-6">
-        <button className="t rounded bg-purple-500 px-6 py-2">Press Me</button>
+        <button className="t rounded bg-purple-500 px-6 py-2 transition-all duration-200 hover:bg-purple-600 active:bg-purple-700">
+          Press Me
+        </button>
 
-        <button className="ransition-transform duration-150 hover:scale-105 active:scale-95">
+        <button className="rounded bg-green-500 px-6 py-2 transition-transform duration-150 hover:scale-105 hover:bg-green-600 active:scale-95 active:bg-green-700">
           Scale On Active
         </button>
       </div>
