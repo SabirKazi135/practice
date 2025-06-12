@@ -1,26 +1,27 @@
 import { useState } from 'react';
 
 export default function App() {
-  const [pressed, setPressed] = useState(false);
-  const [pressed2, setPressed2] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="flex h-screen items-center justify-center bg-slate-900 text-white">
-      <button
-        aria-pressed={pressed}
-        onClick={() => setPressed(!pressed)}
-        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600 aria-pressed:bg-green-600 aria-pressed:ring-2 aria-pressed:ring-green-400"
-      >
-        {pressed ? 'Pressed' : 'Unpressed'}
-      </button>
+    <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
+      <div className="w-full max-w-sm space-y-4">
+        {/* Toggle Button */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          className="w-full rounded bg-slate-700 px-4 py-2 text-left transition-all hover:bg-slate-600 aria-expanded:bg-green-600 aria-expanded:ring-2 aria-expanded:ring-green-400"
+        >
+          {expanded ? 'Collapse ↑' : 'Expand ↓'}
+        </button>
 
-      <button
-        onClick={() => setPressed2(!pressed2)}
-        aria-pressed={pressed2}
-        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600 aria-pressed:bg-green-600 aria-pressed:ring-2 aria-pressed:ring-green-400"
-      >
-        {pressed2 ? 'Pressed' : 'Unpressed'}
-      </button>
+        {/* Content Panel */}
+        {expanded && (
+          <div className="rounded border border-green-500 bg-slate-800 p-4 transition-all duration-300">
+            <p>This is the content inside the expanded panel.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
