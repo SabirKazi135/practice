@@ -8,8 +8,10 @@ export default function App() {
         Click Me
       </button>
       <div>
-        <label htmlFor="input">Check</label>
-        <input type="checkbox" id="input" />
+        <input type="checkbox" id="input" className="peer" />
+        <label htmlFor="input" className="mr-10 peer-checked:bg-green-500">
+          Check
+        </label>
       </div>
     </div>
   );
