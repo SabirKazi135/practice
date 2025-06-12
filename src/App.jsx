@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [selected, setSelected] = useState('home');
+  const [selected2, setSelected2] = useState('home');
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
@@ -34,10 +35,16 @@ export default function App() {
             Contact
           </button>
         </div>
-        <div>
-          <button>Home</button>
-          <button>About</button>
-          <button>Contact</button>
+        <div className="flex gap-4">
+          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+            Home
+          </button>
+          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+            About
+          </button>
+          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+            Contact
+          </button>
         </div>
       </div>
     </div>
