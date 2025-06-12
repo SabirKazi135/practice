@@ -7,10 +7,8 @@ export default function App() {
       >
         Click Me
       </button>
-      <div className="group h-40 w-40 bg-gray-500 hover:scale-110">
-        <button className="rounded px-4 py-2 group-hover:bg-green-500">
-          Click me
-        </button>
+      <div className="px group flex h-40 w-80 items-center justify-center bg-gray-500 focus-within:border focus-within:ring-2 focus-within:ring-yellow-400 hover:scale-110">
+        <input type="text" />
       </div>
     </div>
   );
