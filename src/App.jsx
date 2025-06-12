@@ -5,33 +5,40 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
-      <div className="flex gap-4">
-        {/* Home Tab */}
-        <button
-          onClick={() => setSelected('home')}
-          aria-selected={selected === 'home'}
-          className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
-        >
-          Home
-        </button>
+      <div className="space-y-10">
+        <div className="flex gap-4">
+          {/* Home Tab */}
+          <button
+            onClick={() => setSelected('home')}
+            aria-selected={selected === 'home'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
+          >
+            Home
+          </button>
 
-        {/* About Tab */}
-        <button
-          onClick={() => setSelected('about')}
-          aria-selected={selected === 'about'}
-          className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
-        >
-          About
-        </button>
+          {/* About Tab */}
+          <button
+            onClick={() => setSelected('about')}
+            aria-selected={selected === 'about'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
+          >
+            About
+          </button>
 
-        {/* Contact Tab */}
-        <button
-          onClick={() => setSelected('contact')}
-          aria-selected={selected === 'contact'}
-          className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
-        >
-          Contact
-        </button>
+          {/* Contact Tab */}
+          <button
+            onClick={() => setSelected('contact')}
+            aria-selected={selected === 'contact'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-2 aria-selected:ring-green-400"
+          >
+            Contact
+          </button>
+        </div>
+        <div>
+          <button>Home</button>
+          <button>About</button>
+          <button>Contact</button>
+        </div>
       </div>
     </div>
   );
