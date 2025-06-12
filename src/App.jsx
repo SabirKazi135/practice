@@ -1,15 +1,26 @@
+import { useState } from 'react';
+
 export default function App() {
+  const [pressed, setPressed] = useState(false);
+  const [pressed2, setPressed2] = useState(false);
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center space-y-4 bg-slate-800 p-10 text-white">
+    <div className="flex h-screen items-center justify-center bg-slate-900 text-white">
       <button
-        disabled={true}
-        className="rounded bg-green-400 px-4 py-2 outline-none transition-transform duration-300 hover:scale-105 hover:bg-green-500 active:scale-95 active:bg-green-600 disabled:transform-none disabled:cursor-not-allowed disabled:bg-gray-400"
+        aria-pressed={pressed}
+        onClick={() => setPressed(!pressed)}
+        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600 aria-pressed:bg-green-600 aria-pressed:ring-2 aria-pressed:ring-green-400"
       >
-        Click Me
+        {pressed ? 'Pressed' : 'Unpressed'}
       </button>
-      <div className="px group flex h-40 w-80 items-center justify-center bg-gray-500 focus-within:border focus-within:ring-2 focus-within:ring-yellow-400 hover:scale-110">
-        <input type="text" />
-      </div>
+
+      <button
+        aria-pressed={pressed}
+        onClick={() => setPressed2(!pressed2)}
+        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600"
+      >
+        {pressed2 ? 'Pressed' : 'Unpressed'}
+      </button>
     </div>
   );
 }
