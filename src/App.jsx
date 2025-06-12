@@ -15,9 +15,9 @@ export default function App() {
       </button>
 
       <button
-        aria-pressed={pressed}
         onClick={() => setPressed2(!pressed2)}
-        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600"
+        aria-pressed={pressed2}
+        className="rounded bg-slate-700 px-6 py-2 text-white transition-all hover:bg-slate-600 aria-pressed:bg-green-600 aria-pressed:ring-2 aria-pressed:ring-green-400"
       >
         {pressed2 ? 'Pressed' : 'Unpressed'}
       </button>
