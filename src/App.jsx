@@ -36,13 +36,25 @@ export default function App() {
           </button>
         </div>
         <div className="flex gap-4">
-          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+          <button
+            onClick={() => setSelected2('home')}
+            aria-selected={selected2 === 'home'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-green-400"
+          >
             Home
           </button>
-          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+          <button
+            onClick={() => setSelected2('about')}
+            aria-selected={selected2 === 'about'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-green-400"
+          >
             About
           </button>
-          <button onClick={()=> setSelected2("contact")} className="roundex px-4 py-2 transition-all hover:bg-slate-600">
+          <button
+            onClick={() => setSelected2('contact')}
+            aria-selected={selected2 === 'contact'}
+            className="rounded px-4 py-2 transition-all hover:bg-slate-600 aria-selected:bg-green-600 aria-selected:font-bold aria-selected:ring-green-400"
+          >
             Contact
           </button>
         </div>
