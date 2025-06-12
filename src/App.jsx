@@ -7,15 +7,10 @@ export default function App() {
       >
         Click Me
       </button>
-      <div>
-        <input
-          type="checkbox"
-          id="input"
-          className="peer border checked:bg-yellow-500 checked:ring-2 checked:ring-yellow-400"
-        />
-        <label htmlFor="input" className="mr-10 peer-checked:bg-green-500">
-          Check
-        </label>
+      <div className="group h-40 w-40 bg-gray-500 hover:scale-110">
+        <button className="rounded px-4 py-2 group-hover:bg-green-500">
+          Click me
+        </button>
       </div>
     </div>
   );
