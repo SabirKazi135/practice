@@ -1,16 +1,19 @@
 export default function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
+    <div className="flex min-h-screen items-center justify-center bg-[] bg-slate-900 p-10 text-white">
       <ul className="w-40 bg-slate-700 p-3">
-        {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map((item, index) => (
+        {[...Array(5)].map((_, index) => (
           <li
             key={index}
-            className="px-4 py-1 text-purple-600 first:pt-2 first:text-red-400 last:pb-2 last:text-blue-400 odd:bg-gray-300 even:bg-white"
+            className="bg-white px-4 py-2 text-purple-600 outline-none hover:bg-yellow-300 focus:bg-green-400 active:bg-red-500"
+            tabIndex={0} // for focus to work
           >
-            list {item}
+            list {index + 1}
           </li>
         ))}
       </ul>
+
+      <div className="rounded-[10px] p-4 text-white">Random BG Color</div>
     </div>
   );
 }

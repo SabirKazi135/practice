@@ -1,17 +1,25 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+import plugin from 'tailwindcss/plugin';
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      colors: {
-        deepNight: '#0f002b', // custom name for --clr-bg
-        creamWhite: '#FAFAFA', // custom name for --clr-text
-        sunsetOrange: '#ff960b', // custom name for --clr-accent
-      },
-      fontWeight: {
-        bolder: '900',
-      },
-    },
+    extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities }) {
+      matchUtilities(
+        {
+          xbg: (value) => ({
+            backgroundColor: value,
+          }),
+        },
+        {
+          // Allow arbitrary values like #123456
+          values: {}, // leave empty to enable arbitrary values
+          type: ['color'],
+        },
+      );
+    }),
+  ],
 };
