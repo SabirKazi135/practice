@@ -1,9 +1,4 @@
-import { useState } from 'react';
-
 export default function App() {
-  const [selected, setSelected] = useState('home');
-  const [selected2, setSelected2] = useState('home');
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10 text-white">
       <ul className="w-40 bg-slate-700 p-3">
