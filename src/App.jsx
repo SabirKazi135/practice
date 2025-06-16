@@ -1,18 +1,15 @@
 import { useState } from 'react';
+
 export default function App() {
-  const [touched, setTouched] = useState(false);
+  const [text, setText] = useState('');
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[] bg-slate-900 p-10">
-      <form className="space-x-4 space-y-4">
-        <input
-          type="email"
-          required
-          onBlur={() => setTouched(true)} // mark as touched
-          className={`border-2 px-4 py-2 ${
-            touched ? 'invalid:border-red-500' : ''
-          }`}
-        />
-      </form>
+    <div className="flex min-h-screen items-center justify-center bg-slate-900 p-10">
+      <input
+        readOnly
+        value="Can't change this"
+        className="border-2 p-2 read-only:bg-gray-200"
+      />
     </div>
   );
 }
