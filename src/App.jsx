@@ -10,6 +10,9 @@ export default function App() {
       <div className="rounded bg-gray-200 px-4 py-2 text-black dark:bg-purple-700 dark:text-white">
         🔸 With `dark:` — Light in day, Purple in dark mode
       </div>
+
+      <div className="rounded bg-gray-200 px-4 py-2 text-black ">light even in dark mode</div>
+      <div className="rounded bg-gray-200 px-4 py-2 text-black da">switches in dark mode</div>
     </div>
   );
 }
