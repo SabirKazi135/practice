@@ -13,6 +13,12 @@ export default function App() {
         - Pink in portrait 📱
         <br />- Blue in landscape 🖼️
       </div>
+
+      <div className="roun bg-gray-300 px-4 py-2 text-black">
+        No orientation styling
+      </div>
+
+      <div>Orientation Styling</div>
     </div>
   );
 }
