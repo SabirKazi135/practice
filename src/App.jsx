@@ -4,7 +4,9 @@ export default function App() {
       <button className="relative rounded bg-blue-600 px-5 py-3 text-white transition-all duration-300 after:ml-2 after:inline-block after:content-['⬇️'] hover:after:translate-x-1">
         Download Now
       </button>
-      <button className="">Download Now</button>
+      <button className="relative rounded bg-blue-600 px-5 py-3 text-white transition-all duration-300 after:ml-2 after:inline-block after:content-['⬇️'] hover:after:translate-x-1">
+        Download Now
+      </button>
     </div>
   );
 }
