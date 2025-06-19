@@ -1,14 +1,17 @@
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-gray-900 p-10 text-white">
-      {/* 🔹 Without motion-reduce — always animates */}
-      <div className="animate-bounce rounded bg-blue-600 px-4 py-2">
-        🔹 Always Bouncing
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-10 text-white">
+      {/* 🔹 No orientation-based styling */}
+      <div className="rounded bg-gray-300 px-4 py-2 text-black">
+        🔹 No orientation: Always gray
       </div>
 
-      {/* 🔸 With motion-reduce fallback — disables animation if OS setting is enabled */}
-      <div className="animate-bounce rounded bg-green-600 px-4 py-2 motion-reduce:animate-none">
-        🔸 Stops Bouncing (if prefers-reduced-motion is ON)
+      {/* 🔸 Responsive to screen orientation */}
+      <div className="rounded bg-green-400 px-4 py-2 portrait:bg-pink-500 landscape:bg-blue-600">
+        🔸 Orientation-aware:
+        <br />
+        - Pink in portrait 📱
+        <br />- Blue in landscape 🖼️
       </div>
     </div>
   );
