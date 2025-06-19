@@ -14,11 +14,13 @@ export default function App() {
         <br />- Blue in landscape 🖼️
       </div>
 
-      <div className="roun bg-gray-300 px-4 py-2 text-black">
+      <div className="rounded bg-gray-300 px-4 py-2 text-black">
         No orientation styling
       </div>
 
-      <div>Orientation Styling</div>
+      <div className="rounded px-4 py-2 portrait:bg-red-600 landscape:bg-green-600">
+        Orientation Styling
+      </div>
     </div>
   );
 }
