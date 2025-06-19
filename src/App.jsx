@@ -9,6 +9,12 @@ export default function App() {
       >
         Visit Example
       </a>
+      <a
+        href="https://example.com"
+        className="text-blue-500 visited:text-purple-600"
+      >
+        Visit Example
+      </a>
     </div>
   );
 }
