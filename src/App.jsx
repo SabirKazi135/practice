@@ -1,26 +1,23 @@
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-10 text-white">
-      {/* 🔹 No orientation-based styling */}
-      <div className="rounded bg-gray-300 px-4 py-2 text-black">
-        🔹 No orientation: Always gray
-      </div>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-gray-800 p-10 text-white">
+      {/* 🔹 No [open] styling */}
+      <details className="w-80 rounded border border-white p-4">
+        <summary className="cursor-pointer text-lg">
+          🔹 No [open] styling
+        </summary>
+        <p className="mt-2 text-white/80">This always looks the same.</p>
+      </details>
 
-      {/* 🔸 Responsive to screen orientation */}
-      <div className="rounded bg-green-400 px-4 py-2 portrait:bg-pink-500 landscape:bg-blue-600">
-        🔸 Orientation-aware:
-        <br />
-        - Pink in portrait 📱
-        <br />- Blue in landscape 🖼️
-      </div>
-
-      <div className="rounded bg-gray-300 px-4 py-2 text-black">
-        No orientation styling
-      </div>
-
-      <div className="rounded px-4 py-2 portrait:bg-red-600 landscape:bg-green-600">
-        Orientation Styling
-      </div>
+      {/* 🔸 With visible [open] styling on <summary> */}
+      <details className="[open]>summary:bg-purple-800 [open]>summary:text-white w-80 rounded border border-white p-0 transition-all duration-300">
+        <summary className="cursor-pointer p-4 text-lg">
+          🔸 Styled when open
+        </summary>
+        <p className="mt-2 px-4 pb-4 text-white/80">
+          Now you can clearly see the background + text change when open.
+        </p>
+      </details>
     </div>
   );
 }
