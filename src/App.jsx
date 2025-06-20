@@ -16,6 +16,19 @@ export default function App() {
           ).
         </p>
       </div>
+
+      <div className="container mx-auto bg-green-200 p-4 text-black">
+        <h1 className="text-xl font-bold">Welcome to My Blog</h1>
+        <p>
+          This text is easy to read because it’s not stretched across the whole
+          screen.
+        </p>
+      </div>
+
+      <div className="w-full bg-red-200 p-4 text-black">
+        <h1 className="text-xl font-bold">Welcome to My Blog</h1>
+        <p>This is hard to read. It goes all the way across the screen.</p>
+      </div>
     </div>
   );
 }
