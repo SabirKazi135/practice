@@ -3,7 +3,7 @@ import plugin from 'tailwindcss/plugin';
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class', // enable class-based dark mode
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -15,10 +15,17 @@ export default {
     plugin(function ({ addBase }) {
       addBase({
         ':root': {
-          '--color-primary': '59 130 246', // blue-500 for light mode
+          '--color-primary': '59 130 246',
+          '--font-title': '2rem',
+          '--font-body': '1rem',
+          '--space-sm': '0.5rem',
+          '--space-md': '1rem',
+          '--space-lg': '2rem',
+          '--radius-sm': '4px',
+          '--radius-lg': '12px',
         },
         '.dark': {
-          '--color-primary': '147 51 234', // purple-600 for dark mode
+          '--color-primary': '147 51 234',
         },
       });
     }),
