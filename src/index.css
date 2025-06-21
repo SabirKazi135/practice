@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --color-brand: oklch(0.7 0.18 240);
-  --font-title: 'Satoshi', sans-serif;
-}
-
-h1 {
-  @apply text-3xl font-[var(--font-title)] text-[var(--color-brand)];
+@utility text-shadow-lg {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
