@@ -4,22 +4,11 @@ import plugin from 'tailwindcss/plugin';
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#3b82f6', // blue-500
+      },
+    },
   },
-  plugins: [
-    plugin(function ({ matchUtilities }) {
-      matchUtilities(
-        {
-          xbg: (value) => ({
-            backgroundColor: value,
-          }),
-        },
-        {
-          // Allow arbitrary values like #123456
-          values: {}, // leave empty to enable arbitrary values
-          type: ['color'],
-        },
-      );
-    }),
-  ],
+  plugins: [],
 };
