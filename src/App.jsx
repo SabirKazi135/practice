@@ -5,6 +5,9 @@ export default function App() {
 
   useEffect(() => {
     // The code We Want to Run
+    console.log(`The Count is:`, count);
+
+    // return()
   }, []); //The dependency
 
   return (
