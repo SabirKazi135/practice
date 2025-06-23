@@ -6,18 +6,30 @@ export default {
     extend: {},
   },
   plugins: [
-    plugin(function ({ addUtilities }) {
+    plugin(function ({ addUtilities, addComponents, addVariant }) {
+      // Utility + Component examples
       addUtilities({
-        '.text-shadow-sm': {
-          'text-shadow': '1px 1px 2px rgba(0,0,0,0.1)',
-        },
-        '.text-shadow-lg': {
-          'text-shadow': '2px 2px 8px rgba(0,0,0,0.3)',
-        },
         '.glow': {
-          'box-shadow': '0 0 10px rgba(255, 255, 255, 0.6)',
+          'box-shadow': '0 0 40px 10px rgba(0, 255, 0, 1)',
         },
       });
+
+      addComponents({
+        '.btn': {
+          padding: '0.5rem 1rem',
+          backgroundColor: '#2563eb',
+          color: 'white',
+          borderRadius: '0.375rem',
+          fontWeight: '600',
+          display: 'inline-block',
+          '&:hover': {
+            backgroundColor: '#1d4ed8',
+          },
+        },
+      });
+
+      // ✅ Our custom variant: `alt-hover:`
+      addVariant('alt-hover', '&.alt:hover &');
     }),
   ],
 };
