@@ -7,8 +7,10 @@ export default function App() {
     // The code We Want to Run
     console.log(`The Count is:`, count);
 
-    // return()
-  }, []); //The dependency
+    return () => {
+      console.log(`I m getting Clean no:`, count);
+    };
+  }, [count]); //The dependency
 
   return (
     <div className="flex h-screen items-center justify-center bg-slate-600">
