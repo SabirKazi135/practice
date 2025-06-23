@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { useState, useEffect } from 'react';
-
-// import App from './App.jsx';
-import './index.css';
 
 function App() {
-  console.log('direct');
-  useEffect(() => {
-    console.log('inside');
+  const [count, setCount] = useState(0);
 
-    return () => {};
+  console.log('🟢 Render: count =', count);
+
+  useEffect(() => {
+    console.log('🔵 useEffect ran: count =', count);
   }, []);
 
-  return <h1> seconds</h1>;
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
