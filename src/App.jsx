@@ -1,7 +1,7 @@
 export default function App() {
   return (
-    <div>
-      <h1>HEllo</h1>
+    <div className="flex h-screen items-center justify-center bg-slate-600">
+      <div className="animate-wiggle h-36 w-36 bg-red-400"></div>
     </div>
   );
 }
