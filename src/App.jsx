@@ -1,53 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
-
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+import { useState } from 'react';
 
 export default function App() {
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [posts, setPosts] = useState([]);
-  const [page, setPage] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gray-700 p-6">
-      <div className="mx-auto max-w-3xl rounded-xl bg-gray-400 p-6 shadow-lg">
-        <h1 className="mb-6 text-3xl font-bold text-blue-700">
-          📦 Data Fetching in React
-        </h1>
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+      <div className="w-full max-w-sm space-y-6 rounded-xl bg-white p-8 text-center shadow-lg dark:bg-gray-800">
+        <h1 className="text-3xl font-bold">🔢 Count: {count}</h1>
 
-        <div className="mb-4 flex items-center gap-4">
+        <div className="flex justify-center gap-4">
           <button
-            onClick={() => setPage((prev) => Math.max(0, prev - 1))}
-            className="rounded bg-gray-200 px-4 py-2 font-medium text-gray-800 hover:bg-gray-300 disabled:opacity-50"
-            disabled={page === 0}
+            onClick={() => setCount(count - 1)}
+            className="rounded bg-red-500 px-4 py-2 font-semibold text-white transition hover:bg-red-600"
           >
-            ⬅ Prev
+            ➖ Decrement
           </button>
 
           <button
-            onClick={() => setPage((prev) => prev + 1)}
-            className="rounded bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600"
+            onClick={() => setCount(count + 1)}
+            className="rounded bg-green-500 px-4 py-2 font-semibold text-white transition hover:bg-green-600"
           >
-            ➕ Next Page ({page + 1})
+            ➕ Increment
           </button>
         </div>
-
-        {isLoading ? (
-          <div className="text-center font-medium text-blue-600">
-            Loading...
-          </div>
-        ) : (
-          <ul className="list-inside list-disc space-y-2 text-gray-800">
-            {posts.map((post) => (
-              <li
-                key={post.id}
-                className="rounded border border-gray-200 bg-gray-50 p-3 shadow-sm hover:bg-blue-50"
-              >
-                {post.title}
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>
   );
