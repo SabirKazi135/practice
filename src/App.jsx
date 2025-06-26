@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { initialItems } from './utils';
 
 function App() {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
-  const selectedItem = items.find((item) => item.isSelected);
+  const selectedItem = useMemo(() => items.find((item) => item.isSelected), []);
 
   return (
     <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
