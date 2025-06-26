@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DashboardContext } from './context';
+import { DashboardContext } from './context.jsx';
 import Dashboard from './Dashboard';
 
 export default function Demo() {
