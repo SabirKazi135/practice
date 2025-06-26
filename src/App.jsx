@@ -13,7 +13,7 @@ export default function App() {
     }
 
     return () => {
-      clearTimeout(intervalId);
+      clearInterval(intervalId);
       console.log('stoped');
     };
   }, [isRunning]);
@@ -24,7 +24,16 @@ export default function App() {
     >
       <div>{count}</div>
 
-      <button onClick={() => setIsRunning(false)}>cancel</button>
+      <button onClick={() => setIsRunning(false)}>pause</button>
+      <button onClick={() => setIsRunning(true)}>start</button>
+      <button
+        onClick={() => {
+          setIsRunning(false);
+          setCount(0);
+        }}
+      >
+        reset
+      </button>
     </div>
   );
 }
