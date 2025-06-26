@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 export default function Demo() {
   const [user] = useState({
     isSubscribed: true,
-    name: 'You',
+    name: 'Sabir Kazi',
   });
 
   return (
