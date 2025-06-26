@@ -1,21 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log('Hello from use useEffect');
-
-    return () => {};
-  }, []);
-
-  useEffect(() => {
-    console.log('Counter updated:', count);
-
-    return () => {
-      console.log('switching between two components', count);
-    };
-  }, [count]);
+  const [userName, setUserName] = useState(0);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
