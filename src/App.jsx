@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { initialItems } from './utils';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(29_999_900);
   const [items] = useState(initialItems);
 
   const selectedItem = useMemo(
