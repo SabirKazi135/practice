@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <div className=''>
+      <div className="space-x-4">
         <button onClick={() => setCount(count + 1)}>increament</button>
         <button onClick={() => setCount(count + 1)}>decreament</button>
       </div>
