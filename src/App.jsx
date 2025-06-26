@@ -9,6 +9,12 @@ export default function App() {
     return () => {};
   }, []);
 
+  useEffect(() => {
+    console.log('Counter updated:', count);
+
+    return () => {};
+  }, []);
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <div className="space-x-4">
