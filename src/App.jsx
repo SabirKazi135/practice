@@ -5,7 +5,10 @@ function App() {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
-  const selectedItem = useMemo(() => items.find((item) => item.isSelected), []);
+  const selectedItem = useMemo(
+    () => items.find((item) => item.isSelected),
+    [items],
+  );
 
   return (
     <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
