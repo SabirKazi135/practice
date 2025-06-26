@@ -12,8 +12,10 @@ export default function App() {
   useEffect(() => {
     console.log('Counter updated:', count);
 
-    return () => {};
-  }, []);
+    return () => {
+      console.log('switching between two components', count);
+    };
+  }, [count]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
