@@ -1,39 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
+import { initialItems } from './utils';
 
-export default function App() {
+function Demo() {
   const [count, setCount] = useState(0);
-  const [isRunning, setIsRunning] = useState(true);
+  const [items] = useState(initialItems);
 
-  useEffect(() => {
-    let intervalId;
-    if (isRunning) {
-      intervalId = setInterval(() => {
-        setCount((c) => c + 1);
-      }, 1000);
-    }
-
-    return () => {
-      clearInterval(intervalId);
-      console.log('stoped');
-    };
-  }, [isRunning]);
+  const selectedItem = items.find((item) => item.isSelected);
 
   return (
-    <div
-      className={`flex min-h-screen items-center justify-center space-x-5 bg-gray-900 p-6 text-gray-100`}
-    >
-      <div>{count}</div>
-
-      <button onClick={() => setIsRunning(false)}>pause</button>
-      <button onClick={() => setIsRunning(true)}>start</button>
-      <button
-        onClick={() => {
-          setIsRunning(false);
-          setCount(0);
-        }}
-      >
-        reset
-      </button>
+    <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
+      <div>
+        <h1>Count: {count}</h1>
+        <h1>Selected Item: {selectedItem?.id}</h1>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+      </div>
     </div>
   );
 }
+
+export default Demo;
