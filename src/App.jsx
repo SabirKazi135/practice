@@ -6,8 +6,8 @@ function App() {
   const [items] = useState(initialItems);
 
   const selectedItem = useMemo(
-    () => items.find((item) => item.isSelected),
-    [items],
+    () => items.find((item) => item.id === count),
+    [items, count],
   );
 
   return (
