@@ -2,25 +2,29 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const [isRunning, setIsRunning] = useState(true);
 
   useEffect(() => {
-    console.log('Hello from use useEffect');
-  }, []);
-
-  useEffect(() => {
-    console.log('Counter updated:', count);
+    let intervalId;
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setCount((c) => c + 1);
+      }, 1000);
+    }
 
     return () => {
-      console.log('switching between two components', count);
+      clearTimeout(intervalId);
+      console.log('stoped');
     };
-  }, [count]);
+  }, [isRunning]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <div className="space-x-4">
-        <button onClick={() => setCount(count + 1)}>increament</button>
-        <button onClick={() => setCount(count + 1)}>decreament</button>
-      </div>
+    <div
+      className={`flex min-h-screen items-center justify-center space-x-5 bg-gray-900 p-6 text-gray-100`}
+    >
+      <div>{count}</div>
+
+      <button onClick={() => setIsRunning(false)}>cancel</button>
     </div>
   );
 }
