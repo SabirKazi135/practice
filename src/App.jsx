@@ -1,13 +1,15 @@
-import Demo from './Demo';
+// src/App.jsx
+import { createContext, useEffect, useState } from 'react';
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState('Sabir Kazi');
+  const UserContext = createContext();
+
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
-      <div className="space-y-4 rounded-xl bg-gray-800 p-8 shadow-lg">
-        <Demo />
-      </div>
+    <div className="min-h-screen bg-[#0f0f1a] p-6 text-white">
+      <UserContext value={user}>
+        <h1>Hello {user} from stage 1</h1>
+      </UserContext>
     </div>
   );
 }
-
-export default App;
