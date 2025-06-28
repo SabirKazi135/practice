@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MyContext } from './context.js';
 import C1 from './c1.jsx';
 import C2 from './c2.jsx';
+import Cg from './change.jsx';
 export default function App() {
   const [email, setEmail] = useState('sabirkazi135@gmail.com');
   const [name, setName] = useState('sabir kazi');
@@ -16,6 +17,7 @@ export default function App() {
         <h1>Hello </h1>
         <C1 />
         <C2 />
+        <Cg />
         <button
           className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
           onClick={() => setDarkMode((prev) => !prev)}
