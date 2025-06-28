@@ -6,6 +6,7 @@ import Cg from './change.jsx';
 export default function App() {
   const [email, setEmail] = useState('sabirkazi135@gmail.com');
   const [name, setName] = useState('sabir kazi');
+  const [count, setCount] = useState(0);
   const [isDarkMode, setDarkMode] = useState(true);
   return (
     <MyContext.Provider
