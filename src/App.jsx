@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { MyContext, useEmail, useName } from './context.js';
+import { MyContext } from './context.js';
 import C1 from './c1.jsx';
 import C2 from './c2.jsx';
 export default function App() {
+  const [email, setEmail] = useState('sabirkazi135@gmail.com');
+  const [name, setName] = useState('sabir kazi');
   const [isDarkMode, setDarkMode] = useState(true);
   return (
-    <MyContext.Provider value={{ isDarkMode, setDarkMode }}>
+    <MyContext.Provider
+      value={{ isDarkMode, setDarkMode, name, setName, email, setEmail }}
+    >
       <div
         className={`flex h-screen flex-col items-center justify-center ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-900'} p-6`}
       >

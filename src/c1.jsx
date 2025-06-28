@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { MyContext, useEmail, useName } from './context.js';
+import { MyContext } from './context.js';
 
 function C1() {
   const { isDarkMode, setDarkMode } = useContext(MyContext);
