@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { MyContext } from './context.js';
 function Cg() {
-  const { isDarkMode, name, email, setName, setEmail } = useContext(MyContext);
+  const { isDarkMode, name, email, setName, setEmail, count, setCount } =
+    useContext(MyContext);
 
   function changeName(e) {
     setName(e.target.value);
@@ -28,6 +29,7 @@ function Cg() {
         onChange={(e) => changeEmail(e)}
         className={`${isDarkMode ? 'bg-purple-500 text-black' : 'bg-gray-500 text-white'} `}
       />
+      <button onClick={() => setCount(0)}>reset</button>
     </div>
   );
 }

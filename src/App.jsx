@@ -10,7 +10,7 @@ export default function App() {
   const [isDarkMode, setDarkMode] = useState(true);
   return (
     <MyContext.Provider
-      value={{ isDarkMode, setDarkMode, name, setName, email, setEmail }}
+      value={{ isDarkMode, setDarkMode, name, setName, email, setEmail, count, setCounts }}
     >
       <div
         className={`flex h-screen flex-col items-center justify-center ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-900'} p-6`}
@@ -25,6 +25,7 @@ export default function App() {
         >
           Toggle Dark Mode
         </button>
+        <div>Count: {count}</div>
       </div>
     </MyContext.Provider>
   );
