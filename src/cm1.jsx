@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 import Cm2 from './cm2';
 
 export const UserContext = createContext();
-export default function App() {
+export default function Cm1() {
   const [user, setUser] = useState('Sabir Kazi');
 
   return (
