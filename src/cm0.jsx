@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { UserContext } from './UserContext.js';
-
+import { UserContext } from './UserContext';
 import Cm1 from './cm1';
 import Cm2 from './cm2';
 import Cm3 from './cm3';
