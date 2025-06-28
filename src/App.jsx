@@ -11,7 +11,7 @@ export default function App() {
       >
         <h1>Hello </h1>
         <C1 />
-        <Cc2 />
+        <C2 />
         <button
           className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
           onClick={() => setDarkMode((prev) => !prev)}

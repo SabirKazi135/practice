@@ -5,7 +5,7 @@ function C2() {
 
   return (
     <div
-      className={`flex h-screen flex-col items-center justify-center ${isDarkMode ? 'text-gray-yellow bg-gray-900' : 'bg-gray-100 text-gray-900'} p-6`}
+      className={`flex h-screen flex-col items-center justify-center ${isDarkMode ? 'bg-gray-900 text-yellow-500' : 'bg-gray-100 text-gray-900'} p-6`}
     >
       <h1>Hello</h1>
     </div>
