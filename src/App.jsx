@@ -13,23 +13,16 @@ export default function App() {
   };
 
   return (
-    <div className="tutorial">
-      Count: {count}
-      <button onClick={handleIncrement}>Increment</button>
-    </div>
-  );
-}
-
-export function Demo2() {
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
-  return (
-    <div className="h-screen bg-gray-900 p-6 text-white">
-      <button>Increament</button>
+    <div className="flex h-screen flex-col items-center justify-center bg-gray-900 p-6 text-white">
+      <div className="mb-4 text-3xl font-semibold">
+        Count: <span className="text-yellow-400">{count}</span>
+      </div>
+      <button
+        onClick={handleIncrement}
+        className="rounded-lg bg-yellow-500 px-6 py-2 font-bold text-black transition duration-300 hover:bg-yellow-600"
+      >
+        Increment
+      </button>
     </div>
   );
 }
