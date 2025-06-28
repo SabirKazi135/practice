@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MyContext } from './context.js';
+import { MyContext, useEmail, useName } from './context.js';
 import C1 from './c1.jsx';
 import C2 from './c2.jsx';
 export default function App() {
