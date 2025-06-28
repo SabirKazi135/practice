@@ -7,7 +7,7 @@ function Cg() {
     setName(e.target.value);
   }
   function changeEmail(e) {
-    setName(e.target.value);
+    setEmail(e.target.value);
   }
   return (
     <div
