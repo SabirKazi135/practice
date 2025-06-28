@@ -5,17 +5,17 @@ export default function App() {
   const countRef = useRef(0);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    // setCount(count + 1);
     countRef.current++;
 
-    console.log('State:', count);
+    // console.log('State:', count);
     console.log('Ref:', countRef.current);
   };
 
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-gray-900 p-6 text-white">
       <div className="mb-4 text-3xl font-semibold">
-        Count: <span className="text-yellow-400">{count}</span>
+        Count: <span className="text-yellow-400">{countRef.current}</span>
       </div>
       <button
         onClick={handleIncrement}
