@@ -12,17 +12,23 @@ export default function App() {
   function handleClick1() {
     inputRef1.current.focus();
     inputRef1.current.style.backgroundColor = 'yellow';
+    inputRef2.current.style.backgroundColor = 'white';
+    inputRef3.current.style.backgroundColor = 'white';
   }
   function handleClick2() {
     inputRef2.current.focus();
+    inputRef1.current.style.backgroundColor = 'white';
     inputRef2.current.style.backgroundColor = 'yellow';
+    inputRef3.current.style.backgroundColor = 'white';
   }
   function handleClick3() {
     inputRef3.current.focus();
+    inputRef1.current.style.backgroundColor = 'white';
+    inputRef2.current.style.backgroundColor = 'white';
     inputRef3.current.style.backgroundColor = 'yellow';
   }
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-900 p-6 text-gray-100">
+    <div className="flex h-screen flex-col items-center justify-center bg-gray-900 p-6 text-gray-100">
       <button onClick={handleClick1}>Click Me</button>
       <input type="text" ref={inputRef1} />
       <button onClick={handleClick2}>Click Me</button>
