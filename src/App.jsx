@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 export default function App() {
   const [number, setNumber] = useState(0);
 
-  
+  useEffect(() => {
+    console.log('Component rendered');
+  });
 
   function handleClick() {
     setNumber((n) => n + 1);
