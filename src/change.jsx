@@ -11,7 +11,7 @@ function Cg() {
   }
   return (
     <div
-      className={`flex h-screen flex-col items-center justify-center gap-4 ${isDarkMode ? 'bg-gray-900 text-purple-500' : 'bg-gray-100 text-gray-900'} p-6`}
+      className={`flex flex-col items-center justify-center gap-4 ${isDarkMode ? 'bg-gray-900 text-purple-500' : 'bg-gray-100 text-gray-900'} p-6`}
     >
       <h1>Hello</h1>
       <p>Email: {email}</p>
