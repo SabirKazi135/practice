@@ -28,8 +28,8 @@ export function Demo2() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0f0f1a] p-6 text-white">
-      <input ref={inputRef} type="text" placeholder="Type something..." />
+    <div className="h-screen bg-gray-900 p-6 text-white">
+      <button>Increament</button>
     </div>
   );
 }
