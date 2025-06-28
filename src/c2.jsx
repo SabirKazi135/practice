@@ -2,8 +2,7 @@ import { useContext } from 'react';
 import { MyContext } from './context.js';
 function C2() {
   const { isDarkMode, setDarkMode } = useContext(MyContext);
-  const email = useContext(MyContext);
-  const name = useContext(MyContext);
+  const { name, email } = useContext(MyContext);
 
   return (
     <div
