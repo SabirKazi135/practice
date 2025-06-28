@@ -5,7 +5,7 @@ export default function App() {
   const countRef = useRef(0);
 
   const handleIncrement = () => {
-    // setCount(count + 1);
+    setCount(count + 1);
     countRef.current++;
 
     // console.log('State:', count);
@@ -23,6 +23,20 @@ export default function App() {
       >
         Increment
       </button>
+    </div>
+  );
+}
+
+export function Demo2() {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  return (
+    <div className="tutorial">
+      <input ref={inputRef} type="text" placeholder="Type something..." />
     </div>
   );
 }
