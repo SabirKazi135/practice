@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import UserContext from './UserContext.js';
+import { UserContext } from './UserContext.js';
 
 function Cm3() {
   const user3 = useContext(UserContext);
