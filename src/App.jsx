@@ -6,9 +6,9 @@ function App() {
     input.current?.focus();
   });
 
-  function clicked(\) {
-    click.current++
-    console.log("Button CLiked : ", click.current);
+  function clicked() {
+    click.current++;
+    console.log('Button CLiked : ', click.current);
   }
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
