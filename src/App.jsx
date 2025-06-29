@@ -19,7 +19,12 @@ function App() {
         className="rounded-md bg-gray-400 px-5 py-2 text-base text-gray-100 placeholder:text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
       />
 
-      <button onClick={() => clicked()}>Click</button>
+      <button
+        className="rounded-[6px] bg-blue-400 px-4 py-1 text-xl"
+        onClick={() => clicked()}
+      >
+        Click
+      </button>
     </div>
   );
 }
