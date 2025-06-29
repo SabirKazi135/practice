@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from 'react';
 export default function App() {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
-  // const inputRef = useRef(null);
+  const inputRef = useRef(null);
 
-  const handleIncrement = () => {
-    setCount(count + 1);
-    countRef.current++;
+  // const handleIncrement = () => {
+  //   setCount(count + 1);
+  //   countRef.current++;
 
-    // console.log('State:', count);
-    console.log('Ref:', countRef.current);
-  };
+  //   // console.log('State:', count);
+  //   console.log('Ref:', countRef.current);
+  // };
 
   // useEffect(() => {
   //   inputRef.current?.focus();
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
       {/* Counter Section */}
-      <div className="w-full max-w-md space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-md">
+      {/* <div className="w-full max-w-md space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-md">
         <h2 className="text-xl font-semibold">Counter</h2>
         <p className="text-lg">State: {countRef.current}</p>
         <p className="text-sm text-gray-400">Ref (live): {countRef.current}</p>
@@ -30,10 +30,10 @@ export default function App() {
         >
           Increment
         </button>
-      </div>
+      </div> */}
 
       {/* Input Section */}
-      {/* <div className="w-full max-w-md space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-md">
+      <div className="w-full max-w-md space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-md">
         <h2 className="text-xl font-semibold">Auto-Focus Input</h2>
         <input
           ref={inputRef}
@@ -41,7 +41,7 @@ export default function App() {
           placeholder="Type something..."
           className="w-full rounded-lg border border-gray-700 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-      </div> */}
+      </div>
     </div>
   );
 }
