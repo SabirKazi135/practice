@@ -1,41 +1,46 @@
 import { useReducer } from 'react';
 
-function reducer(state, action) {
-  const { type } = action;
+// function reducer(state, action) {
+//   const { type } = action;
 
-  switch (type) {
-    case 'increment': {
-      const newCount = state.count + 1;
-      const hasError = newCount > 5;
-      return {
-        ...state,
-        count: hasError ? state.count : newCount,
-        error: hasError ? 'Maximum reached' : null,
-      };
-    }
-    case 'decrement': {
-      const newCount = state.count - 1;
-      const hasError = newCount < 0;
-      return {
-        ...state,
-        count: hasError ? state.count : newCount,
-        error: hasError ? 'Minimum reached' : null,
-      };
-    }
-    default:
-      return state;
-  }
-}
+//   switch (type) {
+//     case 'increment': {
+//       const newCount = state.count + 1;
+//       const hasError = newCount > 5;
+//       return {
+//         ...state,
+//         count: hasError ? state.count : newCount,
+//         error: hasError ? 'Maximum reached' : null,
+//       };
+//     }
+//     case 'decrement': {
+//       const newCount = state.count - 1;
+//       const hasError = newCount < 0;
+//       return {
+//         ...state,
+//         count: hasError ? state.count : newCount,
+//         error: hasError ? 'Minimum reached' : null,
+//       };
+//     }
+//     default:
+//       return state;
+//   }
+// }
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, {
+  // const [state, dispatch] = useReducer(reducer, {
+  //   count: 0,
+  //   error: null,
+  // });
+
+  const [state, dipatch] = useReducer(reducer, {
     count: 0,
     error: null,
   });
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-900 p-6 text-white">
-      <div className="w-full max-w-sm space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-lg">
+      {/* <div className="w-full max-w-sm space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-lg">
         <h1 className="text-2xl font-semibold">useReducer Counter</h1>
         <div className="text-xl">Count: {state.count}</div>
         {state.error && <div className="text-red-500">{state.error}</div>}
@@ -53,6 +58,11 @@ export default function App() {
             Decrement
           </button>
         </div>
+      </div> */}
+      <div>
+        <h1>useReducer Counter</h1>
+        <div>Count: {state.count}</div>
+        {state.error && <div className="text-red-500">{state.error}</div>}
       </div>
     </div>
   );
