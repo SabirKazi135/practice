@@ -27,6 +27,33 @@ import { useReducer } from 'react';
 //   }
 // }
 
+function reducer(state, action) {
+  const { type } = action;
+
+  switch (type) {
+    case 'increment': {
+      const newCount = state.count + 1;
+      const hasError = newCount > 5;
+      return {
+        ...state,
+        count: hasError ? state.count : ' newCount',
+        error: hasError ? 'Maximum count' : null,
+      };
+    }
+    case 'decrement': {
+      const newCount = state.count - 1;
+      const hasError = newCount < 0;
+      return {
+        ...state,
+        count: hasError ? state.count : ' newCount',
+        error: hasError ? 'Minimum count' : null,
+      };
+    }
+
+    default:
+      return state;
+  }
+}
 export default function App() {
   // const [state, dispatch] = useReducer(reducer, {
   //   count: 0,
@@ -63,6 +90,7 @@ export default function App() {
         <h1>useReducer Counter</h1>
         <div>Count: {state.count}</div>
         {state.error && <div className="text-red-500">{state.error}</div>}
+        
       </div>
     </div>
   );
