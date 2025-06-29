@@ -6,10 +6,10 @@ export default function App() {
   // const inputRef = useRef(null);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    // setCount(count + 1);
     countRef.current++;
 
-    console.log('State:', count);
+    // console.log('State:', count);
     console.log('Ref:', countRef.current);
   };
 
@@ -22,7 +22,7 @@ export default function App() {
       {/* Counter Section */}
       <div className="w-full max-w-md space-y-4 rounded-2xl bg-gray-800 p-6 text-center shadow-md">
         <h2 className="text-xl font-semibold">Counter</h2>
-        <p className="text-lg">State: {count}</p>
+        <p className="text-lg">State: {countRef.current}</p>
         <p className="text-sm text-gray-400">Ref (live): {countRef.current}</p>
         <button
           onClick={handleIncrement}
