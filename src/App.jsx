@@ -36,7 +36,7 @@ function reducer(state, action) {
       const hasError = newCount > 5;
       return {
         ...state,
-        count: hasError ? state.count : ' newCount',
+        count: hasError ? state.count : newCount,
         error: hasError ? 'Maximum count' : null,
       };
     }
@@ -45,7 +45,7 @@ function reducer(state, action) {
       const hasError = newCount < 0;
       return {
         ...state,
-        count: hasError ? state.count : ' newCount',
+        count: hasError ? state.count : newCount,
         error: hasError ? 'Minimum count' : null,
       };
     }
@@ -90,7 +90,12 @@ export default function App() {
         <h1>useReducer Counter</h1>
         <div>Count: {state.count}</div>
         {state.error && <div className="text-red-500">{state.error}</div>}
-        
+        <button onClick={() => dipatch({ type: 'increment' })}>
+          increment
+        </button>
+        <button onClick={() => dipatch({ type: 'decrement' })}>
+          decrement
+        </button>
       </div>
     </div>
   );
