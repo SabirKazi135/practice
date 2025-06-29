@@ -13,7 +13,10 @@ function App() {
     console.log('Button CLiked : ', click.current);
   }
 
-  function increament() {}
+  function increament() {
+    countRef.current = count;
+    setCount((c) => c + 1);
+  }
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
       <input
