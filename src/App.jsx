@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 function App() {
   const input = useRef(null);
   const click = useRef(0);
+  const  = ;
   useEffect(() => {
     input.current?.focus();
   });
@@ -9,6 +10,10 @@ function App() {
   function clicked() {
     click.current++;
     console.log('Button CLiked : ', click.current);
+  }
+
+  function increament() {
+    
   }
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
@@ -25,6 +30,7 @@ function App() {
       >
         Click
       </button>
+      <button onClick={()=> increament()}>Increament</button>
     </div>
   );
 }
