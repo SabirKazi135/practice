@@ -13,9 +13,9 @@ export default function App() {
   //   console.log('Ref:', countRef.current);
   // };
 
-  // useEffect(() => {
-  //   inputRef.current?.focus();
-  // }, []);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
@@ -39,7 +39,7 @@ export default function App() {
           ref={inputRef}
           type="text"
           placeholder="Type something..."
-          className="w-full rounded-lg border border-gray-700 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-700 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
       </div>
     </div>
