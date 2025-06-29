@@ -16,6 +16,7 @@ function App() {
   function increament() {
     countRef.current = count;
     setCount((c) => c + 1);
+    console.log('Ref count: ', countRef.current);
   }
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5 bg-gray-900 p-6 text-gray-100">
