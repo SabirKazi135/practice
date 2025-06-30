@@ -9,7 +9,6 @@ export default function App() {
 
   // ✅ Regular function instead of useCallback
   const handleSearch = (text) => {
-    console.log(users[0]);
 
     const filteredUsers = allUsers.filter((user) =>
       user.toLowerCase().includes(text.toLowerCase()),
