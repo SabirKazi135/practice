@@ -8,13 +8,12 @@ export default function App() {
   const [users, setUsers] = useState(allUsers);
 
   // ✅ Regular function instead of useCallback
-  const handleSearch = (text) => {
-
+  const handleSearch = useCallback((text) => {
     const filteredUsers = allUsers.filter((user) =>
       user.toLowerCase().includes(text.toLowerCase()),
     );
     setUsers(filteredUsers);
-  };
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center space-y-8 bg-gray-900 p-6 text-white">
