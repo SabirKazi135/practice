@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { shuffle } from '@/utils';
 import Search from './Search';
+import { User } from 'lucide-react';
 
 const allUsers = ['john', 'alex', 'george', 'simon', 'james'];
 
@@ -8,12 +9,16 @@ export default function App() {
   const [users, setUsers] = useState(allUsers);
 
   // ✅ Regular function instead of useCallback
-  const handleSearch = useCallback((text) => {
-    const filteredUsers = allUsers.filter((user) =>
-      user.toLowerCase().includes(text.toLowerCase()),
-    );
-    setUsers(filteredUsers);
-  }, []);
+  const handleSearch = useCallback(
+    (text) => {
+      console.log(users[0]);
+      const filteredUsers = allUsers.filter((user) =>
+        user.toLowerCase().includes(text.toLowerCase()),
+      );
+      setUsers(filteredUsers);
+    },
+    [users],
+  );
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center space-y-8 bg-gray-900 p-6 text-white">
