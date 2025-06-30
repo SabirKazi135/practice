@@ -1,34 +1,42 @@
-import { useState, memo } from 'react';
+import { useCallback, useState } from 'react';
+import { shuffle } from '@/utils';
+import Search from './Search';
 
-// Styled Search Component
-function Search({ onChange }) {
-  console.log('Search rendered!');
+const allUsers = ['john', 'alex', 'george', 'simon', 'james'];
 
-  return (
-    <input
-      type="text"
-      placeholder="Search users..."
-      onChange={(e) => onChange(e.target.value)}
-      className="w-full max-w-md rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-  );
-}
-
-const MemoizedSearch = memo(Search);
-
-// App Component
 export default function App() {
-  const [query, setQuery] = useState('');
+  const [users, setUsers] = useState(allUsers);
+
+  const handleSearch = useCallback(
+    (text) => {
+      console.log(users[0]);
+
+      const filteredUsers = allUsers.filter((user) =>
+        user.toLowerCase().includes(text.toLowerCase()),
+      );
+      setUsers(filteredUsers);
+    },
+    [users],
+  );
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 p-6 text-white">
-      <h1 className="mb-4 text-2xl font-semibold">🔍 Search App</h1>
+    <div className="flex min-h-screen items-center justify-center bg-gray-900 p-6 text-white">
+      <div className="flex items-center justify-between gap-4">
+        <button
+          onClick={() => setUsers(shuffle(allUsers))}
+          className="rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+        >
+          Shuffle
+        </button>
 
-      <MemoizedSearch onChange={setQuery} />
+        <Search onChange={handleSearch} />
+      </div>
 
-      <p className="mt-4">
-        You are searching for: <span className="font-medium">{query}</span>
-      </p>
+      <ul className="list-inside list-disc space-y-1 text-gray-800">
+        {users.map((user) => (
+          <li key={user}>{user}</li>
+        ))}
+      </ul>
     </div>
   );
 }
