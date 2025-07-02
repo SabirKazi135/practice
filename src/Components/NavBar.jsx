@@ -1,12 +1,25 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-function NavbBar() {
+export function NavBar() {
   return (
-    <nav>
-      <Link to="./">Home</Link>
-      <Link to="./about">About</Link>
+    <nav className="flex gap-4 bg-gray-900 p-4 text-white">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? 'font-bold text-yellow-300 underline' : 'hover:underline'
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive ? 'font-bold text-yellow-300 underline' : 'hover:underline'
+        }
+      >
+        About
+      </NavLink>
     </nav>
   );
 }
-
-export default NavbBar;
