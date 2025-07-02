@@ -20,6 +20,15 @@ export function NavBar() {
       >
         About
       </NavLink>
+
+      <NavLink
+        to="/products"
+        className={({ isActive }) =>
+          isActive ? 'font-bold text-yellow-300 underline' : 'hover:underline'
+        }
+      >
+        Products
+      </NavLink>
     </nav>
   );
 }
