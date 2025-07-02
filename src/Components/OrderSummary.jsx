@@ -1,5 +1,14 @@
+import { useNavigate } from 'react-router-dom';
+
 function OrderSummary() {
-  return <div>Order confirmed</div>;
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <div div> Order confirmed</div>
+      <button onClick={() => navigate(-1)}>Back</button>
+    </>
+  );
 }
 
 export default OrderSummary;
