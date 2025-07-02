@@ -1,8 +1,17 @@
+import { Link } from "react-router-dom";
+
 function Products() {
-  return (
+    return (
+        <>
+        
     <div>
       <input type="search" placeholder="Search Products" />
     </div>
+            <nav>
+                <Link to="featured">Featured</Link>
+                <Link to="new">New</Link>
+    </nav>
+        </>
   );
 }
 
