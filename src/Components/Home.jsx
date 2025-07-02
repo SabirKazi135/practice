@@ -5,7 +5,9 @@ export function Home() {
   return (
     <>
       <h1>Home Page</h1>
-      <button onClick={() => navigate('Order-summary')}>Place Order</button>
+      <button onClick={() => navigate('Order-summary', { replace: true })}>
+        Place Order
+      </button>
     </>
   );
 }
