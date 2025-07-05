@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function Products() {
   return (
@@ -27,6 +27,7 @@ function Products() {
           New
         </Link>
       </nav>
+      <Outlet />
     </div>
   );
 }

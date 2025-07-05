@@ -17,9 +17,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/order-summary" element={<OrderSummary />} />
         <Route path="products" element={<Products />}>
-          <Route path="feature" element={<Featured />} />
-          <Route path="new-products" element={<NewProducts />} />
+          <Route path="featured" element={<Featured />} />
+          <Route path="new" element={<NewProducts />} />
         </Route>
+
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>

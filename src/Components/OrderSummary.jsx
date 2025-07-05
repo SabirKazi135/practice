@@ -5,7 +5,7 @@ function OrderSummary() {
 
   return (
     <>
-      <div div> Order confirmed</div>
+      <div> Order confirmed</div>
       <button onClick={() => navigate(-1)}>Back</button>
     </>
   );
