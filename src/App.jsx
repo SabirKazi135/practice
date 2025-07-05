@@ -21,7 +21,6 @@ function App() {
           <Route path="featured" element={<Featured />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
-
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
