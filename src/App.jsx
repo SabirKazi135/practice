@@ -25,6 +25,8 @@ function App() {
         </Route>
         <Route path="users" element={<Users />} />
         <Route path="users/1" element={<UserDetails />} />
+        <Route path="users/2" element={<UserDetails />} />
+        <Route path="users/3" element={<UserDetails />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
