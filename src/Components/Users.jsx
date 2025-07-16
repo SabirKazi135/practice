@@ -10,7 +10,7 @@ function Users() {
       <h1>Users 3</h1>
       <Outlet />
       <div>
-        <button onClick={() => searchParams({ filter: 'active' })}>
+        <button onClick={() => setSearchParams({ filter: 'active' })}>
           Active Users
         </button>
         <button onClick={() => setSearchParams({})}>Reset Filter</button>
