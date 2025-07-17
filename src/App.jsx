@@ -8,21 +8,27 @@ function App() {
   return (
     <div>
       <nav>
-        <ul>
+        <li>
           <NavLink to={'/'}>Home</NavLink>
-        </ul>
-        <ul>
+        </li>
+        <li>
           <NavLink to={'/about'}>About</NavLink>
-        </ul>
-        <ul>
-          <NavLink to={'/'}>Contact</NavLink>
-        </ul>
-        <ul>
-          <NavLink to={'/product/:productID'}>Product</NavLink>
-        </ul>
-        <ul>
-          <NavLink to={'/user/:id'}>User</NavLink>
-        </ul>
+        </li>
+        <li>
+          <NavLink to={'/contact'}>Contact</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/product/1'}>Product 1</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/product/2'}>Product 2</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/user/1'}>User 1</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/user/2'}>User 2</NavLink>
+        </li>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
