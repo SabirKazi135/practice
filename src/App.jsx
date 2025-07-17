@@ -75,7 +75,7 @@ function App() {
                 } hover:underline`
               }
             >
-              Product 1
+              Product 1,
             </NavLink>
             <NavLink
               to="/product/2"
@@ -85,7 +85,7 @@ function App() {
                 } hover:underline`
               }
             >
-              Product 2
+              Product 2,
             </NavLink>
           </li>
         </ul>
