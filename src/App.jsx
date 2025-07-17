@@ -1,7 +1,6 @@
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { react } from 'react';
 import { Home } from './Components/Home';
-// import { About } from './Components/About';
 import { NavBar } from './Components/NavBar';
 import OrderSummary from './Components/OrderSummary';
 import NoMatch from './Components/NoMatch';
@@ -11,7 +10,9 @@ import NewProducts from './Components/NewProducts';
 import Users from './Components/Users';
 import UserDetails from './Components/UserDetails';
 import Admin from './Components/Admin';
-const LazyAbout = react.lazy(() => import('./Components/About'));
+
+// Lazy load the About component
+const LazyAbout = React.lazy(() => import('./Components/About'));
 
 function App() {
   return (
@@ -19,17 +20,30 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+
+        {/* Lazy-loaded About route with fallback */}
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<div>Loading About Page...</div>}>
+              <LazyAbout />
+            </Suspense>
+          }
+        />
+
         <Route path="/order-summary" element={<OrderSummary />} />
+
         <Route path="products" element={<Products />}>
           <Route index element={<Featured />} />
           <Route path="featured" element={<Featured />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
+
         <Route path="users" element={<Users />}>
           <Route path=":userId" element={<UserDetails />} />
           <Route path="admin" element={<Admin />} />
         </Route>
+
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
