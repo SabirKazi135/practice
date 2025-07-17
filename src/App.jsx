@@ -10,6 +10,7 @@ import NewProducts from './Components/NewProducts';
 import Users from './Components/Users';
 import UserDetails from './Components/UserDetails';
 import Admin from './Components/Admin';
+import Profile from './Components/profile';
 
 // Lazy load the About component
 const LazyAbout = React.lazy(() => import('./Components/About'));
@@ -43,6 +44,7 @@ function App() {
           <Route path=":userId" element={<UserDetails />} />
           <Route path="admin" element={<Admin />} />
         </Route>
+        <Route path="profile" element={<Profile />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
