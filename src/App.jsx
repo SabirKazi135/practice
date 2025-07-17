@@ -9,19 +9,19 @@ function App() {
     <div>
       <nav>
         <ul>
-          <NavLink></NavLink>
+          <NavLink to={'/'}>Home</NavLink>
         </ul>
         <ul>
-          <NavLink></NavLink>
+          <NavLink to={'/about'}>About</NavLink>
         </ul>
         <ul>
-          <NavLink></NavLink>
+          <NavLink to={'/'}>Contact</NavLink>
         </ul>
         <ul>
-          <NavLink></NavLink>
+          <NavLink to={'/product/:productID'}>Product</NavLink>
         </ul>
         <ul>
-          <NavLink></NavLink>
+          <NavLink to={'/user/:id'}>User</NavLink>
         </ul>
       </nav>
       <Routes>
