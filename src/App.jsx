@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { react } from 'react';
 import { Home } from './Components/Home';
-import { About } from './Components/About';
+// import { About } from './Components/About';
 import { NavBar } from './Components/NavBar';
 import OrderSummary from './Components/OrderSummary';
 import NoMatch from './Components/NoMatch';
@@ -10,6 +11,7 @@ import NewProducts from './Components/NewProducts';
 import Users from './Components/Users';
 import UserDetails from './Components/UserDetails';
 import Admin from './Components/Admin';
+const LazyAbout = react.lazy(() => import('./Components/About'));
 
 function App() {
   return (
