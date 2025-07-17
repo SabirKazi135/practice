@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import User from './pages/User';
+import Product from './pages/Product';
 
 function App() {
   return (
@@ -66,6 +67,26 @@ function App() {
             >
               Sabir's Profile
             </NavLink>
+            <NavLink
+              to="/product/1"
+              className={({ isActive }) =>
+                `rounded px-4 py-2 ${
+                  isActive ? 'font-bold text-red-500' : 'text-black'
+                } hover:underline`
+              }
+            >
+              Product 1
+            </NavLink>
+            <NavLink
+              to="/product/2"
+              className={({ isActive }) =>
+                `rounded px-4 py-2 ${
+                  isActive ? 'font-bold text-red-500' : 'text-black'
+                } hover:underline`
+              }
+            >
+              Product 2
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -75,6 +96,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/user/:username" element={<User />} />
+        <Route path="/product/:id" element={<Product />} />
       </Routes>
     </div>
   );
