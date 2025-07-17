@@ -24,10 +24,10 @@ function App() {
           <NavLink to={'/product/2'}>Product 2</NavLink>
         </li>
         <li>
-          <NavLink to={'/user/1'}>User 1</NavLink>
+          <NavLink to={'/user/sabir'}>Sabir</NavLink>
         </li>
         <li>
-          <NavLink to={'/user/2'}>User 2</NavLink>
+          <NavLink to={'/user/raees'}>Raees</NavLink>
         </li>
       </nav>
       <Routes>
