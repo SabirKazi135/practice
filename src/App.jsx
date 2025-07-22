@@ -5,6 +5,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Product from './pages/Product';
 import User from './pages/User';
+import NotFound from './pages/NotFound';
 function App() {
   return (
     <div>
@@ -42,6 +43,7 @@ function App() {
         <Route path="/user/:id" element={<User />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
