@@ -1,6 +1,7 @@
 import { useState } from 'react';
 export default function Login() {
   const [userName, setUserName] = useState(null);
+  
   return (
     <div>
       <h2>Login Page</h2>
@@ -11,7 +12,7 @@ export default function Login() {
         value={userName}
           />
           
-          <button >Login</button>
+          <button onClick={() => Login()}>Login</button>
     </div>
   );
 }
