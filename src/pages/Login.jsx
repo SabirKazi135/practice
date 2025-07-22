@@ -5,7 +5,7 @@ export default function Login() {
 
   const handleLogin = () => {
     // Imagine authentication is done here
-    navigate('/user/sabir'); // Redirect to profile
+    navigate('/user/sabir', { replace: true }); // Redirect to profile
   };
 
   return (
