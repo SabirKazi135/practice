@@ -1,6 +1,7 @@
-import { Navigate, replace, useParams } from 'react-router-dom';
+import { Navigate, replace, useNavigate, useParams } from 'react-router-dom';
 
 function User() {
+  const Navigate = useNavigate();
   const { id } = useParams();
   function handleLogin() {
     Navigate('/login', { replace: true });
