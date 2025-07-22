@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 export default function Login() {
-    const Navigate = useNavigate();
+  const Navigate = useNavigate();
   const [userName, setUserName] = useState(null);
   function Login() {
-    if (userName == "sabir") {
-        
+    if (userName == 'sabir') {
+      Navigate(`user/${userName}`);
     } else {
-        
+      Navigate('/contact');
     }
   }
   return (
@@ -18,9 +18,9 @@ export default function Login() {
         placeholder="Enter username"
         onChange={(e) => setUserName(e.target.value)}
         value={userName}
-          />
-          
-          <button onClick={() => Login()}>Login</button>
+      />
+
+      <button onClick={() => Login()}>Login</button>
     </div>
   );
 }
