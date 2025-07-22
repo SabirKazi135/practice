@@ -9,7 +9,9 @@ export default function Login() {
         placeholder="Enter username"
         onChange={(e) => setUserName(e.target.value)}
         value={userName}
-      />
+          />
+          
+          <button >Login</button>
     </div>
   );
 }
