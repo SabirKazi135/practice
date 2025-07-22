@@ -1,3 +1,4 @@
+import Login from './pages/Login';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -29,6 +30,9 @@ function App() {
         <li>
           <NavLink to={'/user/raees'}>Raees</NavLink>
         </li>
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,6 +40,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/product/:productID" element={<Product />} />
         <Route path="/user/:id" element={<User />} />
+
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
