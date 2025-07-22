@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 export default function Login() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState(null);
   function Login() {
     if (userName == 'sabir') {
-      Navigate(`user/${userName}`);
+      navigate(`/user/${userName}`);
     } else {
-      Navigate('/contact');
+      navigate('/contact');
     }
   }
   return (

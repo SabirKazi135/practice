@@ -1,11 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
+// hello part 2
 function User() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   function handleLogout() {
-    Navigate('/login', { replace: true });
+    navigate('/login', { replace: true });
   }
   return (
     <div>
