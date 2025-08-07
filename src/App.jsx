@@ -1,50 +1,7 @@
-import Login from './pages/Login';
-import { Route, Routes, NavLink } from 'react-router-dom';
-import Home from './pages/Home';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import Product from './pages/Product';
-import User from './pages/User';
-import NotFound from './pages/NotFound';
 function App() {
   return (
     <div>
-      <nav>
-        <li>
-          <NavLink to={'/'}>Home</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/about'}>About</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/contact'}>Contact</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/product/1'}>Product 1</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/product/2'}>Product 2</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/user/sabir'}>Sabir</NavLink>
-        </li>
-        <li>
-          <NavLink to={'/user/raees'}>Raees</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/product/:productID" element={<Product />} />
-        <Route path="/user/:id" element={<User />} />
-
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <h1>Hello World</h1>
     </div>
   );
 }
