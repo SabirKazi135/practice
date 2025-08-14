@@ -4,45 +4,112 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import User from './pages/User';
 import Product from './pages/Product';
+
 function App() {
   return (
-    <>
-      <h1>Main Page </h1>
-      <h2>Main nav Page</h2>
+    <div className="min-h-screen bg-gray-900 p-6 text-white">
+      <h1 className="mb-2 text-3xl font-bold">Main Page</h1>
+      <h2 className="mb-6 text-xl">Main Navigation</h2>
 
-      <nav>
-        <ul>
+      <nav className="mb-8">
+        <ul className="flex flex-wrap gap-4">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Contact
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/user/sabir">Sabir Profile</NavLink>
+            <NavLink
+              to="/user/sabir"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Sabir Profile
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/user/alice">Alice Profile</NavLink>
+            <NavLink
+              to="/user/alice"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Alice Profile
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/product/1">Product 1</NavLink>
+            <NavLink
+              to="/product/1"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Product 1
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/product/2">Product 2</NavLink>
+            <NavLink
+              to="/product/2"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Product 2
+            </NavLink>
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/user/:userName" element={<User />} />
-        <Route path="/product/:productId" element={<Product />} />
-      </Routes>
-    </>
+
+      <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/user/:userName" element={<User />} />
+          <Route path="/product/:productId" element={<Product />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 
