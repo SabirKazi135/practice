@@ -1,3 +1,9 @@
-export default function About() {
-  return <h2>This is the About page</h2>;
+function About() {
+  return (
+    <>
+      <h2>This is About Page</h2>
+    </>
+  );
 }
+
+export default About;

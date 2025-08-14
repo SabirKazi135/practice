@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom';
 
-export default function User() {
-  const { username } = useParams();
+function User() {
+  const { userName } = useParams();
   return (
-    <div>
-      <h2>User Profile</h2>
-      <p>Profile: {username}</p>
-    </div>
+    <>
+      <h1>User Page</h1>
+      <h2>Users Name: {userName} </h2>
+    </>
   );
 }
+
+export default User;

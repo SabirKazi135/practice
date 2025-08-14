@@ -1,3 +1,9 @@
-export default function Home() {
-  return <h2>This is the Home page</h2>;
+function Home() {
+  return (
+    <>
+      <h2>This is Home Page</h2>
+    </>
+  );
 }
+
+export default Home;
