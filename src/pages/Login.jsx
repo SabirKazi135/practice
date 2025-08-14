@@ -18,7 +18,7 @@ function Login() {
   }
 
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center space-y-6 bg-gray-700">
+    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-6 bg-gray-700">
       <h2 className="text-3xl font-bold text-white">Login Page</h2>
 
       <input
