@@ -6,6 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import User from './pages/User';
+import Product from './pages/Product';
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/user/:username" element={<User />} />
+        <Route path="/product/:productID" element={<Product />} />
       </Routes>
     </div>
   );
