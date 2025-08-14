@@ -1,10 +1,19 @@
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function Product() {
   const { productId } = useParams();
-const navigate = useNavigate();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (productId === '0') {
+      navigate('/NotFound', { replace: true });
+    }
+  }, [productId, navigate]);
+
   function Goback() {
-    navigate(-1)
+    navigate(-1);
   }
   return (
     <div className="space-y-4">
@@ -13,7 +22,7 @@ const navigate = useNavigate();
         Product ID: <span className="text-blue-400">{productId}</span>
       </h2>
 
-      <button onClick={()=> Goback()}>Go Back</button>
+      <button onClick={() => Goback()}>Go Back</button>
     </div>
   );
 }
