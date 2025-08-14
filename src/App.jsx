@@ -80,6 +80,28 @@ function App() {
               raees's profile
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/product/product1"
+              style={({ isActive }) => ({
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'red' : 'black',
+              })}
+            >
+              product 1
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/product/product2"
+              style={({ isActive }) => ({
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'red' : 'black',
+              })}
+            >
+              product 2
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
