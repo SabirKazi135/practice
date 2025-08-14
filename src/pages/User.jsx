@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
 
 function User() {
   const navigate = useNavigate();
@@ -21,6 +21,11 @@ function User() {
       >
         Log Out
       </button>
+
+      <NavLink to="details"> View Details</NavLink>
+
+      <hr />
+      <Outlet />
     </div>
   );
 }
