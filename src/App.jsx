@@ -5,6 +5,7 @@ import Contact from './pages/Contact';
 import User from './pages/User';
 import Product from './pages/Product';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -109,6 +110,7 @@ function App() {
           <Route path="/user/:userName" element={<User />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </div>
