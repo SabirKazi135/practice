@@ -1,6 +1,7 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 export default function Layout() {
+  const location = useLocation();
   return (
     <div>
       <nav className="mb-8">
@@ -116,8 +117,13 @@ export default function Layout() {
         </ul>
       </nav>
       <hr />
+
       {/* Main content */}
       <main className="flex-grow px-4">
+        <strong>Location: {location.pathname}</strong>
+        {location.pathname === '/about' && (
+          <div>Welcome to the About Page!</div>
+        )}
         <Outlet /> {/* Child pages render here */}
       </main>
 
