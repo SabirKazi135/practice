@@ -99,6 +99,18 @@ function App() {
               Product 2
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Login
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
