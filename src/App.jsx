@@ -9,6 +9,7 @@ import Product from './pages/Product';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
+import UserSettings from './pages/UserSettings';
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/user/:userName" element={<User />}>
-              <Route path="details" element={<UserDetails />} />
+              <Route path="details" element={<UserDetails />}>
+                <Route path="settings" element={<UserSettings />} />
+              </Route>
             </Route>
             <Route path="/product/:productId" element={<Product />} />
             <Route path="*" element={<NotFound />} />
