@@ -4,7 +4,9 @@ import { Routes, Route, Link, NavLink } from 'react-router-dom'; // step 3
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-
+import Services from './pages/Services';
+import User from './pages/User';
+  
 function App() {
   return (
     <div>
@@ -44,6 +46,17 @@ function App() {
               Contact
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/services"
+              style={({ isActive }) => ({
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'red' : 'black',
+              })}
+            >
+              Services
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
@@ -53,6 +66,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/user/:username" element={<User />} />
       </Routes>
     </div>
   );
