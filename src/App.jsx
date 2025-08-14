@@ -1,9 +1,9 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom"; // step 3
+import React from 'react';
+import { Routes, Route, Link, NavLink } from 'react-router-dom'; // step 3
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -12,19 +12,19 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
-</nav>
+      </nav>
 
       <Routes>
-        {" "}
+        {' '}
         {/* Step 4: Define routes here */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
