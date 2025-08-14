@@ -2,11 +2,14 @@ src/App.jsx
 import { Route, NavLink, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Layout from './pages/Layout';
+
 import Contact from './pages/Contact';
 import User from './pages/User';
 import Product from './pages/Product';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+import UserDetails from './pages/UserDetails';
 
 function App() {
   return (
@@ -14,6 +17,44 @@ function App() {
       <h1 className="mb-2 text-3xl font-bold">Main Page</h1>
       <h2 className="mb-6 text-xl">Main Navigation</h2>
 
+      <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/user/:userName" element={<User />}>
+              <Route path="details" element={<UserDetails />} />
+            </Route>
+            <Route path="/product/:productId" element={<Product />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+        </Routes>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+src/pages/About.jsx
+function About() {
+  return (
+    <div className="space-y-4">
+      <h2 className="text-2xl font-semibold">This is About Page</h2>
+      <p className="text-gray-300">
+        Learn more about us here. We are building something amazing!
+      </p>
+    </div>
+  );
+}
+export default About;
+src/pages/Layout.jsx
+import { NavLink, Outlet } from 'react-router-dom';
+
+export default function Layout() {
+  return (
+    <div>
       <nav className="mb-8">
         <ul className="flex flex-wrap gap-4">
           <li>
@@ -114,59 +155,51 @@ function App() {
           </li>
         </ul>
       </nav>
+      <hr />
+      {/* Main content */}
+      <main className="flex-grow px-4">
+        <Outlet /> {/* Child pages render here */}
+      </main>
 
-      <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/user/:userName" element={<User />} />
-          <Route path="/product/:productId" element={<Product />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
+      {/* Footer */}
+      <footer className="mt-8 bg-gray-900 py-4 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Your Website Name — All Rights Reserved
+      </footer>
     </div>
   );
 }
-
-export default App;
-src/pages/About.jsx
-function About() {
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">This is About Page</h2>
-      <p className="text-gray-300">
-        Learn more about us here. We are building something amazing!
-      </p>
-    </div>
-  );
-}
-export default About;
 src/pages/Product.jsx
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Product() {
   const { productId } = useParams();
+const navigate = useNavigate();
+  function Goback() {
+    navigate(-1)
+  }
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Product Page</h1>
       <h2 className="text-gray-300">
         Product ID: <span className="text-blue-400">{productId}</span>
       </h2>
+
+      <button onClick={()=> Goback()}>Go Back</button>
     </div>
   );
 }
 export default Product;
 src/pages/User.jsx
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
 
 function User() {
   const navigate = useNavigate();
   const { userName } = useParams();
+
   function LogOut() {
     navigate('/login', { replace: true });
   }
+
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">User Page</h1>
@@ -174,11 +207,35 @@ function User() {
         User's Name: <span className="text-blue-400">{userName}</span>
       </h2>
 
-      <button onClick={() => LogOut()}>LogOut</button>
+      <button
+        onClick={LogOut}
+        className="rounded-lg bg-red-500 px-4 py-2 text-white shadow-md transition hover:bg-red-600"
+      >
+        Log Out
+      </button>
+
+      <NavLink to="details"> View Details</NavLink>
+
+      <hr />
+      <Outlet />
     </div>
   );
 }
+
 export default User;
+src/pages/UserDetails.jsx
+import { useParams } from 'react-router-dom';
+function UserDetails() {
+  const { userName } = useParams();
+  return (
+    <>
+      <h2>Extra Details for {userName}</h2>
+      <p>This section contains additional information about the {userName}.</p>
+    </>
+  );
+}
+
+export default UserDetails;
 src/pages/NotFound.jsx
 function NotFound() {
   return (
@@ -200,21 +257,40 @@ function NotFound() {
 
 export default NotFound;
 src/pages/Login.jsx
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
   function handleLogin() {
-    navigate('/user/sabir', { replace: true });
+    if (userName == 'sabir') {
+      navigate('/user/sabir', { replace: true });
+    } else {
+      navigate('/contact');
+    }
+  }
+
+  function Change(e) {
+    setUserName(e.target.value);
   }
 
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center space-y-6 bg-gray-100">
-      <h2 className="text-3xl font-bold text-gray-800">Login Page</h2>
+    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-6 bg-gray-700">
+      <h2 className="text-3xl font-bold text-white">Login Page</h2>
+
+      <input
+        type="text"
+        value={userName}
+        onChange={Change}
+        placeholder="Enter username"
+        className="w-64 rounded-lg border border-gray-300 px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
       <button
         onClick={handleLogin}
-        className="rounded-lg bg-blue-500 px-6 py-2 text-lg font-medium text-white shadow-md transition-all hover:bg-blue-600"
+        className="rounded-lg bg-blue-500 px-6 py-2 text-lg font-medium text-white shadow-md transition-all hover:bg-blue-600 active:scale-95"
       >
         Login
       </button>
