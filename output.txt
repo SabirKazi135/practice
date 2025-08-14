@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
 import UserSettings from './pages/UserSettings';
+import Logger from './pages/Logger';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <h2 className="mb-6 text-xl">Main Navigation</h2>
 
       <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+        <Logger />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -53,9 +55,10 @@ function About() {
 }
 export default About;
 src/pages/Layout.jsx
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 export default function Layout() {
+  const location = useLocation();
   return (
     <div>
       <nav className="mb-8">
@@ -171,8 +174,13 @@ export default function Layout() {
         </ul>
       </nav>
       <hr />
+
       {/* Main content */}
       <main className="flex-grow px-4">
+        <strong>Location: {location.pathname}</strong>
+        {location.pathname === '/about' && (
+          <div>Welcome to the About Page!</div>
+        )}
         <Outlet /> {/* Child pages render here */}
       </main>
 
@@ -378,6 +386,20 @@ function Login() {
 }
 
 export default Login;
+src/pages/Logger.jsx
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+function Logger() {
+  const location = useLocation();
+  useEffect(() => {
+    console.log('Navigated to:', location.pathname);
+  }, [location.pathname]);
+
+  return null;
+}
+
+export default Logger;
 src/pages/Contact.jsx
 function Contact() {
   return (

@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
 import UserSettings from './pages/UserSettings';
+import Logger from './pages/Logger';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <h2 className="mb-6 text-xl">Main Navigation</h2>
 
       <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+        <Logger />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
