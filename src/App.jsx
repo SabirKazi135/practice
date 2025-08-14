@@ -6,7 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import User from './pages/User';
-  
+
 function App() {
   return (
     <div>
