@@ -67,6 +67,18 @@ export default function Layout() {
           </li>
           <li>
             <NavLink
+              to="/user/bob"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Bob Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/product/1"
               className={({ isActive }) =>
                 `rounded-md px-4 py-2 transition ${
