@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function User() {
+  const navigate = useNavigate();
   const { userName } = useParams();
   function LogOut() {
-    
+    navigate('/login', { replace: true });
   }
   return (
     <div className="space-y-4">
@@ -12,7 +13,7 @@ function User() {
         User's Name: <span className="text-blue-400">{userName}</span>
       </h2>
 
-      <button onClick={()=> LogOut()}>LogOut</button>
+      <button onClick={() => LogOut()}>LogOut</button>
     </div>
   );
 }

@@ -5,6 +5,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import User from './pages/User';
 import Product from './pages/Product';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -98,6 +100,18 @@ function App() {
               Product 2
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Login
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
@@ -108,6 +122,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/:userName" element={<User />} />
           <Route path="/product/:productId" element={<Product />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </div>
@@ -143,20 +159,70 @@ function Product() {
 }
 export default Product;
 src/pages/User.jsx
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function User() {
+  const navigate = useNavigate();
   const { userName } = useParams();
+  function LogOut() {
+    navigate('/login', { replace: true });
+  }
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">User Page</h1>
       <h2 className="text-gray-300">
         User's Name: <span className="text-blue-400">{userName}</span>
       </h2>
+
+      <button onClick={() => LogOut()}>LogOut</button>
     </div>
   );
 }
 export default User;
+src/pages/NotFound.jsx
+function NotFound() {
+  return (
+    <div className="flex min-h-[60vh] flex-col items-center justify-center space-y-4 text-center">
+      <h1 className="text-4xl font-bold text-red-500">404</h1>
+      <h2 className="text-2xl font-semibold">Page Not Found</h2>
+      <p className="text-gray-400">
+        Sorry, the page you’re looking for doesn’t exist.
+      </p>
+      <a
+        href="/"
+        className="rounded-md bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600"
+      >
+        Go Home
+      </a>
+    </div>
+  );
+}
+
+export default NotFound;
+src/pages/Login.jsx
+import { useNavigate } from 'react-router-dom';
+
+function Login() {
+  const navigate = useNavigate();
+
+  function handleLogin() {
+    navigate('/user/sabir', { replace: true });
+  }
+
+  return (
+    <div className="flex min-h-[80vh] flex-col items-center justify-center space-y-6 bg-gray-100">
+      <h2 className="text-3xl font-bold text-gray-800">Login Page</h2>
+      <button
+        onClick={handleLogin}
+        className="rounded-lg bg-blue-500 px-6 py-2 text-lg font-medium text-white shadow-md transition-all hover:bg-blue-600"
+      >
+        Login
+      </button>
+    </div>
+  );
+}
+
+export default Login;
 src/pages/Contact.jsx
 function Contact() {
   return (
@@ -196,6 +262,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
