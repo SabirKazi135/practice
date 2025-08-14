@@ -4,6 +4,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import User from './pages/User';
 import Product from './pages/Product';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -107,6 +108,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/:userName" element={<User />} />
           <Route path="/product/:productId" element={<Product />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
