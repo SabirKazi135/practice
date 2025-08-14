@@ -57,6 +57,28 @@ function App() {
               Services
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/user/sabir"
+              style={({ isActive }) => ({
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'red' : 'black',
+              })}
+            >
+              Sabir's profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/user/raees"
+              style={({ isActive }) => ({
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'red' : 'black',
+              })}
+            >
+              raees's profile
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
