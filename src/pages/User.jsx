@@ -22,8 +22,12 @@ function User() {
         Log Out
       </button>
 
-      <NavLink to="details"> View Details</NavLink>
-
+      <NavLink
+        to="details"
+        className="inline-block rounded-lg bg-blue-500 px-5 py-2 text-white transition hover:bg-blue-600"
+      >
+        View Details
+      </NavLink>
       <hr />
       <Outlet />
     </div>
