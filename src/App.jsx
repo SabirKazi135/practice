@@ -14,6 +14,9 @@ import Logger from './pages/Logger';
 import Dashboard from './pages/Dashboard';
 import Cart from './pages/Cart';
 import Products from './pages/Products';
+import Electronics from './pages/Electronics';
+import Clothing from './pages/Clothing';
+import Books from './pages/Books';
 
 function App() {
   return (
@@ -38,7 +41,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Products />}>
+              <Route path="electronics" element={<Electronics />} />
+              <Route path="clothing" element={<Clothing />} />
+              <Route path="books" element={<Books />} />
+            </Route>
           </Route>
         </Routes>
       </div>
