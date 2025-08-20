@@ -6,8 +6,8 @@ function Login() {
   const navigate = useNavigate();
 
   function handleLogin() {
-    if (userName == 'sabir') {
-      navigate('/user/sabir', { replace: true });
+    if (userName.trim !== '') {
+      navigate('/dashboard', { replace: true });
     } else {
       navigate('/contact');
     }

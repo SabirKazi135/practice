@@ -11,6 +11,8 @@ import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
 import UserSettings from './pages/UserSettings';
 import Logger from './pages/Logger';
+import Dashboard from './pages/Dashboard';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/product/:productId" element={<Product />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
         </Routes>
       </div>

@@ -114,6 +114,18 @@ export default function Layout() {
               Login
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <hr />
