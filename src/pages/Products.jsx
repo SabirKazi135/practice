@@ -1,23 +1,25 @@
 import { useSearchParams } from 'react-router-dom';
-
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // read category from URL, if missing use "all"
-  const category = searchParams.get('category') || 'all';
-
+  const category = searchParams.get('category') || 'All categories';
   return (
     <div>
       <h2>Products Page</h2>
-      <p>Current category: {category}</p>
+      <h3>Showing {category} category</h3>
 
-      <button onClick={() => setSearchParams({ category: 'books' })}>
-        Books
-      </button>
-
-      <button onClick={() => setSearchParams({ category: 'electronics' })}>
-        Electronics
-      </button>
+      <div>
+        <button onClick={() => setSearchParams({ category: 'Electronics' })}>
+          Electronics
+        </button>
+        <button onClick={() => setSearchParams({ category: 'Clothing' })}>
+          Clothing
+        </button>
+        <button onClick={() => setSearchParams({ category: 'Books' })}>
+          Books
+        </button>
+        <button onClick={() => setSearchParams({})}>Reset</button>
+      </div>
     </div>
   );
 }
