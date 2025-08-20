@@ -41,8 +41,14 @@ export default function Products() {
           Reset
         </button>
 
-        <button onClick={}>Next Page</button>
-        <button onClick={}>Previous Page</button>
+        <button onClick={() => setSearchParams({ page: page + 1 })}>
+          Next Page
+        </button>
+        <button
+          onClick={() => setSearchParams({ page: Math.max(1, page - 1) })}
+        >
+          Previous Page
+        </button>
       </div>
     </div>
   );
