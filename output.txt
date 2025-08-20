@@ -1,607 +1,727 @@
+========================================
 ===== src/App.jsx =====
-import { Route, NavLink, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Layout from './pages/Layout';
+========================================
+     1	import { Route, NavLink, Routes } from 'react-router-dom';
+     2	import Home from './pages/Home';
+     3	import About from './pages/About';
+     4	import Layout from './pages/Layout';
+     5	
+     6	import Contact from './pages/Contact';
+     7	import User from './pages/User';
+     8	import Product from './pages/Product';
+     9	import NotFound from './pages/NotFound';
+    10	import Login from './pages/Login';
+    11	import UserDetails from './pages/UserDetails';
+    12	import UserSettings from './pages/UserSettings';
+    13	import Logger from './pages/Logger';
+    14	import Dashboard from './pages/Dashboard';
+    15	import Cart from './pages/Cart';
+    16	import Products from './pages/Products';
+    17	
+    18	function App() {
+    19	  return (
+    20	    <div className="min-h-screen bg-gray-900 p-6 text-white">
+    21	      <h1 className="mb-2 text-3xl font-bold">Main Page</h1>
+    22	      <h2 className="mb-6 text-xl">Main Navigation</h2>
+    23	
+    24	      <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+    25	        <Logger />
+    26	        <Routes>
+    27	          <Route path="/" element={<Layout />}>
+    28	            <Route index element={<Home />} />
+    29	            <Route path="/about" element={<About />} />
+    30	            <Route path="/contact" element={<Contact />} />
+    31	            <Route path="/user/:userName" element={<User />}>
+    32	              <Route path="details" element={<UserDetails />}>
+    33	                <Route path="settings" element={<UserSettings />} />
+    34	              </Route>
+    35	            </Route>
+    36	            <Route path="/product/:productId" element={<Product />} />
+    37	            <Route path="*" element={<NotFound />} />
+    38	            <Route path="/login" element={<Login />} />
+    39	            <Route path="/dashboard" element={<Dashboard />} />
+    40	            <Route path="/cart" element={<Cart />} />
+    41	            <Route path="/products" element={<Products />} />
+    42	          </Route>
+    43	        </Routes>
+    44	      </div>
+    45	    </div>
+    46	  );
+    47	}
+    48	
+    49	export default App;
 
-import Contact from './pages/Contact';
-import User from './pages/User';
-import Product from './pages/Product';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import UserDetails from './pages/UserDetails';
-import UserSettings from './pages/UserSettings';
-import Logger from './pages/Logger';
-import Dashboard from './pages/Dashboard';
-import Cart from './pages/Cart';
-import Products from './pages/Products';
-
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-900 p-6 text-white">
-      <h1 className="mb-2 text-3xl font-bold">Main Page</h1>
-      <h2 className="mb-6 text-xl">Main Navigation</h2>
-
-      <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-        <Logger />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/user/:userName" element={<User />}>
-              <Route path="details" element={<UserDetails />}>
-                <Route path="settings" element={<UserSettings />} />
-              </Route>
-            </Route>
-            <Route path="/product/:productId" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />} />
-          </Route>
-        </Routes>
-      </div>
-    </div>
-  );
-}
-
-export default App;
+========================================
 ===== src/index.css =====
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+========================================
+     1	@tailwind base;
+     2	@tailwind components;
+     3	@tailwind utilities;
+     4	
+     5	body {
+     6	  height: 100vh;
+     7	  background-color: gray;
+     8	}
 
-body {
-  height: 100vh;
-  background-color: gray;
-}
+========================================
 ===== src/main.jsx =====
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+========================================
+     1	import React from 'react';
+     2	import ReactDOM from 'react-dom/client';
+     3	
+     4	import App from './App';
+     5	import { BrowserRouter } from 'react-router-dom';
+     6	import './index.css';
+     7	
+     8	const root = ReactDOM.createRoot(document.getElementById('root'));
+     9	root.render(
+    10	  <BrowserRouter>
+    11	    <App />
+    12	  </BrowserRouter>,
+    13	);
 
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import './index.css';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-);
+========================================
 ===== src/pages/About.jsx =====
-import { useNavigate } from 'react-router-dom';
+========================================
+     1	import { useNavigate } from 'react-router-dom';
+     2	
+     3	function About() {
+     4	  const navigate = useNavigate();
+     5	  function GoBack() {
+     6	    navigate('/');
+     7	  }
+     8	
+     9	  return (
+    10	    <div className="space-y-6 rounded-lg bg-gray-800 p-6 shadow-md">
+    11	      <h2 className="text-3xl font-semibold text-white">This is About Page</h2>
+    12	      <p className="text-lg text-gray-300">
+    13	        Learn more about us here. We are building something amazing!
+    14	      </p>
+    15	      <button
+    16	        onClick={GoBack}
+    17	        className="rounded-lg bg-blue-500 px-6 py-2 font-medium text-white shadow-md transition hover:bg-blue-600 active:scale-95"
+    18	      >
+    19	        Back to Home
+    20	      </button>
+    21	    </div>
+    22	  );
+    23	}
+    24	
+    25	export default About;
 
-function About() {
-  const navigate = useNavigate();
-  function GoBack() {
-    navigate('/');
-  }
-
-  return (
-    <div className="space-y-6 rounded-lg bg-gray-800 p-6 shadow-md">
-      <h2 className="text-3xl font-semibold text-white">This is About Page</h2>
-      <p className="text-lg text-gray-300">
-        Learn more about us here. We are building something amazing!
-      </p>
-      <button
-        onClick={GoBack}
-        className="rounded-lg bg-blue-500 px-6 py-2 font-medium text-white shadow-md transition hover:bg-blue-600 active:scale-95"
-      >
-        Back to Home
-      </button>
-    </div>
-  );
-}
-
-export default About;
+========================================
 ===== src/pages/Cart.jsx =====
-// src/pages/Cart.jsx
-import { useLocation } from 'react-router-dom';
+========================================
+     1	// src/pages/Cart.jsx
+     2	import { useLocation } from 'react-router-dom';
+     3	
+     4	function Cart() {
+     5	  const location = useLocation();
+     6	  const fromPage = location.state?.from || 'unknown'; // fallback
+     7	
+     8	  return (
+     9	    <div className="space-y-4 rounded-lg bg-gray-800 p-6 shadow-md">
+    10	      <h1 className="text-2xl font-semibold text-white">Cart Page</h1>
+    11	      <p className="text-gray-300">
+    12	        You came from: <span className="text-blue-400">{fromPage}</span>
+    13	      </p>
+    14	    </div>
+    15	  );
+    16	}
+    17	
+    18	export default Cart;
 
-function Cart() {
-  const location = useLocation();
-  const fromPage = location.state?.from || 'unknown'; // fallback
-
-  return (
-    <div className="space-y-4 rounded-lg bg-gray-800 p-6 shadow-md">
-      <h1 className="text-2xl font-semibold text-white">Cart Page</h1>
-      <p className="text-gray-300">
-        You came from: <span className="text-blue-400">{fromPage}</span>
-      </p>
-    </div>
-  );
-}
-
-export default Cart;
+========================================
 ===== src/pages/Contact.jsx =====
-function Contact() {
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">This is Contact Page</h2>
-      <p className="text-gray-300">
-        Reach out to us anytime. We would love to hear from you!
-      </p>
-    </div>
-  );
-}
-export default Contact;
+========================================
+     1	function Contact() {
+     2	  return (
+     3	    <div className="space-y-4">
+     4	      <h2 className="text-2xl font-semibold">This is Contact Page</h2>
+     5	      <p className="text-gray-300">
+     6	        Reach out to us anytime. We would love to hear from you!
+     7	      </p>
+     8	    </div>
+     9	  );
+    10	}
+    11	export default Contact;
+
+========================================
 ===== src/pages/Dashboard.jsx =====
-// src/pages/Dashboard.jsx
-function Dashboard() {
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">Dashboard</h2>
-      <p className="text-gray-300">
-        Welcome to your dashboard! You cannot go back to login if you used
-        replace.
-      </p>
-    </div>
-  );
-}
+========================================
+     1	// src/pages/Dashboard.jsx
+     2	function Dashboard() {
+     3	  return (
+     4	    <div className="space-y-4">
+     5	      <h2 className="text-2xl font-semibold">Dashboard</h2>
+     6	      <p className="text-gray-300">
+     7	        Welcome to your dashboard! You cannot go back to login if you used
+     8	        replace.
+     9	      </p>
+    10	    </div>
+    11	  );
+    12	}
+    13	
+    14	export default Dashboard;
 
-export default Dashboard;
+========================================
 ===== src/pages/Home.jsx =====
-function Home() {
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">This is Home Page</h2>
-      <p className="text-gray-300">
-        Welcome to the homepage. Use the navigation above to explore.
-      </p>
-    </div>
-  );
-}
-export default Home;
+========================================
+     1	function Home() {
+     2	  return (
+     3	    <div className="space-y-4">
+     4	      <h2 className="text-2xl font-semibold">This is Home Page</h2>
+     5	      <p className="text-gray-300">
+     6	        Welcome to the homepage. Use the navigation above to explore.
+     7	      </p>
+     8	    </div>
+     9	  );
+    10	}
+    11	export default Home;
+
+========================================
 ===== src/pages/Layout.jsx =====
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+========================================
+     1	import { NavLink, Outlet, useLocation } from 'react-router-dom';
+     2	
+     3	export default function Layout() {
+     4	  const location = useLocation();
+     5	  return (
+     6	    <div>
+     7	      <nav className="mb-8">
+     8	        <ul className="flex flex-wrap gap-4">
+     9	          <li>
+    10	            <NavLink
+    11	              to="/"
+    12	              className={({ isActive }) =>
+    13	                `rounded-md px-4 py-2 transition ${
+    14	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    15	                }`
+    16	              }
+    17	            >
+    18	              Home
+    19	            </NavLink>
+    20	          </li>
+    21	          <li>
+    22	            <NavLink
+    23	              to="/about"
+    24	              className={({ isActive }) =>
+    25	                `rounded-md px-4 py-2 transition ${
+    26	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    27	                }`
+    28	              }
+    29	            >
+    30	              About
+    31	            </NavLink>
+    32	          </li>
+    33	          <li>
+    34	            <NavLink
+    35	              to="/contact"
+    36	              className={({ isActive }) =>
+    37	                `rounded-md px-4 py-2 transition ${
+    38	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    39	                }`
+    40	              }
+    41	            >
+    42	              Contact
+    43	            </NavLink>
+    44	          </li>
+    45	          <li>
+    46	            <NavLink
+    47	              to="/user/sabir"
+    48	              className={({ isActive }) =>
+    49	                `rounded-md px-4 py-2 transition ${
+    50	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    51	                }`
+    52	              }
+    53	            >
+    54	              Sabir Profile
+    55	            </NavLink>
+    56	          </li>
+    57	          <li>
+    58	            <NavLink
+    59	              to="/user/alice"
+    60	              className={({ isActive }) =>
+    61	                `rounded-md px-4 py-2 transition ${
+    62	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    63	                }`
+    64	              }
+    65	            >
+    66	              Alice Profile
+    67	            </NavLink>
+    68	          </li>
+    69	          <li>
+    70	            <NavLink
+    71	              to="/user/bob"
+    72	              className={({ isActive }) =>
+    73	                `rounded-md px-4 py-2 transition ${
+    74	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    75	                }`
+    76	              }
+    77	            >
+    78	              Bob Profile
+    79	            </NavLink>
+    80	          </li>
+    81	          <li>
+    82	            <NavLink
+    83	              to="/product/1"
+    84	              className={({ isActive }) =>
+    85	                `rounded-md px-4 py-2 transition ${
+    86	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    87	                }`
+    88	              }
+    89	            >
+    90	              Product 1
+    91	            </NavLink>
+    92	          </li>
+    93	          <li>
+    94	            <NavLink
+    95	              to="/product/2"
+    96	              className={({ isActive }) =>
+    97	                `rounded-md px-4 py-2 transition ${
+    98	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+    99	                }`
+   100	              }
+   101	            >
+   102	              Product 2
+   103	            </NavLink>
+   104	          </li>
+   105	          <li>
+   106	            <NavLink
+   107	              to="/login"
+   108	              className={({ isActive }) =>
+   109	                `rounded-md px-4 py-2 transition ${
+   110	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+   111	                }`
+   112	              }
+   113	            >
+   114	              Login
+   115	            </NavLink>
+   116	          </li>
+   117	          <li>
+   118	            <NavLink
+   119	              to="/dashboard"
+   120	              className={({ isActive }) =>
+   121	                `rounded-md px-4 py-2 transition ${
+   122	                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+   123	                }`
+   124	              }
+   125	            >
+   126	              Dashboard
+   127	            </NavLink>
+   128	          </li>
+   129	        </ul>
+   130	      </nav>
+   131	      <hr />
+   132	
+   133	      {/* Main content */}
+   134	      <main className="flex-grow px-4">
+   135	        <strong>Location: {location.pathname}</strong>
+   136	        {location.pathname === '/about' && (
+   137	          <div>Welcome to the About Page!</div>
+   138	        )}
+   139	        <Outlet /> {/* Child pages render here */}
+   140	      </main>
+   141	
+   142	      {/* Footer */}
+   143	      <footer className="mt-8 bg-gray-900 py-4 text-center text-sm text-gray-400">
+   144	        © {new Date().getFullYear()} Your Website Name — All Rights Reserved
+   145	      </footer>
+   146	    </div>
+   147	  );
+   148	}
 
-export default function Layout() {
-  const location = useLocation();
-  return (
-    <div>
-      <nav className="mb-8">
-        <ul className="flex flex-wrap gap-4">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/user/sabir"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Sabir Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/user/alice"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Alice Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/user/bob"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Bob Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/product/1"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Product 1
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/product/2"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Product 2
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `rounded-md px-4 py-2 transition ${
-                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
-                }`
-              }
-            >
-              Dashboard
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <hr />
-
-      {/* Main content */}
-      <main className="flex-grow px-4">
-        <strong>Location: {location.pathname}</strong>
-        {location.pathname === '/about' && (
-          <div>Welcome to the About Page!</div>
-        )}
-        <Outlet /> {/* Child pages render here */}
-      </main>
-
-      {/* Footer */}
-      <footer className="mt-8 bg-gray-900 py-4 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Your Website Name — All Rights Reserved
-      </footer>
-    </div>
-  );
-}
+========================================
 ===== src/pages/Logger.jsx =====
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+========================================
+     1	import { useLocation } from 'react-router-dom';
+     2	import { useEffect } from 'react';
+     3	
+     4	function Logger() {
+     5	  const location = useLocation();
+     6	  useEffect(() => {
+     7	    console.log('Navigated to:', location.pathname);
+     8	  }, [location.pathname]);
+     9	
+    10	  return null;
+    11	}
+    12	
+    13	export default Logger;
 
-function Logger() {
-  const location = useLocation();
-  useEffect(() => {
-    console.log('Navigated to:', location.pathname);
-  }, [location.pathname]);
-
-  return null;
-}
-
-export default Logger;
+========================================
 ===== src/pages/Login.jsx =====
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+========================================
+     1	import { useState } from 'react';
+     2	import { useNavigate } from 'react-router-dom';
+     3	
+     4	function Login() {
+     5	  const [userName, setUserName] = useState('');
+     6	  const navigate = useNavigate();
+     7	
+     8	  function handleLogin() {
+     9	    if (userName.trim !== '') {
+    10	      navigate('/dashboard', { replace: true });
+    11	    } else {
+    12	      navigate('/contact');
+    13	    }
+    14	  }
+    15	
+    16	  function Change(e) {
+    17	    setUserName(e.target.value);
+    18	  }
+    19	
+    20	  return (
+    21	    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-6 bg-gray-700">
+    22	      <h2 className="text-3xl font-bold text-white">Login Page</h2>
+    23	
+    24	      <input
+    25	        type="text"
+    26	        value={userName}
+    27	        onChange={Change}
+    28	        placeholder="Enter username"
+    29	        className="w-64 rounded-lg border border-gray-300 px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    30	      />
+    31	
+    32	      <button
+    33	        onClick={handleLogin}
+    34	        className="rounded-lg bg-blue-500 px-6 py-2 text-lg font-medium text-white shadow-md transition-all hover:bg-blue-600 active:scale-95"
+    35	      >
+    36	        Login
+    37	      </button>
+    38	    </div>
+    39	  );
+    40	}
+    41	
+    42	export default Login;
 
-function Login() {
-  const [userName, setUserName] = useState('');
-  const navigate = useNavigate();
-
-  function handleLogin() {
-    if (userName.trim !== '') {
-      navigate('/dashboard', { replace: true });
-    } else {
-      navigate('/contact');
-    }
-  }
-
-  function Change(e) {
-    setUserName(e.target.value);
-  }
-
-  return (
-    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-6 bg-gray-700">
-      <h2 className="text-3xl font-bold text-white">Login Page</h2>
-
-      <input
-        type="text"
-        value={userName}
-        onChange={Change}
-        placeholder="Enter username"
-        className="w-64 rounded-lg border border-gray-300 px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      />
-
-      <button
-        onClick={handleLogin}
-        className="rounded-lg bg-blue-500 px-6 py-2 text-lg font-medium text-white shadow-md transition-all hover:bg-blue-600 active:scale-95"
-      >
-        Login
-      </button>
-    </div>
-  );
-}
-
-export default Login;
+========================================
 ===== src/pages/NotFound.jsx =====
-function NotFound() {
-  return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center space-y-4 text-center">
-      <h1 className="text-4xl font-bold text-red-500">404</h1>
-      <h2 className="text-2xl font-semibold">Page Not Found</h2>
-      <p className="text-gray-400">
-        Sorry, the page you’re looking for doesn’t exist.
-      </p>
-      <a
-        href="/"
-        className="rounded-md bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600"
-      >
-        Go Home
-      </a>
-    </div>
-  );
-}
+========================================
+     1	function NotFound() {
+     2	  return (
+     3	    <div className="flex min-h-[60vh] flex-col items-center justify-center space-y-4 text-center">
+     4	      <h1 className="text-4xl font-bold text-red-500">404</h1>
+     5	      <h2 className="text-2xl font-semibold">Page Not Found</h2>
+     6	      <p className="text-gray-400">
+     7	        Sorry, the page you’re looking for doesn’t exist.
+     8	      </p>
+     9	      <a
+    10	        href="/"
+    11	        className="rounded-md bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600"
+    12	      >
+    13	        Go Home
+    14	      </a>
+    15	    </div>
+    16	  );
+    17	}
+    18	
+    19	export default NotFound;
 
-export default NotFound;
+========================================
 ===== src/pages/Product.jsx =====
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+========================================
+     1	import { useEffect } from 'react';
+     2	import { useNavigate, useParams } from 'react-router-dom';
+     3	
+     4	function Product() {
+     5	  const { productId } = useParams();
+     6	  const navigate = useNavigate();
+     7	
+     8	  useEffect(() => {
+     9	    if (productId === '0') {
+    10	      navigate('/not-found', { replace: true });
+    11	    }
+    12	  }, [productId, navigate]);
+    13	
+    14	  function goToCart() {
+    15	    navigate('/cart', { state: { from: 'products' } });
+    16	  }
+    17	
+    18	  function goBack() {
+    19	    navigate(-1);
+    20	  }
+    21	
+    22	  return (
+    23	    <div className="mx-auto mt-8 max-w-md space-y-6 rounded-lg bg-gray-800 p-6 shadow-lg">
+    24	      <h1 className="text-3xl font-bold text-white">Product Page</h1>
+    25	      <h2 className="text-gray-300">
+    26	        Product ID: <span className="text-blue-400">{productId}</span>
+    27	      </h2>
+    28	
+    29	      <div className="flex gap-4">
+    30	        <button
+    31	          onClick={goBack}
+    32	          className="rounded-lg bg-gray-600 px-6 py-2 font-medium text-white shadow-md transition hover:bg-gray-700 active:scale-95"
+    33	        >
+    34	          Go Back
+    35	        </button>
+    36	
+    37	        <button
+    38	          onClick={goToCart}
+    39	          className="rounded-lg bg-green-500 px-6 py-2 font-medium text-white shadow-md transition hover:bg-green-600 active:scale-95"
+    40	        >
+    41	          Go to Cart
+    42	        </button>
+    43	      </div>
+    44	    </div>
+    45	  );
+    46	}
+    47	
+    48	export default Product;
 
-function Product() {
-  const { productId } = useParams();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (productId === '0') {
-      navigate('/not-found', { replace: true });
-    }
-  }, [productId, navigate]);
-
-  function goToCart() {
-    navigate('/cart', { state: { from: 'products' } });
-  }
-
-  function goBack() {
-    navigate(-1);
-  }
-
-  return (
-    <div className="mx-auto mt-8 max-w-md space-y-6 rounded-lg bg-gray-800 p-6 shadow-lg">
-      <h1 className="text-3xl font-bold text-white">Product Page</h1>
-      <h2 className="text-gray-300">
-        Product ID: <span className="text-blue-400">{productId}</span>
-      </h2>
-
-      <div className="flex gap-4">
-        <button
-          onClick={goBack}
-          className="rounded-lg bg-gray-600 px-6 py-2 font-medium text-white shadow-md transition hover:bg-gray-700 active:scale-95"
-        >
-          Go Back
-        </button>
-
-        <button
-          onClick={goToCart}
-          className="rounded-lg bg-green-500 px-6 py-2 font-medium text-white shadow-md transition hover:bg-green-600 active:scale-95"
-        >
-          Go to Cart
-        </button>
-      </div>
-    </div>
-  );
-}
-
-export default Product;
+========================================
 ===== src/pages/Products.jsx =====
-import { useSearchParams } from 'react-router-dom';
+========================================
+     1	import { useSearchParams } from 'react-router-dom';
+     2	
+     3	const allProducts = {
+     4	  Electronics: [
+     5	    'Smartphone',
+     6	    'Laptop',
+     7	    'Headphones',
+     8	    'Smartwatch',
+     9	    'Camera',
+    10	    'Tablet',
+    11	    'Drone',
+    12	    'Keyboard',
+    13	    'Monitor',
+    14	    'Speaker',
+    15	  ],
+    16	  Clothing: [
+    17	    'T-Shirt',
+    18	    'Jeans',
+    19	    'Jacket',
+    20	    'Sneakers',
+    21	    'Cap',
+    22	    'Dress',
+    23	    'Sweater',
+    24	    'Scarf',
+    25	    'Shorts',
+    26	    'Boots',
+    27	  ],
+    28	  Books: [
+    29	    'React Guide',
+    30	    'JavaScript Basics',
+    31	    'CSS Mastery',
+    32	    'Tailwind Handbook',
+    33	    'Design Patterns',
+    34	    'Clean Code',
+    35	    'Algorithms 101',
+    36	    'Data Structures',
+    37	    'Next.js Deep Dive',
+    38	    'Frontend Interview Prep',
+    39	  ],
+    40	};
+    41	
+    42	export default function Products() {
+    43	  const [searchParams, setSearchParams] = useSearchParams();
+    44	  const category = searchParams.get('category') || 'All';
+    45	  const page = parseInt(searchParams.get('page') || '1', 10);
+    46	  const pageSize = 6;
+    47	
+    48	  // Pick correct list
+    49	  const items =
+    50	    category === 'All'
+    51	      ? [
+    52	          ...allProducts.Electronics,
+    53	          ...allProducts.Clothing,
+    54	          ...allProducts.Books,
+    55	        ]
+    56	      : allProducts[category] || [];
+    57	
+    58	  // Pagination logic
+    59	  const startIndex = (page - 1) * pageSize;
+    60	  const currentItems = items.slice(startIndex, startIndex + pageSize);
+    61	  const totalPages = Math.ceil(items.length / pageSize) || 1;
+    62	
+    63	  return (
+    64	    <div className="flex min-h-[50vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
+    65	      <h2 className="text-3xl font-bold">Products Page</h2>
+    66	      <h3 className="text-lg text-gray-300">
+    67	        Showing category: <span className="text-blue-400">{category}</span>
+    68	      </h3>
+    69	      <h3 className="text-lg text-gray-300">
+    70	        Current page: <span className="text-yellow-400">{page}</span> /{' '}
+    71	        {totalPages}
+    72	      </h3>
+    73	
+    74	      {/* Category Buttons */}
+    75	      <div className="flex flex-wrap justify-center gap-3">
+    76	        <button
+    77	          onClick={() => setSearchParams({ category: 'Electronics', page })}
+    78	          className="rounded-lg bg-blue-500 px-4 py-2 font-medium shadow-md transition hover:bg-blue-600 active:scale-95"
+    79	        >
+    80	          Electronics
+    81	        </button>
+    82	        <button
+    83	          onClick={() => setSearchParams({ category: 'Clothing', page })}
+    84	          className="rounded-lg bg-green-500 px-4 py-2 font-medium shadow-md transition hover:bg-green-600 active:scale-95"
+    85	        >
+    86	          Clothing
+    87	        </button>
+    88	        <button
+    89	          onClick={() => setSearchParams({ category: 'Books', page })}
+    90	          className="rounded-lg bg-purple-500 px-4 py-2 font-medium shadow-md transition hover:bg-purple-600 active:scale-95"
+    91	        >
+    92	          Books
+    93	        </button>
+    94	        <button
+    95	          onClick={() => setSearchParams({})}
+    96	          className="rounded-lg bg-gray-600 px-4 py-2 font-medium shadow-md transition hover:bg-gray-700 active:scale-95"
+    97	        >
+    98	          Reset
+    99	        </button>
+   100	      </div>
+   101	
+   102	      {/* Product Grid */}
+   103	      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+   104	        {currentItems.length > 0 ? (
+   105	          currentItems.map((item, i) => (
+   106	            <div
+   107	              key={i}
+   108	              className="rounded-lg bg-gray-700 p-4 text-center shadow transition hover:bg-gray-600"
+   109	            >
+   110	              {item}
+   111	            </div>
+   112	          ))
+   113	        ) : (
+   114	          <p className="col-span-full text-gray-400">No products found.</p>
+   115	        )}
+   116	      </div>
+   117	
+   118	      {/* Pagination */}
+   119	      <div className="flex space-x-4">
+   120	        <button
+   121	          onClick={() =>
+   122	            setSearchParams({ category, page: Math.max(1, page - 1) })
+   123	          }
+   124	          disabled={page <= 1}
+   125	          className="rounded-lg bg-yellow-500 px-4 py-2 font-medium shadow-md transition hover:bg-yellow-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+   126	        >
+   127	          Previous
+   128	        </button>
+   129	        <button
+   130	          onClick={() =>
+   131	            setSearchParams({ category, page: Math.min(totalPages, page + 1) })
+   132	          }
+   133	          disabled={page >= totalPages}
+   134	          className="rounded-lg bg-red-500 px-4 py-2 font-medium shadow-md transition hover:bg-red-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+   135	        >
+   136	          Next
+   137	        </button>
+   138	      </div>
+   139	    </div>
+   140	  );
+   141	}
 
-export default function Products() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get('category') || 'All categories';
-  const page = parseInt(searchParams.get('page') || '1', 10);
-
-  return (
-    <div className="flex min-h-[40vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
-      <h2 className="text-3xl font-bold">Products Page</h2>
-
-      <h3 className="text-lg text-gray-300">
-        Showing category: <span className="text-blue-400">{category}</span>
-      </h3>
-
-      <h3 className="text-lg text-gray-300">
-        Current page: <span className="text-yellow-400">{page}</span>
-      </h3>
-
-      {/* Category buttons */}
-      <div className="flex flex-wrap justify-center gap-4">
-        <button
-          onClick={() => setSearchParams({ category: 'Electronics', page })}
-          className="rounded-lg bg-blue-500 px-5 py-2 font-medium shadow-md transition hover:bg-blue-600 active:scale-95"
-        >
-          Electronics
-        </button>
-
-        <button
-          onClick={() => setSearchParams({ category: 'Clothing', page })}
-          className="rounded-lg bg-green-500 px-5 py-2 font-medium shadow-md transition hover:bg-green-600 active:scale-95"
-        >
-          Clothing
-        </button>
-
-        <button
-          onClick={() => setSearchParams({ category: 'Books', page })}
-          className="rounded-lg bg-purple-500 px-5 py-2 font-medium shadow-md transition hover:bg-purple-600 active:scale-95"
-        >
-          Books
-        </button>
-
-        <button
-          onClick={() => setSearchParams({})}
-          className="rounded-lg bg-gray-600 px-5 py-2 font-medium shadow-md transition hover:bg-gray-700 active:scale-95"
-        >
-          Reset
-        </button>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex gap-4">
-        <button
-          onClick={() =>
-            setSearchParams({ category, page: Math.max(1, page - 1) })
-          }
-          disabled={page <= 1}
-          className="rounded-lg bg-red-500 px-5 py-2 font-medium shadow-md transition hover:bg-red-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Previous Page
-        </button>
-
-        <button
-          onClick={() => setSearchParams({ category, page: page + 1 })}
-          className="rounded-lg bg-yellow-500 px-5 py-2 font-medium shadow-md transition hover:bg-yellow-600 active:scale-95"
-        >
-          Next Page
-        </button>
-      </div>
-    </div>
-  );
-}
+========================================
 ===== src/pages/User.jsx =====
-import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+========================================
+     1	import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+     2	
+     3	function User() {
+     4	  const navigate = useNavigate();
+     5	  const { userName } = useParams();
+     6	
+     7	  function LogOut() {
+     8	    navigate('/login', { replace: true });
+     9	  }
+    10	
+    11	  return (
+    12	    <div className="space-y-4">
+    13	      <h1 className="text-2xl font-semibold">User Page</h1>
+    14	      <h2 className="text-gray-300">
+    15	        User's Name: <span className="text-blue-400">{userName}</span>
+    16	      </h2>
+    17	
+    18	      <button
+    19	        onClick={LogOut}
+    20	        className="rounded-lg bg-red-500 px-4 py-2 text-white shadow-md transition hover:bg-red-600"
+    21	      >
+    22	        Log Out
+    23	      </button>
+    24	
+    25	      <NavLink
+    26	        to="details"
+    27	        className="inline-block rounded-lg bg-blue-500 px-5 py-2 text-white transition hover:bg-blue-600"
+    28	      >
+    29	        View Details
+    30	      </NavLink>
+    31	      <hr />
+    32	      <Outlet />
+    33	    </div>
+    34	  );
+    35	}
+    36	
+    37	export default User;
 
-function User() {
-  const navigate = useNavigate();
-  const { userName } = useParams();
-
-  function LogOut() {
-    navigate('/login', { replace: true });
-  }
-
-  return (
-    <div className="space-y-4">
-      <h1 className="text-2xl font-semibold">User Page</h1>
-      <h2 className="text-gray-300">
-        User's Name: <span className="text-blue-400">{userName}</span>
-      </h2>
-
-      <button
-        onClick={LogOut}
-        className="rounded-lg bg-red-500 px-4 py-2 text-white shadow-md transition hover:bg-red-600"
-      >
-        Log Out
-      </button>
-
-      <NavLink
-        to="details"
-        className="inline-block rounded-lg bg-blue-500 px-5 py-2 text-white transition hover:bg-blue-600"
-      >
-        View Details
-      </NavLink>
-      <hr />
-      <Outlet />
-    </div>
-  );
-}
-
-export default User;
+========================================
 ===== src/pages/UserDetails.jsx =====
-import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+========================================
+     1	import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+     2	
+     3	function UserDetails() {
+     4	  const { userName } = useParams();
+     5	  const navigate = useNavigate();
+     6	
+     7	  function GoBack() {
+     8	    navigate(-1);
+     9	  }
+    10	
+    11	  return (
+    12	    <div className="space-y-6 rounded-lg bg-gray-800 p-6 shadow-lg">
+    13	      <h2 className="text-2xl font-bold text-blue-400">
+    14	        Extra Details for {userName}
+    15	      </h2>
+    16	
+    17	      <p className="text-gray-300">
+    18	        This section contains additional information about{' '}
+    19	        <span className="font-semibold text-blue-300">{userName}</span>.
+    20	      </p>
+    21	
+    22	      <button
+    23	        onClick={GoBack}
+    24	        className="rounded-lg bg-red-500 px-4 py-2 text-white shadow-md transition hover:bg-red-600"
+    25	      >
+    26	        Go Back
+    27	      </button>
+    28	
+    29	      <div>
+    30	        <NavLink
+    31	          to="settings"
+    32	          className="rounded-lg bg-green-500 px-4 py-2 text-white shadow-md transition hover:bg-green-600"
+    33	        >
+    34	          Settings
+    35	        </NavLink>
+    36	      </div>
+    37	
+    38	      <Outlet />
+    39	    </div>
+    40	  );
+    41	}
+    42	
+    43	export default UserDetails;
 
-function UserDetails() {
-  const { userName } = useParams();
-  const navigate = useNavigate();
-
-  function GoBack() {
-    navigate(-1);
-  }
-
-  return (
-    <div className="space-y-6 rounded-lg bg-gray-800 p-6 shadow-lg">
-      <h2 className="text-2xl font-bold text-blue-400">
-        Extra Details for {userName}
-      </h2>
-
-      <p className="text-gray-300">
-        This section contains additional information about{' '}
-        <span className="font-semibold text-blue-300">{userName}</span>.
-      </p>
-
-      <button
-        onClick={GoBack}
-        className="rounded-lg bg-red-500 px-4 py-2 text-white shadow-md transition hover:bg-red-600"
-      >
-        Go Back
-      </button>
-
-      <div>
-        <NavLink
-          to="settings"
-          className="rounded-lg bg-green-500 px-4 py-2 text-white shadow-md transition hover:bg-green-600"
-        >
-          Settings
-        </NavLink>
-      </div>
-
-      <Outlet />
-    </div>
-  );
-}
-
-export default UserDetails;
+========================================
 ===== src/pages/UserSettings.jsx =====
-import { useParams } from 'react-router-dom';
+========================================
+     1	import { useParams } from 'react-router-dom';
+     2	
+     3	function UserSettings() {
+     4	  const { userName } = useParams();
+     5	
+     6	  return (
+     7	    <div className="flex min-h-[60vh] flex-col items-center justify-center rounded-lg bg-gray-800 p-6 shadow-lg">
+     8	      <h1 className="mb-4 text-3xl font-bold text-blue-400">
+     9	        Settings for {userName}
+    10	      </h1>
+    11	      <p className="text-gray-300">
+    12	        Here you can manage preferences and account settings for{' '}
+    13	        <span className="font-semibold text-blue-300">{userName}</span>.
+    14	      </p>
+    15	    </div>
+    16	  );
+    17	}
+    18	
+    19	export default UserSettings;
 
-function UserSettings() {
-  const { userName } = useParams();
-
-  return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center rounded-lg bg-gray-800 p-6 shadow-lg">
-      <h1 className="mb-4 text-3xl font-bold text-blue-400">
-        Settings for {userName}
-      </h1>
-      <p className="text-gray-300">
-        Here you can manage preferences and account settings for{' '}
-        <span className="font-semibold text-blue-300">{userName}</span>.
-      </p>
-    </div>
-  );
-}
-
-export default UserSettings;
