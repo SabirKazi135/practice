@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-function Products() {
+export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // read category from URL, if missing use "all"
