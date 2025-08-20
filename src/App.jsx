@@ -13,6 +13,7 @@ import UserSettings from './pages/UserSettings';
 import Logger from './pages/Logger';
 import Dashboard from './pages/Dashboard';
 import Cart from './pages/Cart';
+import Products from './pages/Products';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/products" element={<Products />} />
           </Route>
         </Routes>
       </div>
