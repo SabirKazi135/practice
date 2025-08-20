@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams, NavLink } from 'react-router-dom';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -66,6 +66,16 @@ export default function Products() {
         >
           Next Page
         </button>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/electronics">Electronics</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <Outlet />
+        </div>
       </div>
     </div>
   );
