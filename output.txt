@@ -28,6 +28,7 @@ import Electronics from './pages/Electronics';
 import Clothing from './pages/Clothing';
 import Books from './pages/Books';
 import PrivateRoute from './pages/PrivateRoute';
+import Profile from './pages/profile';
 
 function App() {
   return (
@@ -60,7 +61,7 @@ function App() {
 
             <Route element={<PrivateRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<h2>Profile Page</h2>} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
           </Route>
         </Routes>
@@ -265,17 +266,24 @@ function User() {
 export default User;
 ===== src/pages/Login.jsx =====
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const isLoggedIn = localStorage.getItem('auth') === 'true';
+
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
-  function handleLogin() {
 
-    if (userName.trim !== '') {
-      navigate('/dashboard', { replace: true });
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" replace />;
+  }
+  function handleLogin() {
+    if (userName.trim() === '') {
+      navigate('/contact', { replace: true });
     } else {
-      navigate('/contact');
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('username', userName); // ✅ save username
+      navigate('/dashboard', { replace: true });
     }
   }
 
@@ -306,6 +314,30 @@ function Login() {
 }
 
 export default Login;
+===== src/pages/profile.jsx =====
+// src/pages/Profile.jsx
+function Profile() {
+  const username = localStorage.getItem('username') || 'Guest';
+
+  return (
+    <div className="flex min-h-[40vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
+      <h2 className="text-3xl font-bold">Profile</h2>
+
+      <p className="text-lg text-gray-300">
+        Welcome,{' '}
+        <span className="font-semibold text-yellow-400">{username}</span> 🎉
+      </p>
+
+      <div className="w-full max-w-md space-y-4 rounded-lg bg-gray-700 p-4 shadow-md">
+        <p className="text-gray-300">📧 Email: user@example.com</p>
+        <p className="text-gray-300">📍 Location: India</p>
+        <p className="text-gray-300">⭐ Membership: Free User</p>
+      </div>
+    </div>
+  );
+}
+
+export default Profile;
 ===== src/pages/Layout.jsx =====
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
@@ -633,7 +665,21 @@ function Contact() {
 export default Contact;
 ===== src/pages/Dashboard.jsx =====
 // src/pages/Dashboard.jsx
+
+import { Navigate, useNavigate } from 'react-router-dom';
+
 function Dashboard() {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem('auth') === 'true';
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" replace />;
+  }
+
+  function LogOut() {
+    localStorage.setItem('auth', 'false');
+    navigate('/login', { replace: true });
+  }
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold">Dashboard</h2>
@@ -641,6 +687,8 @@ function Dashboard() {
         Welcome to your dashboard! You cannot go back to login if you used
         replace.
       </p>
+
+      <button onClick={() => LogOut()}>log out</button>
     </div>
   );
 }
