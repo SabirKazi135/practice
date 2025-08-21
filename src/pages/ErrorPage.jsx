@@ -12,7 +12,7 @@ function ErrorPage() {
         {error.statusText || error.message || 'Unknown error'}
       </p>
       <a href="/" className="mt-6 rounded bg-blue-500 px-4 py-2">
-        Go Home
+        Go Home sabir
       </a>
     </div>
   );

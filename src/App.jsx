@@ -42,7 +42,7 @@ function App() {
         <Logger />
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="contact" element={<Contact />} />
@@ -56,7 +56,11 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="cart" element={<Cart />} />
-              <Route path="products" element={<Products />}>
+              <Route
+                path="products"
+                element={<Products />}
+                errorElement={<ErrorPage />}
+              >
                 <Route path="electronics" element={<Electronics />} />
                 <Route path="clothing" element={<Clothing />} />
                 <Route path="books" element={<Books />} />
