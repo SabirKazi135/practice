@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
-
   function handleLogin() {
+
     if (userName.trim !== '') {
       navigate('/dashboard', { replace: true });
     } else {
