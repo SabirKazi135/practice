@@ -8,27 +8,39 @@ body {
   background-color: gray;
 }
 ===== src/App.jsx =====
-import { Route, NavLink, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Layout from './pages/Layout';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-import Contact from './pages/Contact';
-import User from './pages/User';
-import Product from './pages/Product';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import UserDetails from './pages/UserDetails';
-import UserSettings from './pages/UserSettings';
-import Logger from './pages/Logger';
-import Dashboard from './pages/Dashboard';
-import Cart from './pages/Cart';
-import Products from './pages/Products';
-import Electronics from './pages/Electronics';
-import Clothing from './pages/Clothing';
-import Books from './pages/Books';
-import PrivateRoute from './pages/PrivateRoute';
-import Profile from './pages/profile';
+const delayImport = (importPromise) =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(importPromise), 2000); // ⏳ only startup delay
+  });
+
+// ⏳ Delayed only for first load
+const Layout = lazy(() => delayImport(import('./pages/Layout')));
+const Home = lazy(() => delayImport(import('./pages/Home')));
+
+// 🚀 Normal lazy load for others
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Products = lazy(() => import('./pages/Products'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const UserDetails = lazy(() => import('./pages/UserDetails'));
+const Product = lazy(() => import('./pages/Product'));
+const Books = lazy(() => import('./pages/Books'));
+const Electronics = lazy(() => import('./pages/Electronics'));
+const Clothing = lazy(() => import('./pages/Clothing'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const User = lazy(() => import('./pages/User'));
+const Login = lazy(() => import('./pages/Login'));
+const UserSettings = lazy(() => import('./pages/UserSettings'));
+const Logger = lazy(() => import('./pages/Logger'));
+const Cart = lazy(() => import('./pages/Cart'));
+const PrivateRoute = lazy(() => import('./pages/PrivateRoute'));
+const Profile = lazy(() => import('./pages/Profile'));
+import ErrorPage from './pages/ErrorPage';
+
+import LoadingFallback from './pages/LoadingFallBack';
 
 function App() {
   return (
@@ -38,33 +50,39 @@ function App() {
 
       <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
         <Logger />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/user/:userName" element={<User />}>
-              <Route path="details" element={<UserDetails />}>
-                <Route path="settings" element={<UserSettings />} />
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="user/:userName" element={<User />}>
+                <Route path="details" element={<UserDetails />}>
+                  <Route path="settings" element={<UserSettings />} />
+                </Route>
+              </Route>
+              <Route path="product/:productId" element={<Product />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="login" element={<Login />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="cart" element={<Cart />} />
+              <Route
+                path="products"
+                element={<Products />}
+                errorElement={<ErrorPage />}
+              >
+                <Route path="electronics" element={<Electronics />} />
+                <Route path="clothing" element={<Clothing />} />
+                <Route path="books" element={<Books />} />
+              </Route>
+
+              <Route element={<PrivateRoute />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="profile" element={<Profile />} />
               </Route>
             </Route>
-            <Route path="/product/:productId" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />}>
-              <Route path="electronics" element={<Electronics />} />
-              <Route path="clothing" element={<Clothing />} />
-              <Route path="books" element={<Books />} />
-            </Route>
-
-            <Route element={<PrivateRoute />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-            </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </Suspense>
       </div>
     </div>
   );
@@ -109,6 +127,30 @@ export default function Clothing() {
     </div>
   );
 }
+===== src/pages/Profile.jsx =====
+// src/pages/Profile.jsx
+function Profile() {
+  const username = localStorage.getItem('username') || 'Guest';
+
+  return (
+    <div className="flex min-h-[40vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
+      <h2 className="text-3xl font-bold">Profile</h2>
+
+      <p className="text-lg text-gray-300">
+        Welcome,{' '}
+        <span className="font-semibold text-yellow-400">{username}</span> 🎉
+      </p>
+
+      <div className="w-full max-w-md space-y-4 rounded-lg bg-gray-700 p-4 shadow-md">
+        <p className="text-gray-300">📧 Email: user@example.com</p>
+        <p className="text-gray-300">📍 Location: India</p>
+        <p className="text-gray-300">⭐ Membership: Free User</p>
+      </div>
+    </div>
+  );
+}
+
+export default Profile;
 ===== src/pages/Products.jsx =====
 import { Outlet, useSearchParams, NavLink } from 'react-router-dom';
 
@@ -314,30 +356,6 @@ function Login() {
 }
 
 export default Login;
-===== src/pages/profile.jsx =====
-// src/pages/Profile.jsx
-function Profile() {
-  const username = localStorage.getItem('username') || 'Guest';
-
-  return (
-    <div className="flex min-h-[40vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
-      <h2 className="text-3xl font-bold">Profile</h2>
-
-      <p className="text-lg text-gray-300">
-        Welcome,{' '}
-        <span className="font-semibold text-yellow-400">{username}</span> 🎉
-      </p>
-
-      <div className="w-full max-w-md space-y-4 rounded-lg bg-gray-700 p-4 shadow-md">
-        <p className="text-gray-300">📧 Email: user@example.com</p>
-        <p className="text-gray-300">📍 Location: India</p>
-        <p className="text-gray-300">⭐ Membership: Free User</p>
-      </div>
-    </div>
-  );
-}
-
-export default Profile;
 ===== src/pages/Layout.jsx =====
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
@@ -663,6 +681,46 @@ function Logger() {
 }
 
 export default Logger;
+===== src/pages/ErrorPage.jsx =====
+// src/pages/ErrorPage.jsx
+import { useRouteError } from 'react-router-dom';
+
+function ErrorPage() {
+  const error = useRouteError();
+  console.error(error);
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold">Oops! Something went wrong.</h1>
+      <p className="mt-4 text-lg text-gray-300">
+        {error.statusText || error.message || 'Unknown error'}
+      </p>
+      <a href="/" className="mt-6 rounded bg-blue-500 px-4 py-2">
+        Go Home sabir
+      </a>
+    </div>
+  );
+}
+
+export default ErrorPage;
+===== src/pages/productLoader.js =====
+// src/pages/productsLoader.js
+export async function productsLoader() {
+  const res = await fetch('/fake-endpoint'); // fake URL
+  if (!res.ok) {
+    throw new Response('Failed to fetch products', { status: 500 });
+  }
+  return res.json();
+}
+===== src/pages/LoadingFallBack.jsx =====
+function LoadingFallback() {
+  return (
+    <div className="flex h-60 items-center justify-center">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-dashed border-blue-500"></div>
+    </div>
+  );
+}
+export default LoadingFallback;
 ===== src/pages/Contact.jsx =====
 function Contact() {
   return (
