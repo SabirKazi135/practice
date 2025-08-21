@@ -17,7 +17,7 @@ const Home = lazy(() =>
   firstVisit ? delayImport(import('./pages/Home')) : import('./pages/Home'),
 );
 
-// 🚀 Normal lazy load for others
+
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Products = lazy(() => import('./pages/Products'));
@@ -39,7 +39,6 @@ const Profile = lazy(() => import('./pages/Profile'));
 import LoadingFallback from './pages/LoadingFallBack';
 
 function App() {
-  // Mark visit after app loads once
   if (firstVisit) {
     localStorage.setItem('visitedBefore', 'true');
   }
