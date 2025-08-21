@@ -24,6 +24,7 @@ import Logger from './pages/Logger';
 import Cart from './pages/Cart';
 import PrivateRoute from './pages/PrivateRoute';
 import Profile from './pages/profile';
+import LoadingFallback from './pages/LoadingFallBack';
 
 function App() {
   return (
@@ -33,33 +34,35 @@ function App() {
 
       <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
         <Logger />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/user/:userName" element={<User />}>
-              <Route path="details" element={<UserDetails />}>
-                <Route path="settings" element={<UserSettings />} />
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/user/:userName" element={<User />}>
+                <Route path="details" element={<UserDetails />}>
+                  <Route path="settings" element={<UserSettings />} />
+                </Route>
+              </Route>
+              <Route path="/product/:productId" element={<Product />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/products" element={<Products />}>
+                <Route path="electronics" element={<Electronics />} />
+                <Route path="clothing" element={<Clothing />} />
+                <Route path="books" element={<Books />} />
+              </Route>
+
+              <Route element={<PrivateRoute />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/profile" element={<Profile />} />
               </Route>
             </Route>
-            <Route path="/product/:productId" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />}>
-              <Route path="electronics" element={<Electronics />} />
-              <Route path="clothing" element={<Clothing />} />
-              <Route path="books" element={<Books />} />
-            </Route>
-
-            <Route element={<PrivateRoute />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-            </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </Suspense>
       </div>
     </div>
   );
