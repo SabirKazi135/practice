@@ -1,22 +1,29 @@
 import { Route, NavLink, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+
+// Lazy loaded main pages
+import Products from './pages/Products';
+import Dashboard from './pages/Dashboard';
+const Dashboard = lazy();
+import UserDetails from './pages/UserDetails';
+import Product from './pages/Product';
+
+// Lazy loaded nested category pages
+
+import Books from './pages/Books';
+import Electronics from './pages/Electronics';
+import Clothing from './pages/Clothing';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Layout from './pages/Layout';
-
 import Contact from './pages/Contact';
-import User from './pages/User';
-import Product from './pages/Product';
 import NotFound from './pages/NotFound';
+import User from './pages/User';
 import Login from './pages/Login';
-import UserDetails from './pages/UserDetails';
 import UserSettings from './pages/UserSettings';
 import Logger from './pages/Logger';
-import Dashboard from './pages/Dashboard';
 import Cart from './pages/Cart';
-import Products from './pages/Products';
-import Electronics from './pages/Electronics';
-import Clothing from './pages/Clothing';
-import Books from './pages/Books';
 import PrivateRoute from './pages/PrivateRoute';
 import Profile from './pages/profile';
 
