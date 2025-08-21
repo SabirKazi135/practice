@@ -9,7 +9,6 @@ const delayImport = (importPromise) =>
     setTimeout(() => resolve(importPromise), 2000); // 2s only first time
   });
 
-// ⏳ Apply delay only if first visit
 const Layout = lazy(() =>
   firstVisit ? delayImport(import('./pages/Layout')) : import('./pages/Layout'),
 );
