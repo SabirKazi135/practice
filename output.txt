@@ -24,6 +24,10 @@ import Logger from './pages/Logger';
 import Dashboard from './pages/Dashboard';
 import Cart from './pages/Cart';
 import Products from './pages/Products';
+import Electronics from './pages/Electronics';
+import Clothing from './pages/Clothing';
+import Books from './pages/Books';
+import PrivateRoute from './pages/PrivateRoute';
 
 function App() {
   return (
@@ -48,7 +52,16 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Products />}>
+              <Route path="electronics" element={<Electronics />} />
+              <Route path="clothing" element={<Clothing />} />
+              <Route path="books" element={<Books />} />
+            </Route>
+
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<h2>Profile Page</h2>} />
+            </Route>
           </Route>
         </Routes>
       </div>
@@ -57,145 +70,138 @@ function App() {
 }
 
 export default App;
-===== src/pages/Products.jsx =====
-import { useSearchParams } from 'react-router-dom';
+===== src/pages/Books.jsx =====
+export default function Books() {
+  return (
+    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-4 rounded-xl bg-purple-800 p-6 text-white shadow-lg">
+      <h2 className="text-2xl font-bold">Books Category</h2>
+      <p className="text-gray-200">
+        This is the <span className="font-semibold text-yellow-300">Books</span>{' '}
+        section. Discover stories, knowledge, and imagination here.
+      </p>
+    </div>
+  );
+}
+===== src/pages/PrivateRoute.jsx =====
+import { Navigate, Outlet } from 'react-router-dom';
 
-const allProducts = {
-  Electronics: [
-    'Smartphone',
-    'Laptop',
-    'Headphones',
-    'Smartwatch',
-    'Camera',
-    'Tablet',
-    'Drone',
-    'Keyboard',
-    'Monitor',
-    'Speaker',
-  ],
-  Clothing: [
-    'T-Shirt',
-    'Jeans',
-    'Jacket',
-    'Sneakers',
-    'Cap',
-    'Dress',
-    'Sweater',
-    'Scarf',
-    'Shorts',
-    'Boots',
-  ],
-  Books: [
-    'React Guide',
-    'JavaScript Basics',
-    'CSS Mastery',
-    'Tailwind Handbook',
-    'Design Patterns',
-    'Clean Code',
-    'Algorithms 101',
-    'Data Structures',
-    'Next.js Deep Dive',
-    'Frontend Interview Prep',
-  ],
-};
+localStorage.setItem('auth', 'false');
+function PrivateRoute() {
+  const isLogginIn = localStorage.getItem('auth') === 'true';
+  if (!isLogginIn) {
+    return <Navigate to="/login" replace />;
+  }
+  return <Outlet />;
+}
+
+export default PrivateRoute;
+===== src/pages/Clothing.jsx =====
+export default function Clothing() {
+  return (
+    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-4 rounded-xl bg-green-800 p-6 text-white shadow-lg">
+      <h2 className="text-2xl font-bold">Clothing Category</h2>
+      <p className="text-gray-200">
+        This is the{' '}
+        <span className="font-semibold text-yellow-300">Clothing</span> section.
+        Explore the latest fashion, styles, and trends here.
+      </p>
+    </div>
+  );
+}
+===== src/pages/Products.jsx =====
+import { Outlet, useSearchParams, NavLink } from 'react-router-dom';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get('category') || 'All';
+  const category = searchParams.get('category') || 'All categories';
   const page = parseInt(searchParams.get('page') || '1', 10);
-  const pageSize = 6;
-
-  // Pick correct list
-  const items =
-    category === 'All'
-      ? [
-          ...allProducts.Electronics,
-          ...allProducts.Clothing,
-          ...allProducts.Books,
-        ]
-      : allProducts[category] || [];
-
-  // Pagination logic
-  const startIndex = (page - 1) * pageSize;
-  const currentItems = items.slice(startIndex, startIndex + pageSize);
-  const totalPages = Math.ceil(items.length / pageSize) || 1;
 
   return (
-    <div className="flex min-h-[50vh] flex-col items-center justify-center space-y-6 rounded-xl bg-gray-800 p-6 text-white shadow-lg">
-      <h2 className="text-3xl font-bold">Products Page</h2>
-      <h3 className="text-lg text-gray-300">
-        Showing category: <span className="text-blue-400">{category}</span>
-      </h3>
-      <h3 className="text-lg text-gray-300">
-        Current page: <span className="text-yellow-400">{page}</span> /{' '}
-        {totalPages}
-      </h3>
+    <div className="flex min-h-[50vh] flex-col items-center justify-center space-y-8 rounded-xl bg-gray-900 p-8 text-white shadow-lg">
+      {/* Page heading */}
+      <header className="space-y-2 text-center">
+        <h2 className="text-3xl font-bold tracking-wide">Products Page</h2>
+        <p className="text-gray-400">
+          Browse categories and paginate through items
+        </p>
+      </header>
 
-      {/* Category Buttons */}
-      <div className="flex flex-wrap justify-center gap-3">
-        <button
-          onClick={() => setSearchParams({ category: 'Electronics', page })}
-          className="rounded-lg bg-blue-500 px-4 py-2 font-medium shadow-md transition hover:bg-blue-600 active:scale-95"
-        >
-          Electronics
-        </button>
-        <button
-          onClick={() => setSearchParams({ category: 'Clothing', page })}
-          className="rounded-lg bg-green-500 px-4 py-2 font-medium shadow-md transition hover:bg-green-600 active:scale-95"
-        >
-          Clothing
-        </button>
-        <button
-          onClick={() => setSearchParams({ category: 'Books', page })}
-          className="rounded-lg bg-purple-500 px-4 py-2 font-medium shadow-md transition hover:bg-purple-600 active:scale-95"
-        >
-          Books
-        </button>
+      {/* Info */}
+      <div className="space-y-1 text-center">
+        <h3 className="text-lg text-gray-300">
+          Showing category:{' '}
+          <span className="font-semibold text-blue-400">{category}</span>
+        </h3>
+        <h3 className="text-lg text-gray-300">
+          Current page:{' '}
+          <span className="font-semibold text-yellow-400">{page}</span>
+        </h3>
+      </div>
+
+      {/* Category buttons */}
+      <div className="flex flex-wrap justify-center gap-4">
+        {['Electronics', 'Clothing', 'Books'].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSearchParams({ category: cat, page })}
+            className="rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 px-5 py-2 font-medium shadow-md transition hover:from-blue-600 hover:to-blue-800 active:scale-95"
+          >
+            {cat}
+          </button>
+        ))}
         <button
           onClick={() => setSearchParams({})}
-          className="rounded-lg bg-gray-600 px-4 py-2 font-medium shadow-md transition hover:bg-gray-700 active:scale-95"
+          className="rounded-lg bg-gray-600 px-5 py-2 font-medium shadow-md transition hover:bg-gray-700 active:scale-95"
         >
           Reset
         </button>
       </div>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-        {currentItems.length > 0 ? (
-          currentItems.map((item, i) => (
-            <div
-              key={i}
-              className="rounded-lg bg-gray-700 p-4 text-center shadow transition hover:bg-gray-600"
-            >
-              {item}
-            </div>
-          ))
-        ) : (
-          <p className="col-span-full text-gray-400">No products found.</p>
-        )}
-      </div>
-
       {/* Pagination */}
-      <div className="flex space-x-4">
+      <div className="flex gap-6">
         <button
           onClick={() =>
             setSearchParams({ category, page: Math.max(1, page - 1) })
           }
           disabled={page <= 1}
-          className="rounded-lg bg-yellow-500 px-4 py-2 font-medium shadow-md transition hover:bg-yellow-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-lg bg-red-500 px-5 py-2 font-medium shadow-md transition hover:bg-red-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Previous
         </button>
         <button
-          onClick={() =>
-            setSearchParams({ category, page: Math.min(totalPages, page + 1) })
-          }
-          disabled={page >= totalPages}
-          className="rounded-lg bg-red-500 px-4 py-2 font-medium shadow-md transition hover:bg-red-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={() => setSearchParams({ category, page: page + 1 })}
+          className="rounded-lg bg-yellow-500 px-5 py-2 font-medium shadow-md transition hover:bg-yellow-600 active:scale-95"
         >
           Next
         </button>
       </div>
+
+      {/* Nested routes section */}
+      <section className="w-full max-w-3xl space-y-4">
+        {/* NavLinks styled as tabs */}
+        <nav className="flex justify-center gap-6 border-b border-gray-700 pb-2">
+          {['electronics', 'clothing', 'books'].map((tab) => (
+            <NavLink
+              key={tab}
+              to={tab}
+              className={({ isActive }) =>
+                `rounded-t-md px-4 py-2 font-medium transition ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-400 hover:bg-gray-700 hover:text-white'
+                }`
+              }
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Outlet display box */}
+        <div className="rounded-lg border border-gray-700 bg-gray-800 p-6 text-center shadow-inner">
+          <Outlet />
+        </div>
+      </section>
     </div>
   );
 }
@@ -264,8 +270,8 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
-
   function handleLogin() {
+
     if (userName.trim !== '') {
       navigate('/dashboard', { replace: true });
     } else {
@@ -429,6 +435,18 @@ export default function Layout() {
               Dashboard
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `rounded-md px-4 py-2 transition ${
+                  isActive ? 'bg-blue-500' : 'bg-gray-700 hover:bg-gray-600'
+                }`
+              }
+            >
+              Products
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <hr />
@@ -450,13 +468,17 @@ export default function Layout() {
   );
 }
 ===== src/pages/Home.jsx =====
+import { useNavigate } from 'react-router-dom';
+
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold">This is Home Page</h2>
       <p className="text-gray-300">
         Welcome to the homepage. Use the navigation above to explore.
       </p>
+      <button onClick={() => navigate('/products')}>Products</button>
     </div>
   );
 }
@@ -570,6 +592,19 @@ function UserSettings() {
 }
 
 export default UserSettings;
+===== src/pages/Electronics.jsx =====
+export default function Electronics() {
+  return (
+    <div className="flex min-h-[30vh] flex-col items-center justify-center space-y-4 rounded-xl bg-blue-800 p-6 text-white shadow-lg">
+      <h2 className="text-2xl font-bold">Electronics Category</h2>
+      <p className="text-gray-200">
+        This is the{' '}
+        <span className="font-semibold text-yellow-300">Electronics</span>{' '}
+        section. Find gadgets, devices, and modern tech here.
+      </p>
+    </div>
+  );
+}
 ===== src/pages/Logger.jsx =====
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';

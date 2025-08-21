@@ -17,6 +17,8 @@ import Products from './pages/Products';
 import Electronics from './pages/Electronics';
 import Clothing from './pages/Clothing';
 import Books from './pages/Books';
+import PrivateRoute from './pages/PrivateRoute';
+import Profile from './pages/profile';
 
 function App() {
   return (
@@ -45,6 +47,11 @@ function App() {
               <Route path="electronics" element={<Electronics />} />
               <Route path="clothing" element={<Clothing />} />
               <Route path="books" element={<Books />} />
+            </Route>
+
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
           </Route>
         </Routes>

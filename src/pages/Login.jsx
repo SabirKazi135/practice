@@ -1,15 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const isLoggedIn = localStorage.getItem('auth') === 'true';
+
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
-  function handleLogin() {
 
-    if (userName.trim !== '') {
-      navigate('/dashboard', { replace: true });
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" replace />;
+  }
+  function handleLogin() {
+    if (userName.trim() === '') {
+      navigate('/contact', { replace: true });
     } else {
-      navigate('/contact');
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('username', userName); // ✅ save username
+      navigate('/dashboard', { replace: true });
     }
   }
 

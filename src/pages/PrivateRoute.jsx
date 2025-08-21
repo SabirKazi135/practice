@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-localStorage.setItem('auth', 'true');
+localStorage.setItem('auth', 'false');
 function PrivateRoute() {
   const isLogginIn = localStorage.getItem('auth') === 'true';
   if (!isLogginIn) {
