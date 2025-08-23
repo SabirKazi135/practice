@@ -7,7 +7,7 @@
   {
     id: 2,
     name: 'Smartphone',
-    price: 800,
+    price: 700,
   },
   {
     id: 3,
