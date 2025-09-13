@@ -1,3 +1,4 @@
+===== src/Name.jsx =====
 ===== src/index.css =====
 @tailwind base;
 @tailwind components;
@@ -8,45 +9,31 @@ body {
   background-color: gray;
 }
 ===== src/App.jsx =====
-import UseCounter from './UseCounter';
+// src/App.jsx
+import NameDisplay from './components/NameDisplay';
+import NameChanger from './components/NameChanger';
+import ThemeToggle from './components/ThemeToggle';
+import CountWatcher from './components/CountWatcher';
 
 function App() {
   return (
-    <>
-      <UseCounter />
-    </>
-  );
-}
+    <div className="flex min-h-screen flex-col items-center justify-center space-y-8 bg-gray-900 p-6 text-white">
+      {/* Display current name */}
+      <NameDisplay />
 
-export default App;
-===== src/UseCounter.jsx =====
-import { useStore } from 'zustand';
+      {/* Change the name */}
+      <NameChanger />
 
-function UseCounter() {
-  const count = useStore((state) => state.count);
-  const inc = useStore((state) => state.inc);
-  const dec = useStore((state) => state.dec);
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={dec}>-</button>
-      <button onClick={inc}>+</button>
+      {/* Toggle theme */}
+      <ThemeToggle />
+
+      {/* Counter watcher with conditional logic */}
+      <CountWatcher />
     </div>
   );
 }
 
-export default UseCounter;
-===== src/Counter.jsx =====
-import { create } from 'zustand';
-
-const useStore = create((set, get) => ({
-  count: 0,
-
-  inc: () => set((state) => ({ count: state.count + 1 })),
-  dec: () => set((state) => ({ count: state.count - 1 })),
-}));
-
-export default useStore;
+export default App;
 ===== src/main.jsx =====
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -61,3 +48,64 @@ root.render(
     <App />
   </BrowserRouter>,
 );
+===== src/store/useStore.jsx =====
+import { create } from 'zustand';
+
+const useStore = create((set, get) => ({
+  name: 'sabir',
+  theme: 'dark',
+  count: 0,
+
+  setName: (newName) => set({ name: newName }),
+
+  toggleTheme: () =>
+    set((state) => ({
+      theme: state.theme === 'dark' ? 'light' : 'light',
+    })),
+
+  incCount: () => {
+    const currentCount = get().count;
+    const newCount = currentCount + 1;
+
+    if (newCount > 5) {
+      set({ count: newCount, theme: 'dark' });
+    } else {
+      set({ count: newCount });
+    }
+  },
+
+  decCount: () =>
+    set((state) => ({
+      count: state.count - 1,
+    })),
+}));
+
+export default useStore;
+===== src/components/CounterWatcher.jsx =====
+function CounterWatch() {
+    return (
+        <p>CounterWatch</p>
+    );
+}
+
+export default CounterWatch;===== src/components/NameDisplay.jsx =====
+import useStore from '/store/useStore';
+
+function NameDisplay() {
+  const name = useStore((state) => state.name);
+  return <p>Name: {name}</p>;
+}
+
+export default NameDisplay;
+===== src/components/ThemeToggle.jsx =====
+function ToggleTheme() {
+  return <p>ToggleTheme</p>;
+}
+
+export default ToggleTheme;
+===== src/components/NameChanger.jsx =====
+function NameChange() {
+  return <p>NameChange</p>;
+}
+
+export default NameChange;

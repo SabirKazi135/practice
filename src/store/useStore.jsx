@@ -9,7 +9,7 @@ const useStore = create((set, get) => ({
 
   toggleTheme: () =>
     set((state) => ({
-      theme: state.theme === 'dark' ? 'light' : 'light',
+      theme: state.theme === 'dark' ? 'light' : 'dark',
     })),
 
   incCount: () => {
