@@ -1,4 +1,4 @@
-import useStore from '/store/useStore';
+import useStore from '../store/useStore';
 
 function NameDisplay() {
   const name = useStore((state) => state.name);

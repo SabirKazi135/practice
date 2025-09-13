@@ -60,7 +60,7 @@ const useStore = create((set, get) => ({
 
   toggleTheme: () =>
     set((state) => ({
-      theme: state.theme === 'dark' ? 'light' : 'light',
+      theme: state.theme === 'dark' ? 'light' : 'dark',
     })),
 
   incCount: () => {
@@ -82,14 +82,13 @@ const useStore = create((set, get) => ({
 
 export default useStore;
 ===== src/components/CounterWatcher.jsx =====
-function CounterWatch() {
-    return (
-        <p>CounterWatch</p>
-    );
+function CountWatcher() {
+  return <p>CountWatcher</p>;
 }
 
-export default CounterWatch;===== src/components/NameDisplay.jsx =====
-import useStore from '/store/useStore';
+export default CountWatcher;
+===== src/components/NameDisplay.jsx =====
+import useStore from '../store/useStore';
 
 function NameDisplay() {
   const name = useStore((state) => state.name);
@@ -98,14 +97,14 @@ function NameDisplay() {
 
 export default NameDisplay;
 ===== src/components/ThemeToggle.jsx =====
-function ToggleTheme() {
-  return <p>ToggleTheme</p>;
+function ThemeToggle() {
+  return <p>ThemeToggle</p>;
 }
 
-export default ToggleTheme;
+export default ThemeToggle;
 ===== src/components/NameChanger.jsx =====
-function NameChange() {
-  return <p>NameChange</p>;
+function NameChanger() {
+  return <p>NameChanger</p>;
 }
 
-export default NameChange;
+export default NameChanger;

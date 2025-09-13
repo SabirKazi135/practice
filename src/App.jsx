@@ -2,7 +2,7 @@
 import NameDisplay from './components/NameDisplay';
 import NameChanger from './components/NameChanger';
 import ThemeToggle from './components/ThemeToggle';
-import CountWatcher from './components/CountWatcher';
+import CounterWatcher from './components/CounterWatcher';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <ThemeToggle />
 
       {/* Counter watcher with conditional logic */}
-      <CountWatcher />
+      <CounterWatcher />
     </div>
   );
 }

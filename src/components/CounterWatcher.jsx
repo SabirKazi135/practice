@@ -1,7 +1,5 @@
-function CounterWatch() {
-    return (
-        <p>CounterWatch</p>
-    );
+function CountWatcher() {
+  return <p>CountWatcher</p>;
 }
 
-export default CounterWatch;
+export default CountWatcher;

@@ -1,5 +1,5 @@
-function NameChange() {
-  return <p>NameChange</p>;
+function NameChanger() {
+  return <p>NameChanger</p>;
 }
 
-export default NameChange;
+export default NameChanger;

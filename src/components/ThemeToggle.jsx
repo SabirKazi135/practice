@@ -1,5 +1,5 @@
-function ToggleTheme() {
-  return <p>ToggleTheme</p>;
+function ThemeToggle() {
+  return <p>ThemeToggle</p>;
 }
 
-export default ToggleTheme;
+export default ThemeToggle;
