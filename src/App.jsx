@@ -1,8 +1,9 @@
+import UseCounter from './UseCounter';
 
 function App() {
   return (
     <>
-      
+      <UseCounter />
     </>
   );
 }
