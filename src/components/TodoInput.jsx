@@ -1,8 +1,11 @@
+import useTodoStore from "../components/TodoList";
 function TodoInput() {
+const  = ;
   return (
     <div>
+      <input type="number" />
       <input type="text" />
-      <button>Add</button>
+      <button onClick={add}>Add</button>
     </div>
   );
 }

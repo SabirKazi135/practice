@@ -4,7 +4,7 @@ const useTodoStore = create((set) => ({
   todos: [],
 
   addTodo: (id, text) => {
-    const newTodo = { id: id, text, done: false };
+    const newTodo = { id, text, done: false };
     set((state) => ({ todos: [...state.todos, newTodo] }));
   },
 
