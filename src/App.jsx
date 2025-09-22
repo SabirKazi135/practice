@@ -1,4 +1,4 @@
-import useCounterStore from './store/counterStore';
+import useCounterStore from './store/todoStore';
 
 const App = () => {
   const { count, increase, decrease, reset } = useCounterStore();
