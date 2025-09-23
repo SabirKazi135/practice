@@ -2,7 +2,7 @@ import useTodoStore from '../store/todoStore';
 
 function TodoStats() {
   const completedCount = useTodoStore((state) => state.completedCount());
-  const totalTodos = useTodoStore((state) => state.todos.lenght);
+  const totalTodos = useTodoStore((state) => state.todos.length);
 
   return (
     <div>

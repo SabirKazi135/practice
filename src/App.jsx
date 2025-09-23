@@ -1,5 +1,6 @@
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import TodoStats from './components/TodoStats';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       </h1>
       <TodoInput />
       <TodoList />
+      <TodoStats />
     </div>
   );
 }
