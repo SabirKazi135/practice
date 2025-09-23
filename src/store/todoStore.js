@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const useTodoStore = create((set) => ({
+const useTodoStore = create((set, get) => ({
   todos: [],
 
   addTodo: (id, text) => {
@@ -18,6 +18,8 @@ const useTodoStore = create((set) => ({
       ),
     }));
   },
+
+  completedCount: () => get().todos.filter((t) => t.done).length,
 }));
 
 export default useTodoStore;
