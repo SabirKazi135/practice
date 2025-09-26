@@ -8,13 +8,19 @@ body {
   background-color: gray;
 }
 ===== src/App.jsx =====
-// src/App.jsx
-import Counter from './components/Counter';
+import React from 'react';
+import { useCounterStore } from './store/counterStore';
 
 function App() {
+  const count = useCounterStore((state) => state.count);
+  const increment = useCounterStore((state) => state.increment);
+  const decrement = useCounterStore((state) => state.decrement);
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 p-6 text-white">
-      <Counter />
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Count: {count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
     </div>
   );
 }
@@ -23,72 +29,41 @@ export default App;
 ===== src/main.jsx =====
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import './index.css';
-import useCounterStore from './store/useCounterStore';
-
-// Subscribe to count changes
-const unsubscribe = useCounterStore.subscribe(
-  (state) => state.count, // watch the 'count' value
-  (count) => {
-    console.log('Count changed:', count);
-  },
-);
+import './logger'; // make sure subscription runs
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-);
-===== src/store/useCounterStore.js =====
+root.render(<App />);
+===== src/store/counterStore.js =====
 import { create } from 'zustand';
 
 const useCounterStore = create((set) => ({
-  count: 0, // initial count
-  increase: () =>
-    set((state) => {
-      const newCount = state.count + 1;
-      console.log('Increasing count to', newCount); // this shows
-      return { count: newCount }; // this triggers subscription
-    }),
-
-  decrease: () => set((state) => ({ count: state.count - 1 })),
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
 }));
 
-export default useCounterStore;
-===== src/components/Counter.jsx =====
-import useCounterStore from '../store/useCounterStore';
+// 1. One-argument form: runs on any state change
+useCounterStore.subscribe((state) => console.log('Store changed:', state));
 
-function Counter() {
-  const count = useCounterStore((state) => state.count);
-  const increase = useCounterStore((state) => state.increase);
-  const decrease = useCounterStore((state) => state.decrease);
+// 2. Two-argument form: runs only when count changes
+useCounterStore.subscribe(
+  (state) => state.count,
+  (count) => console.log('Count changed:', count),
+);
 
-  return (
-    <div className="flex flex-col items-center justify-center space-y-4 rounded-lg bg-gray-800 p-6 text-white shadow-md">
-      {/* Counter value */}
-      <h1 className="text-5xl font-bold text-indigo-400">{count}</h1>
+// Trigger change
+useCounterStore.getState().increment();
+useCounterStore.getState().increment();
+===== src/logger.js =====
+import { useCounterStore } from './store/counterStore';
 
-      {/* Buttons */}
-      <div className="flex space-x-4">
-        <button
-          onClick={increase}
-          className="rounded-lg bg-green-500 px-4 py-2 text-white shadow hover:bg-green-600"
-        >
-          Increase
-        </button>
-        <button
-          onClick={decrease}
-          className="rounded-lg bg-red-500 px-4 py-2 text-white shadow hover:bg-red-600"
-        >
-          Decrease
-        </button>
-      </div>
-    </div>
-  );
-}
+// Subscribe to only count changes
+const unsubscribe = useCounterStore.subscribe(
+  (state) => state.count, // selector: only watch count
+  (count) => {
+    console.log('Logger: count changed to', count);
+  },
+);
 
-export default Counter;
+// Optional: unsubscribe later
+// unsubscribe();
