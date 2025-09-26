@@ -1,4 +1,3 @@
-===== src/Name.jsx =====
 ===== src/index.css =====
 @tailwind base;
 @tailwind components;
@@ -10,25 +9,12 @@ body {
 }
 ===== src/App.jsx =====
 // src/App.jsx
-import NameDisplay from './components/NameDisplay';
-import NameChanger from './components/NameChanger';
-import ThemeToggle from './components/ThemeToggle';
-import CountWatcher from './components/CountWatcher';
+import Counter from './components/Counter';
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center space-y-8 bg-gray-900 p-6 text-white">
-      {/* Display current name */}
-      <NameDisplay />
-
-      {/* Change the name */}
-      <NameChanger />
-
-      {/* Toggle theme */}
-      <ThemeToggle />
-
-      {/* Counter watcher with conditional logic */}
-      <CountWatcher />
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 p-6 text-white">
+      <Counter />
     </div>
   );
 }
@@ -41,6 +27,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import useCounterStore from './store/useCounterStore';
+
+// Subscribe to count changes
+const unsubscribe = useCounterStore.subscribe(
+  (state) => state.count, // watch the 'count' value
+  (count) => {
+    console.log('Count changed:', count);
+  },
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -48,63 +43,52 @@ root.render(
     <App />
   </BrowserRouter>,
 );
-===== src/store/useStore.jsx =====
+===== src/store/useCounterStore.js =====
 import { create } from 'zustand';
 
-const useStore = create((set, get) => ({
-  name: 'sabir',
-  theme: 'dark',
-  count: 0,
+const useCounterStore = create((set) => ({
+  count: 0, // initial count
+  increase: () =>
+    set((state) => {
+      const newCount = state.count + 1;
+      console.log('Increasing count to', newCount); // this shows
+      return { count: newCount }; // this triggers subscription
+    }),
 
-  setName: (newName) => set({ name: newName }),
-
-  toggleTheme: () =>
-    set((state) => ({
-      theme: state.theme === 'dark' ? 'light' : 'dark',
-    })),
-
-  incCount: () => {
-    const currentCount = get().count;
-    const newCount = currentCount + 1;
-
-    if (newCount > 5) {
-      set({ count: newCount, theme: 'dark' });
-    } else {
-      set({ count: newCount });
-    }
-  },
-
-  decCount: () =>
-    set((state) => ({
-      count: state.count - 1,
-    })),
+  decrease: () => set((state) => ({ count: state.count - 1 })),
 }));
 
-export default useStore;
-===== src/components/CounterWatcher.jsx =====
-function CountWatcher() {
-  return <p>CountWatcher</p>;
+export default useCounterStore;
+===== src/components/Counter.jsx =====
+import useCounterStore from '../store/useCounterStore';
+
+function Counter() {
+  const count = useCounterStore((state) => state.count);
+  const increase = useCounterStore((state) => state.increase);
+  const decrease = useCounterStore((state) => state.decrease);
+
+  return (
+    <div className="flex flex-col items-center justify-center space-y-4 rounded-lg bg-gray-800 p-6 text-white shadow-md">
+      {/* Counter value */}
+      <h1 className="text-5xl font-bold text-indigo-400">{count}</h1>
+
+      {/* Buttons */}
+      <div className="flex space-x-4">
+        <button
+          onClick={increase}
+          className="rounded-lg bg-green-500 px-4 py-2 text-white shadow hover:bg-green-600"
+        >
+          Increase
+        </button>
+        <button
+          onClick={decrease}
+          className="rounded-lg bg-red-500 px-4 py-2 text-white shadow hover:bg-red-600"
+        >
+          Decrease
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default CountWatcher;
-===== src/components/NameDisplay.jsx =====
-import useStore from '../store/useStore';
-
-function NameDisplay() {
-  const name = useStore((state) => state.name);
-  return <p>Name: {name}</p>;
-}
-
-export default NameDisplay;
-===== src/components/ThemeToggle.jsx =====
-function ThemeToggle() {
-  return <p>ThemeToggle</p>;
-}
-
-export default ThemeToggle;
-===== src/components/NameChanger.jsx =====
-function NameChanger() {
-  return <p>NameChanger</p>;
-}
-
-export default NameChanger;
+export default Counter;
