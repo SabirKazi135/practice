@@ -13,7 +13,7 @@ const useUserStore = create((set) => ({
     try {
       const res = await fetch('https://jsonplaceholder.typicode.com/users');
       const data = await res.json();
-      set({ user: data, loading: false });
+      set({ users: data, loading: false });
     } catch (err) {
       set({ error: err.message, loading: false });
     }
