@@ -1,23 +1,39 @@
+// store/counterStore.js
 import { create } from 'zustand';
 
-const useUserStore = create((set) => ({
-  users: [],
-  loading: false,
-  error: null,
+// Logger middleware
+const logger = (config) => (set, get, api) =>
+  config(
+    (args, ...rest) => {
+      console.log('📋 Before:', get().count); // state before update
+      set(args, ...rest); // normal update
+      console.log('✅ After:', get().count); // state after update
+      console.log('---------------------------');
+    },
+    get,
+    api,
+  );
 
-  fetchUsers: async () => {
-    set({
-      loading: true,
-      error: null,
-    });
-    try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await res.json();
-      set({ users: data, loading: false });
-    } catch (err) {
-      set({ error: err.message, loading: false });
-    }
-  },
-}));
+// Store with middleware and console logs in actions
+const useCounterStore = create(
+  logger((set, get) => ({
+    count: 0,
+    name: 'sabir',
 
-export default useUserStore;
+    // increment action
+    increment: () =>
+      set((state) => {
+        console.log('🟢 increment called, current count:', state.count);
+        return { count: state.count + 1 };
+      }),
+
+    // decrement action
+    decrement: () =>
+      set((state) => {
+        console.log('🔴 decrement called, current count:', state.count);
+        return { count: state.count - 1 };
+      }),
+  })),
+);
+
+export default useCounterStore;

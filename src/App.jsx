@@ -1,14 +1,40 @@
-import UserList from './components/UserList';
+import useCounterStore from './store/userStore';
 
-function App() {
+function Counter() {
+  // ✅ Destructure what you need from the store
+  const { count, increment, decrement } = useCounterStore();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-900 text-white">
-      <div className="w-full max-w-2xl rounded-2xl bg-gray-800 p-6 shadow-lg">
-        <h1 className="mb-6 text-center text-3xl font-bold">User Directory</h1>
-        <UserList />
-      </div>
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>Count: {count}</h1>
+
+      {/* Increment button */}
+      <button
+        onClick={increment}
+        style={{
+          margin: '5px',
+          padding: '10px',
+          background: 'green',
+          color: 'white',
+        }}
+      >
+        +1
+      </button>
+
+      {/* Decrement button */}
+      <button
+        onClick={decrement}
+        style={{
+          margin: '5px',
+          padding: '10px',
+          background: 'red',
+          color: 'white',
+        }}
+      >
+        -1
+      </button>
     </div>
   );
 }
 
-export default App;
+export default Counter;
